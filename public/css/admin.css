@@ -1,0 +1,32 @@
+.thumb {
+    max-height: 60px;
+}
+
+.am-icon-close {
+    color: #dd514c;
+}
+
+.am-icon-check {
+    color: #5eb95e;
+}
+
+.is_something {
+    cursor: pointer;
+}
+
+.select_thumb {
+    float: left;
+    margin-left: 5px;
+}
+
+.new_thumb {
+    float: left;
+}
+
+.xParent {
+    cursor: pointer;
+}
+
+.xChildren {
+    display: none;
+}
