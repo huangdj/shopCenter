@@ -14,6 +14,12 @@ class Category extends Model
         return $this->hasMany('App\Models\Category', 'parent_id', 'id');
     }
 
+    //一个分类有多个商品
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product');
+    }
+
     /**
      * 生成分类数据
      * @return mixed
@@ -59,5 +65,18 @@ class Category extends Model
             return true;
         }
         return false;
+    }
+
+    /**
+     * 筛选分类时,屏蔽掉没有商品的分类
+     */
+    static function filter_categories()
+    {
+        $categories = self::has('children.products')->with([
+            'children' => function ($query) {
+                $query->has('products');
+            }
+        ])->get();
+        return $categories;
     }
 }

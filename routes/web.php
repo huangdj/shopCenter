@@ -29,6 +29,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/', 'HomeController@index')->name('home'); // 后台首页
 
         Route::resource('categories', 'CategoryController'); // 商品分类
+        Route::resource('products', 'ProductController'); // 商品管理
     });
 });
 

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/vendor/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/vendor/assets/css/admin.css">
     <link rel="stylesheet" href="/css/admin.css">
+    @yield('css')
 </head>
 <body>
 

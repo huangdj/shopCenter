@@ -12,8 +12,8 @@
                 </a>
             </li>
             <li>
-                <a href="admin-form.html">
-                    <span class="am-icon-pencil-square-o"></span> 表单
+                <a href="{{ route('admin.products.index') }}" class="{{ $_product ?? '' }}">
+                    <span class="am-icon-product-hunt"></span> 商品管理
                 </a>
             </li>
             <li>
