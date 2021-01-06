@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductParame;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
@@ -46,7 +47,7 @@ class ProductController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductValidate $request)
+    public function store(Request $request)
     {
         $product = Product::create($request->all());
 
@@ -59,6 +60,22 @@ class ProductController extends Controller
 
         //商品所属分类
         $product->categories()->sync($request->category_id);
+
+        $parame_names = $request->parame_name;
+        $parame_values = $request->parame_value;
+        $count = count($parame_names);
+        for ($i = 0; $i < $count; $i++) {
+            $array[] = ['parame_name' => $parame_names[$i], 'parame_value' => $parame_values[$i]];
+        }
+//        return $array;
+
+        //通过循环插入
+        foreach ($array as $k => $v) {
+            $product->product_parames()->create([
+                'parame_name' => $v['parame_name'],
+                'parame_value' => $v['parame_value'],
+            ]);
+        }
         return redirect(route('admin.products.index'))->with('success', '新增成功~');
     }
 
@@ -81,7 +98,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('categories', 'product_galleries')->find($id);
+        $product = Product::with('categories', 'product_galleries', 'product_parames')->find($id);
         //当前商品对应的分类id
         $p_categories = $product->categories->pluck('id');
 
@@ -106,6 +123,27 @@ class ProductController extends Controller
             foreach ($request->imgs as $img) {
                 $product->product_galleries()->create(['img' => $img]);
             }
+        }
+
+        //更新商品参数
+        $parame_names = $request->parame_name;
+        $parame_values = $request->parame_value;
+        $proper_ids = $request->id;
+        $collection = collect($proper_ids);
+        $unique = $collection->unique();
+
+        //接收过来的两个数组重新组装成json格式
+        $count = count($parame_names);
+        for ($i = 0; $i < $count; $i++) {
+            $array[] = ['parame_name' => $parame_names[$i], 'parame_value' => $parame_values[$i], 'pid' => $unique->values()[$i]];
+        }
+
+        //通过循环更新
+        foreach ($array as $k => $v) {
+            ProductParame::where('id', $v['pid'])->update([
+                'parame_name' => $v['parame_name'],
+                'parame_value' => $v['parame_value'],
+            ]);
         }
 
         return redirect(route('admin.products.index'))->with('success', '编辑成功~');

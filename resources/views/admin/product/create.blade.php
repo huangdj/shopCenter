@@ -1,9 +1,9 @@
 @extends('layouts.admin.app')
 
 @section('css')
-    <link rel="stylesheet" href="/vendor/markdown/css/editormd.min.css" />
-    <link rel="stylesheet" href="/vendor/webupload/dist/webuploader.css" />
-    <link rel="stylesheet" type="text/css" href="/vendor/webupload/style.css" />
+    <link rel="stylesheet" href="/vendor/markdown/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/vendor/webupload/dist/webuploader.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/webupload/style.css"/>
 @endsection
 
 @section('content')
@@ -26,6 +26,7 @@
                         <li class="am-active"><a href="#tab1">通用信息</a></li>
                         <li><a href="#tab2">商品介绍</a></li>
                         <li><a href="#tab3">商品相册</a></li>
+                        <li><a href="#tab4">商品参数</a></li>
                     </ul>
                     <div class="am-tabs-bd">
                         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
@@ -33,8 +34,8 @@
                                 <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">所属类别</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
                                     <select multiple
-                                        data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-                                        name="category_id[]">
+                                            data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                            name="category_id[]">
                                         @foreach ($categories as $category)
                                             <optgroup label="{{$category->name}}">
                                                 @foreach ($category->children as $c)
@@ -69,7 +70,8 @@
                                         <input type="hidden" name="image">
                                     </div>
 
-                                    <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed am-no-layout">
+                                    <hr data-am-widget="divider" style=""
+                                        class="am-divider am-divider-dashed am-no-layout">
 
                                     <div>
                                         <img src="" id="img_show" style="max-height: 150px;margin-bottom: 10px;">
@@ -80,14 +82,14 @@
                             <div class="am-form-group">
                                 <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">商品售价</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
-                                    <input type="text" name="price" placeholder="输入商品单价">
+                                    <input type="text" name="price" placeholder="输入商品售价">
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">商品原价</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
-                                    <input type="text" name="original_price" placeholder="输入商品单价">
+                                    <input type="text" name="original_price" placeholder="输入商品原价">
                                 </div>
                             </div>
 
@@ -101,6 +103,7 @@
                                         <option value="1">斤</option>
                                         <option value="2">件</option>
                                         <option value="3">个</option>
+                                        <option value="4">条</option>
                                     </select>
                                 </div>
                             </div>
@@ -199,12 +202,54 @@
                                 <div id="imgs"></div>
                             </div>
                         </div>
+
+                        <div class="am-tab-panel am-fade" id="tab4">
+                            <div>
+                                <p>填写示例：</p>
+                                <table class="am-table am-table-hover table-main">
+                                    <tbody>
+                                    <tr><td>袖长</td><td>七分袖</td></tr>
+                                    <tr><td>销售渠道类型</td><td>纯电商</td></tr>
+                                    <tr><td>货号</td><td>185234</td></tr>
+                                    <tr><td>品牌</td><td>皇宫婚纱</td></tr>
+                                    <tr><td>礼服裙摆</td><td>拖尾</td></tr>
+                                    <tr><td>颜色分类</td><td>白色</td></tr>
+                                    <tr><td>尺码</td><td>X,L,XL,XXL,量身定做</td></tr>
+                                    <tr><td>上市年份</td><td>2020年冬季</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="am-form-group">
+                                <button type="button" class="am-btn am-btn-primary add_file"><span
+                                        class="am-icon-plus"></span>
+                                    增加
+                                </button>
+                                <p style="margin-left: 100px;margin-top: -30px;color: #f4645f">*
+                                    注：每次只能添加8条数据</p>
+                            </div>
+                            <div class="files">
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-12 am-u-md-3">
+                                        <input type="text" class="file1" name="parame_name[]">
+                                    </div>
+                                    <div class="am-u-sm-12 am-u-md-3">
+                                        <input type="text" class="file1" name="parame_value[]">
+                                    </div>
+                                    <div class="am-u-sm-12 am-u-md-6">
+                                        <a href="javascript:;" class="am-icon-close del_one" data-id=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="am-form-group">
                     <div class="am-u-sm-12 am-u-md-9 am-u-md-offset-3">
-                        <button type="button" onclick="location.href='/admin/products'" class="am-btn am-btn-default am-btn-sm am-radius">返 回</button>
+                        <button type="button" onclick="location.href='/admin/products'"
+                                class="am-btn am-btn-default am-btn-sm am-radius">返 回
+                        </button>
                         <button type="submit" class="am-btn am-btn-primary am-btn-sm am-radius">保 存</button>
                     </div>
                 </div>
@@ -222,4 +267,33 @@
 
     <script type="text/javascript" src="/vendor/webupload/dist/webuploader.js"></script>
     <script type="text/javascript" src="/vendor/webupload/upload.js"></script>
+    <script>
+        $(function () {
+            $(".add_file").click(function () {
+                var length = $(".files").children().length;
+                if (length >= 8) {
+                    alert('最多只能添加8个商品参数~');
+                    return false;
+                }
+                var i = length + 1;
+                var html = '<div class="am-form-group">' +
+                    '<div class="am-u-sm-12 am-u-md-3">' +
+                    '<input type="text" class="file' + i + '" name="parame_name[]">' +
+                    '</div>' +
+                    '<div class="am-u-sm-12 am-u-md-3">' +
+                    '<input type="text" class="file' + i + '" name="parame_value[]">' +
+                    '</div>' +
+                    '<div class="am-u-sm-12 am-u-md-6">' +
+                    '<a href="javascript:;" class="am-icon-close del_one" data-id=""></a>' +
+                    '</div>' +
+                    '</div>';
+                $(".files").append(html);
+            })
+
+            //js删除表单
+            $(document).on('click', '.del_one', function () {
+                $(this).parents('.am-form-group').remove();
+            });
+        })
+    </script>
 @stop

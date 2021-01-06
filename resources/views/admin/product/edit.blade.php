@@ -1,9 +1,9 @@
 @extends('layouts.admin.app')
 
 @section('css')
-    <link rel="stylesheet" href="/vendor/markdown/css/editormd.min.css" />
-    <link rel="stylesheet" href="/vendor/webupload/dist/webuploader.css" />
-    <link rel="stylesheet" type="text/css" href="/vendor/webupload/style.css" />
+    <link rel="stylesheet" href="/vendor/markdown/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/vendor/webupload/dist/webuploader.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/webupload/style.css"/>
 @endsection
 
 @section('content')
@@ -19,7 +19,8 @@
 
             @include('layouts.admin.shared._flash')
 
-            <form class="am-form am-form-horizontal" action="{{ route('admin.products.update', $product->id) }}" method="post">
+            <form class="am-form am-form-horizontal" action="{{ route('admin.products.update', $product->id) }}"
+                  method="post">
                 @csrf
                 @method('PUT')
                 <div class="am-tabs am-margin" data-am-tabs>
@@ -27,6 +28,7 @@
                         <li class="am-active"><a href="#tab1">通用信息</a></li>
                         <li><a href="#tab2">商品介绍</a></li>
                         <li><a href="#tab3">商品相册</a></li>
+                        <li><a href="#tab4">商品参数</a></li>
                     </ul>
                     <div class="am-tabs-bd">
                         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
@@ -34,12 +36,13 @@
                                 <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">所属类别</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
                                     <select multiple
-                                        data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-                                        name="category_id[]">
+                                            data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                            name="category_id[]">
                                         @foreach ($categories as $category)
                                             <optgroup label="{{$category->name}}">
                                                 @foreach ($category->children as $c)
-                                                    <option value="{{$c->id}}" @if($p_categories->contains($c->id)) selected @endif>
+                                                    <option value="{{$c->id}}"
+                                                            @if($p_categories->contains($c->id)) selected @endif>
                                                         {{$c->name}}
                                                     </option>
                                                 @endforeach
@@ -70,10 +73,12 @@
                                         <input type="hidden" name="image" value="{{ $product->image }}">
                                     </div>
 
-                                    <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed am-no-layout">
+                                    <hr data-am-widget="divider" style=""
+                                        class="am-divider am-divider-dashed am-no-layout">
 
                                     <div>
-                                        <img src="{{ $product->image }}" id="img_show" style="max-height: 150px;margin-bottom: 10px;">
+                                        <img src="{{ $product->image }}" id="img_show"
+                                             style="max-height: 150px;margin-bottom: 10px;">
                                     </div>
                                 </div>
                             </div>
@@ -101,6 +106,7 @@
                                         <option value="1" @if($product->unit == 1) selected @endif>斤</option>
                                         <option value="2" @if($product->unit == 2) selected @endif>件</option>
                                         <option value="3" @if($product->unit == 3) selected @endif>个</option>
+                                        <option value="4" @if($product->unit == 4) selected @endif>条</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,10 +130,12 @@
 
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
                                     <label class="am-radio-inline">
-                                        <input type="radio" value="1" name="is_onsale" @if($product->is_onsale == 1) checked @endif> 是
+                                        <input type="radio" value="1" name="is_onsale"
+                                               @if($product->is_onsale == 1) checked @endif> 是
                                     </label>
                                     <label class="am-radio-inline">
-                                        <input type="radio" value="0" name="is_onsale" @if($product->is_onsale == 0) checked @endif> 否
+                                        <input type="radio" value="0" name="is_onsale"
+                                               @if($product->is_onsale == 0) checked @endif> 否
                                     </label>
                                 </div>
                             </div>
@@ -150,16 +158,20 @@
 
                                     <div class="am-btn-group" data-am-button>
                                         <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_top" value="1" @if($product->is_top == 1) checked @endif> 置顶
+                                            <input type="checkbox" name="is_top" value="1"
+                                                   @if($product->is_top == 1) checked @endif> 置顶
                                         </label>
                                         <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_recommend" value="1" @if($product->is_recommend == 1) checked @endif> 推荐
+                                            <input type="checkbox" name="is_recommend" value="1"
+                                                   @if($product->is_recommend == 1) checked @endif> 推荐
                                         </label>
                                         <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_hot" value="1" @if($product->is_hot == 1) checked @endif> 热销
+                                            <input type="checkbox" name="is_hot" value="1"
+                                                   @if($product->is_hot == 1) checked @endif> 热销
                                         </label>
                                         <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_new" value="1" @if($product->is_new == 1) checked @endif> 新品
+                                            <input type="checkbox" name="is_new" value="1"
+                                                   @if($product->is_new == 1) checked @endif> 新品
                                         </label>
                                     </div>
                                 </div>
@@ -170,7 +182,8 @@
                             <div class="am-g am-margin-top-sm">
                                 <div class="am-u-sm-12 am-u-md-12">
                                     <div id="markdown">
-                                        <textarea rows="10" name="content" style="display:none;">{!! $product->content !!}</textarea>
+                                        <textarea rows="10" name="content"
+                                                  style="display:none;">{!! $product->content !!}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -218,12 +231,82 @@
                                 <div id="imgs"></div>
                             </div>
                         </div>
+
+                        <div class="am-tab-panel am-fade" id="tab4">
+                            <div>
+                                <p>填写示例：</p>
+                                <table class="am-table am-table-hover table-main">
+                                    <tbody>
+                                    <tr>
+                                        <td>袖长</td>
+                                        <td>七分袖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>销售渠道类型</td>
+                                        <td>纯电商</td>
+                                    </tr>
+                                    <tr>
+                                        <td>货号</td>
+                                        <td>185234</td>
+                                    </tr>
+                                    <tr>
+                                        <td>品牌</td>
+                                        <td>皇宫婚纱</td>
+                                    </tr>
+                                    <tr>
+                                        <td>礼服裙摆</td>
+                                        <td>拖尾</td>
+                                    </tr>
+                                    <tr>
+                                        <td>颜色分类</td>
+                                        <td>白色</td>
+                                    </tr>
+                                    <tr>
+                                        <td>尺码</td>
+                                        <td>X,L,XL,XXL,量身定做</td>
+                                    </tr>
+                                    <tr>
+                                        <td>上市年份</td>
+                                        <td>2020年冬季</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="am-form-group">
+                                <button type="button" class="am-btn am-btn-primary add_file"><span
+                                        class="am-icon-plus"></span>
+                                    增加
+                                </button>
+                                <p style="margin-left: 100px;margin-top: -30px;color: #f4645f">*
+                                    注：每次只能添加8条数据</p>
+                            </div>
+                            <div class="files">
+
+                                @foreach($product->product_parames as $parame)
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-12 am-u-md-3">
+                                            <input type="text" class="file1" name="parame_name[]" value="{{ $parame->parame_name}}">
+                                            <input type="hidden" name="id[]" value="{{$parame->id}}">
+                                        </div>
+                                        <div class="am-u-sm-12 am-u-md-3">
+                                            <input type="text" class="file1" name="parame_value[]" value="{{ $parame->parame_value }}">
+                                        </div>
+                                        <div class="am-u-sm-12 am-u-md-6">
+                                            <a href="javascript:;" class="am-icon-close del_one" data-id="{{$parame->id}}"></a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="am-form-group">
                     <div class="am-u-sm-12 am-u-md-9 am-u-md-offset-3">
-                        <button type="button" onclick="location.href='/admin/products'" class="am-btn am-btn-default am-btn-sm am-radius">返 回</button>
+                        <button type="button" onclick="location.href='/admin/products'"
+                                class="am-btn am-btn-default am-btn-sm am-radius">返 回
+                        </button>
                         <button type="submit" class="am-btn am-btn-primary am-btn-sm am-radius">保 存</button>
                     </div>
                 </div>

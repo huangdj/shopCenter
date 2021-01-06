@@ -162,8 +162,7 @@
 @stop
 
 @section('js')
-    <script src="/vendor/daterangepicker/moment.js"></script>
-    <script src="/vendor/moment/locale/zh-cn.js"></script>
+    <script src="/vendor/daterangepicker/moment.min.js"></script>
     <script src="/vendor/daterangepicker/daterangepicker.js"></script>
     <script src="/js/daterange_config.js"></script>
 @stop

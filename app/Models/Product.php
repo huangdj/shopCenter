@@ -22,6 +22,13 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductGallery');
     }
 
+    //一个商品有很多商品参数
+    public function product_parames()
+    {
+        return $this->hasMany('App\Models\ProductParame');
+    }
+
+
     static function all_products(Request $request)
     {
         //多条件查找
