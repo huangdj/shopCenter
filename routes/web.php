@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
 
         Route::resource('categories', 'CategoryController'); // 商品分类
         Route::resource('products', 'ProductController'); // 商品管理
+        Route::resource('adverts', 'AdvertController'); // 广告管理
     });
 });
 

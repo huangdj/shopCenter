@@ -17,8 +17,8 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <span class="am-icon-sign-out"></span> 注销
+                <a href="{{ route('admin.adverts.index') }}" class="{{ $_advert ?? '' }}">
+                    <span class="am-icon-google"></span> 广告管理
                 </a>
             </li>
         </ul>
