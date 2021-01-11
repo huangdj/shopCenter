@@ -21,6 +21,11 @@
                     <span class="am-icon-google"></span> 广告管理
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.notices.index') }}" class="{{ $_notice ?? '' }}">
+                    <span class="am-icon-bullhorn"></span> 通知管理
+                </a>
+            </li>
         </ul>
     </div>
 </div>

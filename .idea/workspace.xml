@@ -2,37 +2,233 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/ProductParame.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/drp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/amd/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/amd/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/amd/require.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/browserify/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/browserify/bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/browserify/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/example/browserify/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/package.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/website/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/website/website.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/website/website.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NoticeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CartController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Collection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Notice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/flexslider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/fonts/flexslider-icon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/fonts/flexslider-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/fonts/flexslider-icon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/fonts/flexslider-icon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/flexslider/jquery.flexslider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/ad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/addressline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/alldd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/car.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/checkno.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/checkon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/date.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/del.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dp8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dpbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dpic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dpic0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dplogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/dw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/f4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/goback.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/gwc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/gwc1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/gwc2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/gwc3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/h1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/h2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/hotit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/huo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/icon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/icon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/icon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/icon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/jian.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/message1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/message2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/message3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/message4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/mmm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/mre1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my00.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/my9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/mybg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/mybg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pay6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/picad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/pj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/q9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quan1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quan2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quanbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quanbg1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quanbottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quanbottom1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quanicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quantop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/quantop1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/sc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/ss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/sx1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/sx2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/tcbg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/tel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/telephone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/timebuy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/timebuy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/timebuy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/timebuy4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/tolist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/totop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/tx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/typeicon8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/wlicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/wlicon0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/ww.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/wz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xq1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xq2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xq3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xq4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xqf1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xqf2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/xqf3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/images/商城优惠券_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/js/banner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/js/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/js/jquery-1.8.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/notice/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/wechat/shared/_footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/cart/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/customer/collection.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/product/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/daterange_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/daterange_config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/daterangepicker/daterangepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/daterangepicker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/daterangepicker/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/daterangepicker/daterangepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/daterangepicker/moment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/advert/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advert/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,18 +370,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/wechat/cart" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/public/vendor" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/advert" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/product" />
+      <recent name="$PROJECT_DIR$/resources/views/wechat/cart" />
+      <recent name="$PROJECT_DIR$/resources/views/wechat/customer" />
+      <recent name="$PROJECT_DIR$/public/vendor/wechat" />
+      <recent name="$PROJECT_DIR$/public/vendor/wechat/js" />
+      <recent name="$PROJECT_DIR$/public/vendor/wechat/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
@@ -213,7 +409,9 @@
       <workItem from="1609753164191" duration="12885000" />
       <workItem from="1609841150593" duration="9181000" />
       <workItem from="1609915489141" duration="4468000" />
-      <workItem from="1609927848494" duration="5403000" />
+      <workItem from="1609927848494" duration="5757000" />
+      <workItem from="1610014421376" duration="6858000" />
+      <workItem from="1610102277339" duration="8281000" />
     </task>
     <servers />
   </component>

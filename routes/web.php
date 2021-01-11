@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 /***
  * 后台路由
@@ -31,6 +31,35 @@ Route::prefix('admin')->group(function () {
         Route::resource('categories', 'CategoryController'); // 商品分类
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
+        Route::resource('notices', 'NoticeController'); // 通知管理
+    });
+});
+
+/***
+ * 前台路由
+ */
+Route::namespace('Wechat')->group(function () {
+    Route::get('/', 'HomeController@index'); // 前台首页
+
+    Route::prefix('product')->group(function () {
+        Route::get('category', 'ProductController@category'); //商品分类
+        Route::get('{id}', 'ProductController@show'); //商品详情
+        Route::get('/', 'ProductController@index'); //商品列表
+    });
+
+    //购物车
+    Route::prefix('cart')->group(function () {
+        Route::post('/', 'CartController@store');
+        Route::get('/', 'CartController@index');
+        Route::delete('/', 'CartController@destroy');
+        Route::patch('/', 'CartController@change_num');
+    });
+
+    // 我的
+    Route::prefix('customer')->group(function () {
+        Route::get('/', 'CustomerController@index');
+        Route::get('/collection', 'CustomerController@collection');
+        Route::post('/add_collection', 'CustomerController@add_collection');
     });
 });
 

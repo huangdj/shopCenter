@@ -38,6 +38,16 @@
                         </div>
                     </div>
 
+                    <div class="am-form-group">
+                        <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">分类标记</label>
+                        <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                            <input type="text" name="name" placeholder="输入m1,m2,m3...">
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-4 am-u-end">
+                            <span style="color: #f4645f;">* 如果添加顶级分类,请填写标记</span>
+                        </div>
+                    </div>
+
                     <div class="am-g am-margin-top">
                         <div class="am-u-sm-12 am-u-md-3 am-form-label">
                             缩略图
@@ -48,7 +58,7 @@
                                 <button type="button" class="am-btn am-btn-success am-btn-sm">
                                     <i class="am-icon-cloud-upload" id="loading"></i> 上传缩略图
                                 </button>
-                                <span style="margin-left: 50px;color: #f4645f;">请上传宽高：112 * 113 的图片</span>
+                                <span style="margin-left: 50px;color: #f4645f;">* 请上传宽高：112 * 113 的图片</span>
                                 <input type="file" id="image_upload">
                                 <input type="hidden" name="image">
                             </div>

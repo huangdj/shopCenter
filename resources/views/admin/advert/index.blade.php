@@ -9,6 +9,8 @@
             </ol>
         </div>
 
+        @include('layouts.admin.shared._flash')
+
         <div class="page-body">
             <div class="am-g">
                 <form action="" class="am-form am-form-horizontal">

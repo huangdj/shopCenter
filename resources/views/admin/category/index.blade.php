@@ -36,6 +36,7 @@
                                 <th class="table-id">ID</th>
                                 <th class="table-type">缩略图</th>
                                 <th class="table-type" style="width: 30%;">分类名</th>
+                                <th class="table-type">标记</th>
                                 <th style="width: 20%;">分类商品</th>
                                 <th class="table-set">操作</th>
                             </tr>
@@ -47,6 +48,7 @@
                                     <td>{{$category->id}}</td>
                                     <td></td>
                                     <td>{{$category->name}}</td>
+                                    <td>{{$category->mark}}</td>
                                     <td class="am-hide-sm-only"></td>
                                     <td>
                                         <a href="{{route('admin.categories.edit', $category->id)}}">编辑</a>
@@ -65,6 +67,7 @@
                                         <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$child->name}}
                                         </td>
+                                        <td class="am-hide-sm-only">无</td>
                                         <td class="am-hide-sm-only">查看商品</td>
                                         <td>
                                             <a href="{{route('admin.categories.edit', $child->id)}}">编辑</a>

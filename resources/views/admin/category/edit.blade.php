@@ -50,7 +50,7 @@
                                 <button type="button" class="am-btn am-btn-success am-btn-sm">
                                     <i class="am-icon-cloud-upload" id="loading"></i> 上传缩略图
                                 </button>
-                                <span style="margin-left: 50px;color: #f4645f;">请上传宽高：112 * 113 的图片</span>
+                                <span style="margin-left: 50px;color: #f4645f;">* 请上传宽高：112 * 113 的图片</span>
                                 <input type="file" id="image_upload">
                                 <input type="hidden" name="image" value="{{ $category->image }}">
                             </div>
