@@ -364,8 +364,13 @@
                 type: 'POST',
                 url: '/customer/add_collection',
                 data: {product_id: product_id},
-                success: function () {
-
+                success: function (data) {
+                    if (data.success == true) {
+                        alert(data.message)
+                    } else {
+                        alert(data.message)
+                    }
+                    window.location.reload()
                 }
             })
         })

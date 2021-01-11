@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Collection;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -16,7 +17,8 @@ class CustomerController extends Controller
     // 我的
     public function index()
     {
-        return view('wechat.customer.index');
+        $customer = Customer::find(session('wechat.customer.id'));
+        return view('wechat.customer.index', compact('customer'));
     }
 
     /***
@@ -26,13 +28,15 @@ class CustomerController extends Controller
     public function add_collection(Request $request)
     {
         $product_id = $request->product_id;
-        $product = Collection::where('customer_id', 88)->where('product_id', $product_id)->first();
+        $product = Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $product_id)->first();
+        // 如果已经收藏了
         if ($product) {
-            return response()->json(['success' => false, 'message' => '您已经收藏了']);
+            Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $product_id)->delete();
+            return response()->json(['success' => false, 'message' => '您取消了收藏']);
         }
         Collection::create([
             'product_id' => $product_id,
-            'customer_id' => 88
+            'customer_id' => session('wechat.customer.id')
         ]);
         return response()->json(['success' => true, 'message' => '收藏成功']);
     }
@@ -40,7 +44,7 @@ class CustomerController extends Controller
     // 我的收藏
     public function collection()
     {
-        $collections = Collection::with('product')->orderBy('created_at', 'desc')->get();
+        $collections = Collection::where('customer_id', session('wechat.customer.id'))->with('product')->orderBy('created_at', 'desc')->get();
         return view('wechat.customer.collection', compact('collections'));
     }
 }

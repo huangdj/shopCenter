@@ -25,9 +25,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('product_galleries', 'product_parames')->find($id);
-//        return $product;
-        $collection = Collection::where('customer_id', 88)->where('product_id', $id)->first();
-//        return $collection;
+        $collection = Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $id)->first();
         return view('wechat.product.show', compact('product', 'collection'));
     }
 }

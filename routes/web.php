@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function () {
 /***
  * 前台路由
  */
-Route::namespace('Wechat')->group(function () {
+Route::namespace('Wechat')->middleware('wechat')->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
 
     Route::prefix('product')->group(function () {

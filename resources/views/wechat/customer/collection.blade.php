@@ -60,14 +60,35 @@
         @foreach($collections as $collection)
             <li>
                 <a href="xq.html">
-                    <img src="{{ $collection->image }}" class="proimg"/>
-                    <p class="tit">{{ $collection->name }}</p>
-                    <p class="price">￥{{ $collection->price }}<span>￥{{ $collection->original_price }}</span><img src="/vendor/wechat/images/f3.png"/></p>
+                    <img src="{{ $collection->product->image }}" class="proimg"/>
+                    <p class="tit">{{ $collection->product->name }}</p>
+                    <p class="price">￥{{ $collection->product->price }}
+                        <span>￥{{ $collection->product->original_price }}</span><img
+                            src="/vendor/wechat/images/f3.png"/></p>
                 </a>
             </li>
         @endforeach
     </ul>
 </div>
 
+<div class="shoplist" style="display:none">
+    <ul>
+        @foreach($collections as $collection)
+        <li>
+            <a href="xq.html">
+                <div class="listL"><img src="{{ $collection->product->image }}"/></div>
+                <div class="listR">
+                    <div class="v1">{{ $collection->product->name }}</div>
+                    <div class="v2"><span>包邮</span></div>
+                    <div class="v3">
+                        <p class="p1">￥{{ $collection->product->price }}<span>￥{{ $collection->product->original_price }}</span></p>
+                        <p class="p2">364人付款</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
 </body>
 </html>

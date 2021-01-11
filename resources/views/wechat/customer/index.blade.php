@@ -15,7 +15,7 @@
 <div class="m0myheader">
     <div class="conbox">
         <div class="conboxL">
-            <img src="/vendor/wechat/images/tx.png" class="tt"/>
+            <img src="{{ $customer->headimgurl }}" class="tt"/>
             <div class="btR">
                 <p class="p1">seeallgood</p>
                 <div class="v1">
