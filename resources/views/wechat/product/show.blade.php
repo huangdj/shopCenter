@@ -354,7 +354,14 @@
 <script>
     $(function () {
         $('.add_cart').click(function () {
-            alert(12313)
+            $.ajax({
+                type: 'POST',
+                url: '/cart',
+                data: {product_id: "{{$product->id}}"},
+                success: function (data) {
+                    location.href = '/cart';
+                }
+            })
         })
 
         // 收藏，传商品 id

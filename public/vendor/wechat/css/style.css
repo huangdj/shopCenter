@@ -159,7 +159,7 @@ p{text-align:justify}
 .gwcbox_1 .gwc1_2 .gwcone .go3{ flex:1; height:4.5rem;}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1{ height:1rem; overflow:hidden}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p1{ float:left; color:#333; font-size:0.8rem; width:70%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis;}
-.gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p2{ float:right; font-size:0.7rem; color:#999; text-decoration:line-through}
+.gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p2{ float:right; font-size:0.7rem; color:#999;}
 
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_2{height:1.05rem; padding-top:0.2rem; overflow:hidden}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_2 p.p3{float:left; color:#999; font-size:0.8rem; width:60%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis}

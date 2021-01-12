@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Wechat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/collection.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/cart/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +191,9 @@
       <workItem from="1609927848494" duration="5757000" />
       <workItem from="1610014421376" duration="6858000" />
       <workItem from="1610102277339" duration="8486000" />
-      <workItem from="1610359589671" duration="2219000" />
+      <workItem from="1610359589671" duration="2422000" />
+      <workItem from="1610413843025" duration="2000" />
+      <workItem from="1610434400937" duration="5201000" />
     </task>
     <servers />
   </component>

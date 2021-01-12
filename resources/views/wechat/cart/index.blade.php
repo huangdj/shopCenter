@@ -7,9 +7,11 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <meta name="renderer" content="webkit"/>
     <meta name="force-rendering" content="webkit"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>我的购物车</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <script type="text/javascript" src="/vendor/wechat/js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.gwccheck').click(function () {
@@ -30,7 +32,7 @@
             <a onclick="javascript:history.back(-1)" class="goback"><img src="/vendor/wechat/images/goback.png"/></a>
         </div>
         <div class="headerC">
-            <p>购物车(5)</p>
+            <p>购物车</p>
         </div>
         <div class="headerR"></div>
     </div>
@@ -40,190 +42,139 @@
 <div class="kbox"></div>
 <div class="gwcbox">
     <div class="gwcbox_1">
-        <div class="gwc1_1">
-            <div class="g1">
-                <div class="gwccheck on"></div>
-            </div>
-            <div class="g2">
-                <a href="dpxq.html">
-                    <span>皇宫婚纱旗舰店</span>
-                    <img src="/vendor/wechat/images/mre1.png"/>
-                </a>
-            </div>
-            <div class="g3">
-                <img src="/vendor/wechat/images/quanicon.png"/>
-            </div>
-        </div>
-        <div class="clear"></div>
         <div class="gwc1_2">
-            <div class="gwcone">
-                <div class="go1">
-                    <div class="gwccheck on"></div>
-                </div>
-                <div class="go2"><a href="xq.html"><img src="/vendor/wechat/images/gwc1.png"/></a></div>
-                <div class="go3">
-                    <div class="go3_1">
-                        <a href="xq.html"><p class="p1">2015新款婚纱冬季新娘结婚韩版蕾...</p></a>
-                        <p class="p2">￥895</p>
-                    </div>
-                    <div class="go3_2">
-                        <p class="p3">颜色：白色；尺码：L</p>
-                        <p class="p4">￥495.9</p>
-                    </div>
-                    <div class="go3_3">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                        <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
-                    </div>
-                </div>
-            </div>
-            <div class="gwcone">
-                <div class="go1">
-                    <div class="gwccheck on"></div>
-                </div>
-                <div class="go2"><a href="xq.html"><img src="/vendor/wechat/images/gwc2.png"/></a></div>
-                <div class="go3">
-                    <div class="go3_1">
-                        <a href="xq.html"><p class="p1">2015新款敬酒服冬季新娘结婚韩版...</p></a>
-                        <p class="p2">￥895</p>
-                    </div>
-                    <div class="go3_2">
-                        <p class="p3">颜色：红色；尺码：L</p>
-                        <p class="p4">￥298.9</p>
-                    </div>
-                    <div class="go3_3">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                        <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
+            @foreach ($carts as $cart)
+                <div class="gwcone">
+                    {{--                    <div class="go1">--}}
+                    {{--                        <div class="gwccheck on"></div>--}}
+                    {{--                    </div>--}}
+                    <div class="go2"><a href="xq.html"><img src="{{ $cart->product->image }}"/></a></div>
+                    <div class="go3 info">
+                        <div class="go3_1">
+                            <a href="xq.html"><p class="p1">{{ $cart->product->name }}</p></a>
+                            <p class="p2">￥{{ $cart->product->price }}</p>
+                        </div>
+                        <div class="go3_2">
+                            {{-- <p class="p3">颜色：白色；尺码：L</p>--}}
+                            <p class="p4 hj">￥{{number_format($cart->product->price * $cart->num,2,".","")}}</p>
+                        </div>
+                        <div class="go3_3 num" data-id="{{$cart->id}}" data-price="{{$cart->product->price}}">
+                            <div class="num1 input-sub">-</div>
+                            <div class="num2 input-num">{{ $cart->num }}</div>
+                            <div class="num3 input-add">+</div>
+                            <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="kbox"></div>
-    <div class="gwcbox_1">
-        <div class="gwc1_1">
-            <div class="g1">
-                <div class="gwccheck"></div>
-            </div>
-            <div class="g2">
-                <a href="dpxq.html">
-                    <span>小米零食铺</span>
-                    <img src="/vendor/wechat/images/mre1.png"/>
-                </a>
-            </div>
-            <div class="g3">
-                <img src="/vendor/wechat/images/quanicon.png"/>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="gwc1_2">
-            <div class="gwcone">
-                <div class="go1">
-                    <div class="gwccheck"></div>
-                </div>
-                <div class="go2"><a href="xq.html"><img src="/vendor/wechat/images/gwc3.png"/></a></div>
-                <div class="go3">
-                    <div class="go3_1">
-                        <a href="xq.html"><p class="p1">秋冬款韩版半高领中长款宽松套头打...</p></a>
-                        <p class="p2">￥15.5</p>
-                    </div>
-                    <div class="go3_2">
-                        <p class="p3">口味：烧烤味</p>
-                        <p class="p4">￥9.9</p>
-                    </div>
-                    <div class="go3_3">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                        <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
-                    </div>
-                </div>
-            </div>
-            <div class="gwcone">
-                <div class="go1">
-                    <div class="gwccheck"></div>
-                </div>
-                <div class="go2"><a href="xq.html"><img src="/vendor/wechat/images/gwc3.png"/></a></div>
-                <div class="go3">
-                    <div class="go3_1">
-                        <a href="xq.html"><p class="p1">秋冬款韩版半高领中长款宽松套头打...</p></a>
-                        <p class="p2">￥45</p>
-                    </div>
-                    <div class="go3_2">
-                        <p class="p3">颜色：白色；尺码：L</p>
-                        <p class="p4">￥29.8</p>
-                    </div>
-                    <div class="go3_3">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                        <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="kbox"></div>
-    <div class="gwcbox_1">
-        <div class="gwc1_1">
-            <div class="g1">
-                <div class="gwccheck"></div>
-            </div>
-            <div class="g2">
-                <a href="dpxq.html">
-                    <span>日韩衣橱</span>
-                    <img src="/vendor/wechat/images/mre1.png"/>
-                </a>
-            </div>
-            <div class="g3">
-                <img src="/vendor/wechat/images/quanicon.png"/>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="gwc1_2">
-            <div class="gwcone">
-                <div class="go1">
-                    <div class="gwccheck"></div>
-                </div>
-                <div class="go2"><a href="xq.html"><img src="/vendor/wechat/images/gwc3.png"/></a></div>
-                <div class="go3">
-                    <div class="go3_1">
-                        <a href="xq.html"><p class="p1">秋冬款韩版半高领中长款宽松套头打...</p></a>
-                        <p class="p2">￥15.5</p>
-                    </div>
-                    <div class="go3_2">
-                        <p class="p3">颜色：紫色；尺码：均码</p>
-                        <p class="p4">￥9.9</p>
-                    </div>
-                    <div class="go3_3">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                        <div class="del"><img src="/vendor/wechat/images/del.png"/></div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
-<div class="fbox1"></div>
 <div class="hejiBox">
     <div class="heji">
-        <div class="heji_1">
-            <div class="gwccheck on"></div>
+        <div class="heji_3 price">
+            <p>合计：<span id="total_price">￥{{$count['total_price']}}</span></p>
         </div>
-        <div class="heji_2">全选</div>
-        <div class="heji_3"><p>合计：<span>￥784.80</span></p></div>
-        <div class="heji_4">为您节省￥605.2</div>
         <div class="heji_5">
-            <a href="jiesuan.html">去结算(2)</a>
+            <a href="jiesuan.html" id="num">去结算({{$count['num']}})</a>
         </div>
     </div>
 </div>
 
 @include('layouts.wechat.shared._footer')
+
+<script>
+    $(function () {
+        //删除
+        $(".del").click(function () {
+            var _this = $(this);
+
+            if (confirm('确定要删除么?')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/cart',
+                    data: {id: _this.parents(".num").data('id')},
+                    success: function (data) {
+                        // var length = $(".item").length;
+                        // if (length == 1) {
+                        //     $('#carts').hide();
+                        //     $('#more').show();
+                        //     return false;
+                        // }
+                        $("#num").text('去结算(' + data.num + ')');
+                        $("#total_price").text('￥' + data.total_price);
+
+                        _this.parents('.gwcone').remove();
+                    }
+                })
+            }
+        })
+
+        $('.input-add').click(function () {
+            var _this = $(this);
+
+            var $num = _this.siblings('.input-num');
+            var $sub = _this.siblings('.input-sub');
+            var price = _this.parents(".num").data('price');
+            var num = $num.text();
+            num = parseInt(num) + 1;
+            $num.text(num);
+
+            var hj = '￥' + (num * price).toFixed(2);
+            _this.parents('.info').find('.hj').text(hj);
+
+            $.ajax({
+                type: 'PATCH',
+                url: '/cart',
+                data: {
+                    id: _this.parents(".num").data('id'),
+                    type: 'add'
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#num").text('去结算(' + data.num + ')');
+                    $("#total_price").text('￥' + data.total_price);
+                }
+            })
+        })
+
+        //减少数量
+        $(".input-sub").click(function () {
+            var _this = $(this);
+            var $num = _this.siblings('.input-num');
+            var num = $num.text();
+            var price = _this.parents(".num").data('price');
+
+            if (num == 1) {
+                return false;
+            }
+
+            num = parseInt(num) - 1;
+            if (num == 1) {
+                _this.removeClass('active');
+            }
+
+            $num.text(num);
+
+            var hj = '￥' + (num * price).toFixed(2);
+            _this.parents('.info').find('.hj').text(hj);
+
+            $.ajax({
+                type: 'PATCH',
+                url: '/cart',
+                data: {
+                    id: _this.parents(".num").data('id'),
+                    type: 'sub'
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#num").text('去结算(' + data.num + ')');
+                    $("#total_price").text('￥' + data.total_price);
+                }
+            })
+        })
+    })
+
+</script>
 </body>
 </html>
