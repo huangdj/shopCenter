@@ -61,6 +61,18 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
         Route::get('/collection', 'CustomerController@collection');
         Route::post('/add_collection', 'CustomerController@add_collection');
     });
+
+    // 订单
+    Route::prefix('order')->group(function () {
+        Route::get('checkout', 'OrderController@checkout'); // 去结算
+    });
+
+    //地址管理
+    Route::prefix('address')->group(function () {
+        //设置默认地址
+        Route::patch('/', 'AddressController@default_address');
+    });
+    Route::resource('address', 'AddressController');
 });
 
 

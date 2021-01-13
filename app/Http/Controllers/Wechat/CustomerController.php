@@ -18,7 +18,8 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::find(session('wechat.customer.id'));
-        return view('wechat.customer.index', compact('customer'));
+        $count_collections = Collection::where('customer_id', session('wechat.customer.id'))->count();
+        return view('wechat.customer.index', compact('customer', 'count_collections'));
     }
 
     /***

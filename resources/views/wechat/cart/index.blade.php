@@ -38,9 +38,85 @@
     </div>
 </div>
 <div class="clear"></div>
+<div class="clear"></div>
 <div class="hbox"></div>
 <div class="kbox"></div>
-<div class="gwcbox">
+
+<div class="paysuccess" id="more" @if (!$carts->isEmpty()) style="display: none;" @endif>
+    <div class="pay30">
+        <img src="/vendor/wechat/images/gwc.jpg"/>
+        <p>购物车还是空的</p>
+    </div>
+    <div class="pay40">
+        <a href="/">去逛逛</a>
+    </div>
+</div>
+
+<div class="likebox" id="more" @if (!$carts->isEmpty()) style="display: none;" @endif>
+    <div class="likeTit">
+        <img src="/vendor/wechat/images/heart.png"/><span>猜你喜欢</span>
+    </div>
+    <ul>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/21.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/22.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 </p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/23.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/24.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/25.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/26.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/27.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/28.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="gwcbox" id="carts" @if ($carts->isEmpty()) style="display: none;" @endif>
     <div class="gwcbox_1">
         <div class="gwc1_2">
             @foreach ($carts as $cart)
@@ -70,13 +146,13 @@
         </div>
     </div>
 </div>
-<div class="hejiBox">
+<div class="hejiBox" id="carts" @if ($carts->isEmpty()) style="display: none;" @endif>
     <div class="heji">
         <div class="heji_3 price">
             <p>合计：<span id="total_price">￥{{$count['total_price']}}</span></p>
         </div>
         <div class="heji_5">
-            <a href="jiesuan.html" id="num">去结算({{$count['num']}})</a>
+            <a href="/order/checkout" id="num">去结算({{$count['num']}})</a>
         </div>
     </div>
 </div>
@@ -88,19 +164,18 @@
         //删除
         $(".del").click(function () {
             var _this = $(this);
-
             if (confirm('确定要删除么?')) {
                 $.ajax({
                     type: 'DELETE',
                     url: '/cart',
                     data: {id: _this.parents(".num").data('id')},
                     success: function (data) {
-                        // var length = $(".item").length;
-                        // if (length == 1) {
-                        //     $('#carts').hide();
-                        //     $('#more').show();
-                        //     return false;
-                        // }
+                        var length = $(".gwcone").length;
+                        if (length == 1) {
+                            $('#carts').hide();
+                            $('#more').show();
+                            window.location.reload()
+                        }
                         $("#num").text('去结算(' + data.num + ')');
                         $("#total_price").text('￥' + data.total_price);
 
@@ -174,7 +249,6 @@
             })
         })
     })
-
 </script>
 </body>
 </html>

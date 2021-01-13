@@ -33,7 +33,7 @@
         <ul>
             <li>
                 <a href="/customer/collection">
-                    <p class="p1">13</p>
+                    <p class="p1">{{$count_collections}}</p>
                     <p class="p2">收藏夹</p>
                 </a>
             </li>
