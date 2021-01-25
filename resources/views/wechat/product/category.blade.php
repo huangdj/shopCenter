@@ -49,7 +49,7 @@
     <div class="shtypeLeft">
         <ul>
             @foreach($parent_categories as $cate)
-                <li><a href="#{{ $cate->mark }}">{{ $cate->name }}</a></li>
+                <li @if($cate->mark == 'm1') class="on" @endif><a href="#{{ $cate->mark }}">{{ $cate->name }}</a></li>
             @endforeach
         </ul>
     </div>

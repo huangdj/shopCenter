@@ -286,14 +286,17 @@
                                 @foreach($product->product_parames as $parame)
                                     <div class="am-form-group">
                                         <div class="am-u-sm-12 am-u-md-3">
-                                            <input type="text" class="file1" name="parame_name[]" value="{{ $parame->parame_name}}">
+                                            <input type="text" class="file1" name="parame_name[]"
+                                                   value="{{ $parame->parame_name}}">
                                             <input type="hidden" name="id[]" value="{{$parame->id}}">
                                         </div>
                                         <div class="am-u-sm-12 am-u-md-3">
-                                            <input type="text" class="file1" name="parame_value[]" value="{{ $parame->parame_value }}">
+                                            <input type="text" class="file1" name="parame_value[]"
+                                                   value="{{ $parame->parame_value }}">
                                         </div>
                                         <div class="am-u-sm-12 am-u-md-6">
-                                            <a href="javascript:;" class="am-icon-close del_one" data-id="{{$parame->id}}"></a>
+                                            <a href="javascript:;" class="am-icon-close del_one"
+                                               data-id="{{$parame->id}}"></a>
                                         </div>
                                     </div>
                                 @endforeach
@@ -324,4 +327,33 @@
 
     <script type="text/javascript" src="/vendor/webupload/dist/webuploader.js"></script>
     <script type="text/javascript" src="/vendor/webupload/upload.js"></script>
+    <script>
+        $(function () {
+            $(".add_file").click(function () {
+                var length = $(".files").children().length;
+                if (length >= 8) {
+                    alert('最多只能添加8个商品参数~');
+                    return false;
+                }
+                var i = length + 1;
+                var html = '<div class="am-form-group">' +
+                    '<div class="am-u-sm-12 am-u-md-3">' +
+                    '<input type="text" class="file' + i + '" name="parame_name[]">' +
+                    '</div>' +
+                    '<div class="am-u-sm-12 am-u-md-3">' +
+                    '<input type="text" class="file' + i + '" name="parame_value[]">' +
+                    '</div>' +
+                    '<div class="am-u-sm-12 am-u-md-6">' +
+                    '<a href="javascript:;" class="am-icon-close del_one" data-id=""></a>' +
+                    '</div>' +
+                    '</div>';
+                $(".files").append(html);
+            })
+
+            //js删除表单
+            $(document).on('click', '.del_one', function () {
+                $(this).parents('.am-form-group').remove();
+            });
+        })
+    </script>
 @stop

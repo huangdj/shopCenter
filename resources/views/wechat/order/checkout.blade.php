@@ -7,9 +7,11 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <meta name="renderer" content="webkit"/>
     <meta name="force-rendering" content="webkit"/>
-    <title></title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>确认订单</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <script type="text/javascript" src="/vendor/wechat/js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.gwccheck').click(function () {
@@ -42,7 +44,8 @@
     <div class="jsaddress">
         <a href="/address">
             <div class="jsaddressL">
-                <p class="p6">收货人：{{$address->name}}<span>{{$address->tel}}</span></p>
+                <p class="p6" id="address" data-id="{{ $address->id }}">收货人：{{$address->name}}
+                    <span>{{$address->tel}}</span></p>
                 <p class="p5">{{$address->province}} {{$address->city}} {{$address->area}} {{$address->detail}} </p>
             </div>
             <div class="jsaddressR">
@@ -53,7 +56,7 @@
     </div>
 @else
     <div class="b13" style="padding: 5px 0 5px 0;">
-        <p style="text-align: center">
+        <p style="text-align: center" id="address" data-id="">
             <a href="/address"><span style="color:#FF5722;">亲, 请先填写一个收货地址~</span></a>
         </p>
     </div>
@@ -90,7 +93,7 @@
     </div>
     <div class="jsyf">
         <div class="jsyfL">买家留言：</div>
-        <div class="jsyfC">订单补充说明...</div>
+        <div class="addiv1_r"></div>
     </div>
     <div class="jshj">
         <div class="jshjp">共{{$count['num']}}件商品<span class="sp1">合计：</span><span
@@ -118,9 +121,43 @@
     <div class="heji">
         <div class="heji_3"><p>总计：<span>￥{{$count['total_price']}}</span></p></div>
         <div class="heji_5">
-            <a href="pay.html">确认</a>
+            <a href="javascript:;" id="pay">确认</a>
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        $("#pay").click(function () {
+            var address_id = $("#address").data('id');
+            var message = $("#message").val()
+            if (address_id == '') {
+                alert('请先填写一个送货地址~');
+                return false;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/order',
+                data: {address_id: address_id, message: message},
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == '0') {
+
+                        if (data.info != '') {
+                            alert(data.info);
+                        }
+
+                        location.href = '/cart';
+                        return false;
+                    }
+
+                    //微信支付
+                    location.href = '/order/pay/' + data.order_id;
+                }
+            })
+        })
+    })
+</script>
 </body>
 </html>

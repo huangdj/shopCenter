@@ -114,6 +114,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        return $request->all();
         $product = Product::find($id);
         $product->categories()->sync($request->category_id);
 

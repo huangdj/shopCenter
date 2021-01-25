@@ -139,39 +139,6 @@
 </div>
 <div class="clear"></div>
 <div class="kbox"></div>
-<div class="clear"></div>
-<div class="hotMarket">
-    <div class="hotM_1">
-        <div class="hotM_1L">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/1.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_1C">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/2.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_1R">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/3.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-    </div>
-    <div class="hotM_1">
-        <div class="hotM_1L">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/4.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_1C">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/5.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_1R">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/6.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="kbox"></div>
 <div class="hotMarket">
     <div class="hotM_2">
         <p><span>品牌</span>特卖</p>

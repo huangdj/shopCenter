@@ -18,7 +18,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
+        $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->orderBy('id', 'desc')->get();
         $count = Cart::count_cart($carts);
         return view('wechat.cart.index', compact('carts', 'count'));
     }

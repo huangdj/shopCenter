@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Address;
+use App\Models\Order;
+use App\Models\OrderProduct;
+use App\Models\OrderAddress;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -25,5 +29,88 @@ class OrderController extends Controller
         $address = Address::find(session('wechat.customer.address_id'));
 
         return view('wechat.order.checkout', compact('carts', 'count', 'address'));
+    }
+
+    /***
+     * 下单
+     * @param Request $request
+     * @return array
+     */
+    public function store(Request $request)
+    {
+        $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
+
+        //防止用户使用微信的后退按钮，重新提交订单，导致出现没有数据的订单
+        if ($carts->isEmpty()) {
+            return ['status' => 0, 'info' => ''];
+        }
+
+        $count = Cart::count_cart();
+        $total_price = $count['total_price'];
+
+        DB::beginTransaction();
+        try {
+            //生成订单
+            $order = Order::create([
+                'customer_id' => session('wechat.customer.id'),
+                'total_price' => $total_price,
+                'out_trade_no' => Order::make_orderNo(),
+                'message' => $request->message,
+                'status' => 1
+            ]);
+
+            //订单地址
+            $address = Address::find($request->address_id);
+            $order->address()->create([
+                'province' => $address['province'],
+                'city' => $address['city'],
+                'area' => $address['area'],
+                'detail' => $address['detail'],
+                'name' => $address['name'],
+                'tel' => $address['tel'],
+            ]);
+
+            $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
+            foreach ($carts as $cart) {
+                //判断库存是否足够
+                if ($cart->product->stock != '-1' and $cart->product->stock - $cart->num < 0) {
+                    throw new \Exception('商品' . $cart->product->name . ", 目前仅剩下" . $cart->product->stock . " 件. \n请返回购物车, 修改订单后再下单!");
+                }
+
+                //削减库存数量
+                if ($cart->product->stock != '-1') {
+                    $cart->product->decrement('stock', $cart->num);
+                }
+
+                //插入订单商品表
+                $order->order_products()->create([
+                    'product_id' => $cart->product_id,
+                    'num' => $cart->num
+                ]);
+            }
+
+            //清空购物车
+//            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();
+
+        } catch (\Exception $e) {
+            //echo $e->getMessage();
+            DB::rollback();
+            return ['status' => 0, 'info' => $e->getMessage()];
+        }
+        DB::commit();
+        return ['status' => 1, 'order_id' => $order->id];
+    }
+
+    /***
+     * 订单确认、微信支付
+     * @param $id
+     */
+    public function pay($id)
+    {
+        /**
+         * 第 1 步：查询订单并计算金额
+         */
+        $order = Order::find($id);
+        return view('wechat.order.pay', compact('order'));
     }
 }

@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 /***
  * 后台路由
  */
@@ -28,6 +23,7 @@ Route::prefix('admin')->group(function () {
     Route::namespace('Admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('home'); // 后台首页
 
+        Route::resource('brands', 'BrandController'); // 品牌管理
         Route::resource('categories', 'CategoryController'); // 商品分类
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
@@ -65,6 +61,9 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
     // 订单
     Route::prefix('order')->group(function () {
         Route::get('checkout', 'OrderController@checkout'); // 去结算
+        //生成订单,支付
+        Route::post('/', 'OrderController@store');
+        Route::get('pay/{id}', 'OrderController@pay');
     });
 
     //地址管理

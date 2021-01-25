@@ -96,8 +96,7 @@
                     location.href = "/admin/adverts";
                     return false;
                 }
-                var url = "/admin/adverts?type=" + type;
-                location.href = url;
+                location.href = "/admin/adverts?type=" + type;
             })
         })
     </script>
