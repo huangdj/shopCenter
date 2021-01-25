@@ -59,6 +59,24 @@
                                 </div>
                             </div>
 
+                            <div class="am-form-group">
+                                <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">所属品牌</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                    <select
+                                        data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                        name="brand_id">
+
+                                        @foreach ($brands as $brand)
+                                            <option value="{{$brand->id}}"
+                                                    @if($brand->id == $product->brand_id) selected @endif>
+                                                {{$brand->name}}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="am-g am-margin-top">
                                 <div class="am-u-sm-12 am-u-md-3 am-form-label">
                                     缩略图

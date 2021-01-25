@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
+    public function __construct()
+    {
+        view()->share([
+            '_notice' => 'am-active',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *

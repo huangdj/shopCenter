@@ -56,6 +56,23 @@
                                 </div>
                             </div>
 
+                            <div class="am-form-group">
+                                <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">所属品牌</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                    <select
+                                        data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                        name="brand_id">
+                                        <option value="">请选择</option>
+                                        @foreach ($brands as $brand)
+                                            <option value="{{$brand->id}}">
+                                                {{$brand->name}}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="am-g am-margin-top">
                                 <div class="am-u-sm-12 am-u-md-3 am-form-label">
                                     缩略图
@@ -208,14 +225,38 @@
                                 <p>填写示例：</p>
                                 <table class="am-table am-table-hover table-main">
                                     <tbody>
-                                    <tr><td>袖长</td><td>七分袖</td></tr>
-                                    <tr><td>销售渠道类型</td><td>纯电商</td></tr>
-                                    <tr><td>货号</td><td>185234</td></tr>
-                                    <tr><td>品牌</td><td>皇宫婚纱</td></tr>
-                                    <tr><td>礼服裙摆</td><td>拖尾</td></tr>
-                                    <tr><td>颜色分类</td><td>白色</td></tr>
-                                    <tr><td>尺码</td><td>X,L,XL,XXL,量身定做</td></tr>
-                                    <tr><td>上市年份</td><td>2020年冬季</td></tr>
+                                    <tr>
+                                        <td>袖长</td>
+                                        <td>七分袖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>销售渠道类型</td>
+                                        <td>纯电商</td>
+                                    </tr>
+                                    <tr>
+                                        <td>货号</td>
+                                        <td>185234</td>
+                                    </tr>
+                                    <tr>
+                                        <td>品牌</td>
+                                        <td>皇宫婚纱</td>
+                                    </tr>
+                                    <tr>
+                                        <td>礼服裙摆</td>
+                                        <td>拖尾</td>
+                                    </tr>
+                                    <tr>
+                                        <td>颜色分类</td>
+                                        <td>白色</td>
+                                    </tr>
+                                    <tr>
+                                        <td>尺码</td>
+                                        <td>X,L,XL,XXL,量身定做</td>
+                                    </tr>
+                                    <tr>
+                                        <td>上市年份</td>
+                                        <td>2020年冬季</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

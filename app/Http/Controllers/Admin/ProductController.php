@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\ProductParame;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -16,6 +17,7 @@ class ProductController extends Controller
         view()->share([
             '_product' => 'am-active',
             'categories' => Category::get_categories(),
+            'brands' => Brand::orderBy('id', 'desc')->get(),
             'filter_categories' => Category::filter_categories()
         ]);
     }

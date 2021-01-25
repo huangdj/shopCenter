@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class AdvertController extends Controller
 {
+    public function __construct()
+    {
+        view()->share([
+            '_advert' => 'am-active',
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

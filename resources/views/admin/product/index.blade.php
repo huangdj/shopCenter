@@ -98,6 +98,7 @@
                                 <th class="table-id">ID</th>
                                 <th class="table-title">缩略图</th>
                                 <th class="table-type">商品名称</th>
+                                <th class="table-type">所属品牌</th>
                                 <th class="table-type">所属分类</th>
                                 <th class="table-type">售价</th>
                                 <th class="table-type">原价</th>
@@ -122,6 +123,7 @@
                                         <img src="{{ $product->image }}" alt="" class="thumb">
                                     </td>
                                     <td>{{ sub($product->name, 10) }}</td>
+                                    <td>{{ $product->brand->name }}</td>
                                     <td class="am-hide-sm-only">{{ $product->categories->implode('name', ', ') }}</td>
                                     <td class="am-hide-sm-only">{{ $product->price }}</td>
                                     <td class="am-hide-sm-only">{{ $product->original_price }}</td>

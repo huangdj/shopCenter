@@ -10,6 +10,12 @@ class Product extends Model
     protected $dates = ['deleted_at'];
     protected $guarded = ['category_id', 'imgs', 'file'];
 
+    // 商品属于品牌
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\Brand');
+    }
+
     //商品可以属于多个分类
     public function categories()
     {
@@ -55,7 +61,7 @@ class Product extends Model
             }
         };
 
-        $products = Product::with('categories')
+        $products = Product::with('categories', 'brand')
             ->where($where)
             ->orderBy('is_top', "desc")
             ->orderBy('created_at', "desc")

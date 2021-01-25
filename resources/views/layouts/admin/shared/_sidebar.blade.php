@@ -7,6 +7,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.brands.index') }}" class="{{ $_brand ?? '' }}">
+                    <span class="am-icon-apple"></span> 商品品牌
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.categories.index') }}" class="{{ $_category ?? '' }}">
                     <span class="am-icon-calendar"></span> 商品分类
                 </a>
