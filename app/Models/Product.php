@@ -63,7 +63,6 @@ class Product extends Model
 
         $products = Product::with('categories', 'brand')
             ->where($where)
-            ->orderBy('is_top', "desc")
             ->orderBy('created_at', "desc")
             ->paginate(config('admin.page_size'));
         return $products;

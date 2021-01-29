@@ -8,7 +8,7 @@
                 <li class="am-active">Dashboard</li>
             </ol>
 
-            <h1>早安，{{ucfirst(Auth::user()->name)}}，祝你开心每一天！</h1>
+            <h1>{{ getTime() }}，{{ucfirst(Auth::user()->name)}}，祝你开心每一天！</h1>
         </div>
 
         <div class="page-body">

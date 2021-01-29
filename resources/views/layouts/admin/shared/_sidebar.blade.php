@@ -17,6 +17,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.themes.index') }}" class="{{ $_theme ?? '' }}">
+                    <span class="am-icon-themeisle"></span> 主题管理
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.products.index') }}" class="{{ $_product ?? '' }}">
                     <span class="am-icon-product-hunt"></span> 商品管理
                 </a>

@@ -105,7 +105,7 @@ p{text-align:justify}
 .fbox1{ width:100%; height:5.5rem}
 .fbox{ width:100%; height:2.7rem}
 .footbox{width:100%; max-width:640px; margin:0 auto; }
-.footer{ position:fixed;width:100%;max-width:640px;bottom:0;background:#fff;z-index:99999;padding-top:0.2rem;border-top:1px solid #eee;height:2.5rem;}
+.footer{ position:fixed;width:100%;max-width:640px;bottom:0;background:#fff;z-index:99999;padding-top:0.2rem;height:2.5rem;}
 .footer ul{ overflow:hidden;}
 .footer ul li{ float:left; width:25%; text-align:center}
 .footer ul li img{ height:1.3rem;}
@@ -672,7 +672,7 @@ p{text-align:justify}
 
 
 /*商品列表*/
-.hbox1{ width:100%; height:5.4rem; overflow:hidden}
+.hbox1{ width:100%; height:2.4rem; overflow:hidden}
 .shopType{width:100%; background:#fff;position: fixed;top: 2.8rem;max-width:640px;}
 .shopType ul{ overflow:hidden}
 .shopType ul li{ float:left; width:20%; text-align:center}

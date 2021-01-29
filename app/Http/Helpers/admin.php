@@ -38,3 +38,31 @@ function is_something($attr, $module)
 {
     return $module->$attr ? '<span class="am-icon-check is_something" data-attr="' . $attr . '"></span>' : '<span class="am-icon-close is_something" data-attr="' . $attr . '"></span>';
 }
+
+/***
+ * 根据当前时间显示礼貌提示语
+ * @return string
+ */
+function getTime()
+{
+    $no = date("H", time());
+    if ($no >= 0 && $no <= 6) {
+        return "凌晨好";
+    }
+    if ($no > 7 && $no <= 8) {
+        return "早上好";
+    }
+    if ($no > 9 && $no < 12) {
+        return "上午好";
+    }
+    if ($no >= 12 && $no < 13) {
+        return "中午好";
+    }
+    if ($no >= 13 && $no <= 18) {
+        return "下午好";
+    }
+    if ($no > 18 && $no <= 24) {
+        return "晚上好";
+    }
+    return "您好";
+}

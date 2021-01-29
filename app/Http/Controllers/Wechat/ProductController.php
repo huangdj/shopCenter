@@ -10,11 +10,25 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index()
+    /***
+     * 商品列表
+     * @param Request $request
+     */
+    public function index(Request $request)
     {
-
+        $where = function ($query) use ($request) {
+            if ($request->has('brand_id') and $request->brand_id != '') {
+                $query->where('brand_id', $request->brand_id);
+            }
+        };
+        $products = Product::where($where)->orderBy('is_top', "desc")->orderBy('created_at')->get();
+        return view('wechat.product.index', compact('products'));
     }
 
+    /***
+     * 商品分类
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function category()
     {
         $parent_categories = Category::where('parent_id', 0)->get();
@@ -22,10 +36,21 @@ class ProductController extends Controller
         return view('wechat.product.category', compact('parent_categories', 'categories'));
     }
 
+    /***
+     * 商品详情
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
         $product = Product::with('product_galleries', 'product_parames')->find($id);
         $collection = Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $id)->first();
-        return view('wechat.product.show', compact('product', 'collection'));
+
+        // 热卖推荐
+        $products = Product::where('is_hot', true)->orWhere('is_recommend', true)->where('id', '<>', $id)->get();
+
+        // 相关推荐
+        $recommends = Product::where('is_onsale', true)->where('is_recommend', 'true')->where('id', '<>', $id)->take(4)->get();
+        return view('wechat.product.show', compact('product', 'collection', 'products', 'recommends'));
     }
 }

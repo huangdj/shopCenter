@@ -79,7 +79,6 @@
         </div>
         <div class="hdbox_3">
             <a onclick="javascript:history.back(-1)"><img src="/vendor/wechat/images/h2.png"/></a>
-            <a onclick="javascript:history.back(-1)"><img src="/vendor/wechat/images/h1.png"/></a>
         </div>
     </div>
 </div>
@@ -113,16 +112,16 @@
 </div>
 <div class="clear"></div>
 <div class="kbox"></div>
-<div class="xqbox2 sizetype">
-    <div class="xqbox2L">
-        <span>请选择尺码</span>
-    </div>
-    <div class="xqbox2R">
-        <img src="/vendor/wechat/images/more.png">
-    </div>
-</div>
-<div class="clear"></div>
-<div class="kbox"></div>
+{{--<div class="xqbox2 sizetype">--}}
+{{--    <div class="xqbox2L">--}}
+{{--        <span>请选择尺码</span>--}}
+{{--    </div>--}}
+{{--    <div class="xqbox2R">--}}
+{{--        <img src="/vendor/wechat/images/more.png">--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<div class="clear"></div>--}}
+{{--<div class="kbox"></div>--}}
 <a name="m3">
     <div class="xqpj">
         <div class="xqpjtit">
@@ -146,38 +145,23 @@
         </div>
     </div>
 </a>
-<div class="clear"></div>
-<div class="kbox"></div>
+{{--<div class="clear"></div>--}}
+{{--<div class="kbox"></div>--}}
 <div class="clear"></div>
 <div class="kbox"></div>
 <div class="xgtj">
     <div class="tjtit">相关推荐</div>
     <div class="tjcon">
         <ul>
-            <li>
-                <a href="xq.html">
-                    <img src="/vendor/wechat/images/xq2.png"/>
-                    <div class="tit"><span>￥88.8</span></div>
-                </a>
-            </li>
-            <li>
-                <a href="xq.html">
-                    <img src="/vendor/wechat/images/xq2.png"/>
-                    <div class="tit"><span>￥88.8</span></div>
-                </a>
-            </li>
-            <li>
-                <a href="xq.html">
-                    <img src="/vendor/wechat/images/xq2.png"/>
-                    <div class="tit"><span>￥88.8</span></div>
-                </a>
-            </li>
-            <li>
-                <a href="xq.html">
-                    <img src="/vendor/wechat/images/xq2.png"/>
-                    <div class="tit"><span>￥88.8</span></div>
-                </a>
-            </li>
+
+            @foreach($recommends as $recommend)
+                <li>
+                    <a href="xq.html">
+                        <img src="{{ $recommend->image }}"/>
+                        <div class="tit"><span>￥{{ $recommend->price }}</span></div>
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
@@ -214,62 +198,17 @@
         <div style="display:none" id="con_two_3">
             <div class="likebox bort">
                 <ul>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp3.png" class="proimg"/>
-                            <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                            <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp4.png" class="proimg"/>
-                            <p class="tit">韩国代购正品超爆款 </p>
-                            <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp5.png" class="proimg"/>
-                            <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                            <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp6.png" class="proimg"/>
-                            <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                            <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp7.png" class="proimg"/>
-                            <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                            <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp8.png" class="proimg"/>
-                            <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                            <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp3.png" class="proimg"/>
-                            <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                            <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="xq.html">
-                            <img src="/vendor/wechat/images/dp4.png" class="proimg"/>
-                            <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                            <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-                        </a>
-                    </li>
+
+                    @foreach($products as $product)
+                        <li>
+                            <a href="/product/{{ $product->id }}">
+                                <img src="{{ $product->image }}" class="proimg"/>
+                                <p class="tit">{{ $product->name }}</p>
+                                <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span><img
+                                        class="add_cart" src="/vendor/wechat/images/f3.png"/></p>
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -300,65 +239,65 @@
             </ul>
         </div>
         <div class="xqbotboxR">
-            <a class="a2 sizetype">立即购买</a> <!--sizetype 代表弹出选择商品 sku 属性框的事件-->
+            <a class="a2 add_cart">立即购买</a> <!--sizetype 代表弹出选择商品 sku 属性框的事件-->
             <a class="a1 add_cart">加入购物车</a>
         </div>
     </div>
 </div>
-<div class="xzsize">
-    <div class="xzsize0">
-        <div class="f_mask0"></div>
-        <div id="size">
-            <div class="size1">
-                <div class="size1_1">
-                    <img src="/vendor/wechat/images/gwc1.png"/>
-                </div>
-                <div class="size1_2">
-                    <p class="p1">￥489.00</p>
-                    <p class="p2">商品编号：2015125412654</p>
-                    <p class="p3">库存13540件</p>
-                </div>
-                <div class="size1_3">
-                    <img src="/vendor/wechat/images/close.png"/>
-                </div>
-            </div>
-            <div class="size2">
-                <div class="size2_1">
-                    <p class="tit">颜色</p>
-                    <a href="javascript:void()" class="on">白色</a>
-                </div>
-                <div class="size2_1">
-                    <p class="tit">尺码</p>
-                    <a href="javascript:void()">X</a>
-                    <a href="javascript:void()">L</a>
-                    <a href="javascript:void()">XL</a>
-                    <a href="javascript:void()">XXL</a>
-                    <a href="javascript:void()">量身定做</a>
-                </div>
-                <div class="size2_1">
-                    <p class="tit">数量</p>
-                    <div class="lnums">
-                        <div class="num1">-</div>
-                        <div class="num2">1</div>
-                        <div class="num3">+</div>
-                    </div>
-                </div>
-            </div>
-            <div class="size3">
-                <a href="javascript:void()">确定</a>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="xzsize">--}}
+{{--    <div class="xzsize0">--}}
+{{--        <div class="f_mask0"></div>--}}
+{{--        <div id="size">--}}
+{{--            <div class="size1">--}}
+{{--                <div class="size1_1">--}}
+{{--                    <img src="/vendor/wechat/images/gwc1.png"/>--}}
+{{--                </div>--}}
+{{--                <div class="size1_2">--}}
+{{--                    <p class="p1">￥489.00</p>--}}
+{{--                    <p class="p2">商品编号：2015125412654</p>--}}
+{{--                    <p class="p3">库存13540件</p>--}}
+{{--                </div>--}}
+{{--                <div class="size1_3">--}}
+{{--                    <img src="/vendor/wechat/images/close.png"/>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="size2">--}}
+{{--                <div class="size2_1">--}}
+{{--                    <p class="tit">颜色</p>--}}
+{{--                    <a href="javascript:void()" class="on">白色</a>--}}
+{{--                </div>--}}
+{{--                <div class="size2_1">--}}
+{{--                    <p class="tit">尺码</p>--}}
+{{--                    <a href="javascript:void()">X</a>--}}
+{{--                    <a href="javascript:void()">L</a>--}}
+{{--                    <a href="javascript:void()">XL</a>--}}
+{{--                    <a href="javascript:void()">XXL</a>--}}
+{{--                    <a href="javascript:void()">量身定做</a>--}}
+{{--                </div>--}}
+{{--                <div class="size2_1">--}}
+{{--                    <p class="tit">数量</p>--}}
+{{--                    <div class="lnums">--}}
+{{--                        <div class="num1">-</div>--}}
+{{--                        <div class="num2">1</div>--}}
+{{--                        <div class="num3">+</div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="size3">--}}
+{{--                <a href="javascript:void()">确定</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
-<script>
+<script type="text/javascript">
     $(function () {
         $('.add_cart').click(function () {
             $.ajax({
                 type: 'POST',
                 url: '/cart',
                 data: {product_id: "{{$product->id}}"},
-                success: function (data) {
+                success: function () {
                     location.href = '/cart';
                 }
             })

@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function () {
 
         Route::resource('brands', 'BrandController'); // 品牌管理
         Route::resource('categories', 'CategoryController'); // 商品分类
+        Route::resource('themes', 'ThemeController'); // 主题管理
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
         Route::resource('notices', 'NoticeController'); // 通知管理
@@ -36,6 +37,7 @@ Route::prefix('admin')->group(function () {
  */
 Route::namespace('Wechat')->middleware('wechat')->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
+    Route::post('get_products', 'HomeController@get_products'); // 加载更多
 
     Route::prefix('product')->group(function () {
         Route::get('category', 'ProductController@category'); //商品分类

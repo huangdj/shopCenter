@@ -119,17 +119,16 @@ var s=function(){
         }
     };
     fadeon();
-	
-	
-	
-	
+
+
+
+
    var divDate=document.getElementsByClassName('divDate');
-   console.log("kaishi");
    for(i=0;i<divDate.length;i++){
 	   console.log(divDate[i].innerText)
 	   var myDate=new Date(divDate[i].innerText);
-       var myyear=myDate.getFullYear(); 
-       var mymonth=myDate.getMonth(); 
+       var myyear=myDate.getFullYear();
+       var mymonth=myDate.getMonth();
        var myday=myDate.getDate();
 	   divDate[i].innerHTML=mymonth+"-"+myday;
 	   divDate[i].style.color='#1c1c1c';
