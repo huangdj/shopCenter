@@ -41,15 +41,15 @@
                             <tbody>
 
                             @foreach($expresses as $express)
-                                <tr>
+                                <tr data-id="{{ $express->id }}">
                                     <td>{{ $express->id }}</td>
                                     <td><a href="{{ $express->url }}" target="">{{ $express->name }}</a></td>
                                     <td>{{ $express->shipping_money }} / {{ $express->shipping_free }}</td>
                                     <td>
                                         @if($express->is_enable == 1)
-                                            <span class="am-icon-check"></span>
+                                            <span class="am-icon-check is_something" data-attr="is_enable"></span>
                                         @else
-                                            <span class="am-icon-close"></span>
+                                            <span class="am-icon-close is_something" data-attr="is_enable"></span>
                                         @endif
                                     </td>
                                     <td>
@@ -75,3 +75,31 @@
         </div>
     </div>
 @stop
+
+@section('js')
+    <script type="text/javascript">
+        $(function () {
+            //是否...
+            $(".is_something").click(function () {
+                var _this = $(this);
+                var data = {
+                    id: _this.parents("tr").data('id'),
+                    attr: _this.data('attr')
+                }
+
+                $.ajax({
+                    type: "PATCH",
+                    url: "/admin/express/is_something",
+                    data: data,
+                    success: function (data) {
+                        if (data.status == 0) {
+                            alert(data.msg);
+                            return false;
+                        }
+                        _this.toggleClass('am-icon-close am-icon-check');
+                    }
+                });
+            });
+        });
+    </script>
+@endsection
