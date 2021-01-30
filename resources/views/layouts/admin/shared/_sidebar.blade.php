@@ -37,6 +37,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.express.index') }}" class="{{ $_express ?? '' }}">
+                    <span class="am-icon-truck"></span> 物流管理
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.orders.index') }}" class="{{ $_order ?? '' }}">
                     <span class="am-icon-first-order"></span> 订单管理
                 </a>

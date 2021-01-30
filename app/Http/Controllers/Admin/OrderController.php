@@ -79,7 +79,7 @@ class OrderController extends Controller
             $order->status = 2;
         }
         $order->save();
-        return back()->with('notice', '发货成功');
+        return back()->with('success', '发货成功');
     }
 
     /**
