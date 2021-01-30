@@ -29,6 +29,12 @@ Route::prefix('admin')->group(function () {
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
         Route::resource('notices', 'NoticeController'); // 通知管理
+        Route::prefix('orders')->group(function () {
+            Route::patch('picking', 'OrderController@picking'); // 配货
+            Route::patch('shipping', 'OrderController@shipping');  // 修改发货信息
+            Route::patch('finish', 'OrderController@finish');  // 交易成功
+        });
+        Route::resource('orders', 'OrderController'); // 订单管理
     });
 });
 

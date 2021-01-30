@@ -66,3 +66,53 @@ function getTime()
     }
     return "您好";
 }
+
+
+/**
+ * 1=> '下单',       //待支付
+ * 2=> '付款',       //待发货
+ * 3=> '配货',
+ * 4=> '出库',       //待收货
+ * 5=> '交易成功',    //已完成
+ */
+function order_color($status)
+{
+    switch ($status) {
+        case '1':
+            return 'uc-order-item-pay';         //橙
+            break;
+        case '2':
+            return 'uc-order-item-shipping';    //红
+            break;
+        case '3':
+            return 'uc-order-item-shipping';    //红
+            break;
+        case '4':
+            return 'uc-order-item-receiving';   //绿
+            break;
+        case '5':
+            return 'uc-order-item-finish';      //灰
+            break;
+        default:
+            return 'uc-order-item-finish';
+    }
+}
+
+/**
+ * 订单状态
+ * @param $status
+ * @return mixed
+ */
+function order_status($status)
+{
+    $info = config('admin.order_status');
+    return $info["$status"];
+}
+
+function time_format($attr, $datetime)
+{
+    if ($datetime == "") {
+        return "";
+    }
+    return date($attr, strtotime($datetime));
+}

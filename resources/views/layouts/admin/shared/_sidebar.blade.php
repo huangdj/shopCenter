@@ -36,6 +36,11 @@
                     <span class="am-icon-bullhorn"></span> 通知管理
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.orders.index') }}" class="{{ $_order ?? '' }}">
+                    <span class="am-icon-first-order"></span> 订单管理
+                </a>
+            </li>
         </ul>
     </div>
 </div>

@@ -23,6 +23,11 @@ class Order extends Model
         return $this->hasOne('App\Models\OrderAddress');
     }
 
+    public function express()
+    {
+        return $this->belongsTo('App\Models\Express');
+    }
+
     /***
      * 生成订单号
      * @return bool|string
