@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::prefix('admin')->group(function () {
     Auth::routes();
-    //上传图片
-    Route::resource('photos', 'PhotoController')->only('store');
+    Route::resource('photos', 'PhotoController')->only('store');  // 上传图片
 
     Route::namespace('Admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('home'); // 后台首页
@@ -33,6 +32,10 @@ Route::prefix('admin')->group(function () {
             Route::patch('is_something', 'ExpressController@is_something'); // 是否可用
         });
         Route::resource('express', 'ExpressController'); // 物流管理
+
+        // 评价管理
+
+
         Route::prefix('orders')->group(function () {
             Route::patch('picking', 'OrderController@picking'); // 配货
             Route::patch('shipping', 'OrderController@shipping');  // 修改发货信息

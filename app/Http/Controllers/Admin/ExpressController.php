@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Express;
 use Illuminate\Http\Request;
+use App\Http\Requests\ExpressValidate;
 
 class ExpressController extends Controller
 {
+    public function __construct()
+    {
+        view()->share([
+            '_express' => 'am-active',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +43,7 @@ class ExpressController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpressValidate $request)
     {
         Express::create($request->all());
         return redirect(route('admin.express.index'))->with('success', '添加成功~');
@@ -71,7 +79,7 @@ class ExpressController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExpressValidate $request, $id)
     {
         $express = Express::find($id);
         $express->update($request->all());

@@ -1,6 +1,6 @@
 <header class="am-topbar admin-header">
     <div class="am-topbar-brand">
-        <a href="/"><img src="/vendor/assets/i/logo.png" alt="ITFun"><strong>亿洞人家 后台管理</strong></a>
+        <a href="/"><img src="/vendor/assets/i/logo.png" alt="ITFun"><strong>停洞亿家人 后台管理</strong></a>
     </div>
 
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-primary am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
