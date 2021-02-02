@@ -128,6 +128,14 @@
                     </div>
                 </div>
             @endif
+
+            @if($order->status=='6')
+                <div class="dpbtn">
+                    <div class="dpbtn3">
+                        <a href="shoplist.html">再次购买</a>
+                    </div>
+                </div>
+            @endif
         </div>
     @endforeach
 </div>

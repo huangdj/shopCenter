@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Appraise.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/OrderRemind.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/remind.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/wechat/order/appraise.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/wechat/order/appraise_success.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/wechat/order/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/wechat/order/received.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/express/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/express/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/appraise.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/appraise.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +222,7 @@
       <workItem from="1611833555957" duration="2777000" />
       <workItem from="1611928538613" duration="4113000" />
       <workItem from="1612012752186" duration="12243000" />
-      <workItem from="1612069178555" duration="25883000" />
+      <workItem from="1612069178555" duration="30458000" />
     </task>
     <servers />
   </component>

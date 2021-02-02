@@ -29,6 +29,7 @@
 
 @foreach($order->order_products as $item)
     <div class="pingjiabox1">
+        <input type="hidden" class="checked_id" name="checked_id[]" value="{{ $item->product->id }}">
         <div class="pjleft"><img src="{{ $item->product->image }}"/></div>
         <div class="pjright">
             <p class="p1">{{ sub($item->product->name,25) }}</p>
@@ -77,7 +78,8 @@
             var info = {
                 content: $("#content").val(),
                 image: $("#img_show")[0].src,
-                order_id: "{{ $order->id }}"
+                order_id: "{{ $order->id }}",
+                check_id: $(".checked_id").serializeArray()
             }
             if (info.content == "") {
                 alert("请填写评价内容~")

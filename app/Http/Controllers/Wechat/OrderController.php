@@ -112,7 +112,7 @@ class OrderController extends Controller
     }
 
     /***
-     * 立即评价
+     * 加载评价页面
      */
     public function appraise($id)
     {
@@ -126,13 +126,33 @@ class OrderController extends Controller
      */
     public function submit_appraise(Request $request)
     {
-        $res = Appraise::where('order_id', $request->order_id)->first();
+        $res = Appraise::where('order_id', $request->order_id)->where('customer_id', session('wechat.customer.id'))->first();
         if ($res) {
             return response()->json(['success' => false, 'message' => '您已评价过了，请勿重复评价~']);
         }
-        Appraise::create($request->all());
+
+        $count = count($request->check_id);
+        for ($i = 0; $i < $count; $i++) {
+            $array[] = ['product_id' => $request->check_id[$i]['value']];
+        }
+        foreach ($array as $v) {
+            Appraise::create([
+                'order_id' => $request->order_id,
+                'customer_id' => session('wechat.customer.id'),
+                'content' => $request->input('content'),
+                'image' => $request->image,
+                'product_id' => $v['product_id'],
+            ]);
+        }
+
+        // 评价成功后，修改订单状态
+        Order::where('id', $request->order_id)->update(['status' => 6]);
     }
 
+    /***
+     * 加载评价成功页面
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function appraise_success()
     {
         return view('wechat.order.appraise_success');
