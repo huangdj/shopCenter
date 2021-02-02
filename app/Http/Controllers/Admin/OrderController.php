@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\OrderRemind;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Express;
@@ -124,5 +125,15 @@ class OrderController extends Controller
         $order->status = 5;
         $order->finish_time = \Carbon\Carbon::now();
         $order->save();
+    }
+
+    /***
+     * 订单提醒列表
+     */
+    public function reminds()
+    {
+        view()->share(['_reminds' => 'am-active', '_order' => '']);
+        $reminds = OrderRemind::with('order.customer')->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
+        return view('admin.order.remind', compact('reminds'));
     }
 }

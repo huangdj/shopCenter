@@ -37,9 +37,8 @@ class Order extends Model
     {
         // 订单流水号前缀
         $prefix = date('YmdHis');
-        for ($i = 0; $i < 10; $i++) {
-            // 随机生成 6 位的数字
-            $no = $prefix . str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+        for ($i = 0; $i < 4; $i++) {
+            $no = $prefix . substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 0);
             // 判断是否已经存在
             if (!static::query()->where('out_trade_no', $no)->exists()) {
                 return $no;

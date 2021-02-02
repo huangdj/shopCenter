@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Wechat;
 use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -19,7 +20,8 @@ class CustomerController extends Controller
     {
         $customer = Customer::find(session('wechat.customer.id'));
         $count_collections = Collection::where('customer_id', session('wechat.customer.id'))->count();
-        return view('wechat.customer.index', compact('customer', 'count_collections'));
+        $order_num = Order::where('customer_id', session('wechat.customer.id'))->count();
+        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num'));
     }
 
     /***

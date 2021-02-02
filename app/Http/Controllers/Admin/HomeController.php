@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\OrderRemind;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $reminds = OrderRemind::count(); // 订单提醒数量
+        return view('admin.index', compact('reminds'));
     }
 }

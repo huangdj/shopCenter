@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function () {
 
 
         Route::prefix('orders')->group(function () {
+            Route::get('reminds', 'OrderController@reminds');  // 订单提醒
             Route::patch('picking', 'OrderController@picking'); // 配货
             Route::patch('shipping', 'OrderController@shipping');  // 修改发货信息
             Route::patch('finish', 'OrderController@finish');  // 交易成功
@@ -76,9 +77,19 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
     // 订单
     Route::prefix('order')->group(function () {
         Route::get('checkout', 'OrderController@checkout'); // 去结算
-        //生成订单,支付
-        Route::post('/', 'OrderController@store');
+        Route::post('/', 'OrderController@store'); // 下单
+        Route::get('/', 'OrderController@index'); // 所有订单
+        Route::post('remind', 'OrderController@remind'); // 订单提醒
+        Route::patch('finished', 'OrderController@finished'); // 确认收货
+        Route::post('submit_appraise', 'OrderController@submit_appraise'); // 提交评价
+        Route::get('appraise_success', 'OrderController@appraise_success'); // 加载评价成功页面
+
+
         Route::get('pay/{id}', 'OrderController@pay');
+        Route::get('{id}', 'OrderController@show');  //
+        Route::get('received/{id}', 'OrderController@received');  // 待收货
+        Route::get('appraise/{id}', 'OrderController@appraise'); // 加载评价页面
+
     });
 
     //地址管理

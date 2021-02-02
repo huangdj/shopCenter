@@ -29,7 +29,7 @@
                         <div class="am-u-sm-12 am-u-md-5 am-u-end">
                             <input type="text" name="code">
                         </div>
-                        <div class="am-hide-sm-only am-u-md-4"><a href="http://www.kuaidi100.com/download/api_kuaidi100_com(20140729).doc">查看代码</a></div>
+                        <div class="am-hide-sm-only am-u-md-4"><a href="https://www.kancloud.cn/wangjikeji/wangjiapi/352772" target="_blank">查看代码</a></div>
                     </div>
 
                     <div class="am-form-group">

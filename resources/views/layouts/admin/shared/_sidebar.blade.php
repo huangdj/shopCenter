@@ -42,6 +42,11 @@
                 </a>
             </li>
             <li>
+                <a href="/admin/orders/reminds" class="{{ $_reminds ?? '' }}">
+                    <span class="am-icon-hand-o-right"></span> 订单提醒
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.orders.index') }}" class="{{ $_order ?? '' }}">
                     <span class="am-icon-first-order"></span> 订单管理
                 </a>

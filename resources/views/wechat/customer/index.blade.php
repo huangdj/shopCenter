@@ -60,24 +60,18 @@
         </li>
         <li>
             <a href="quanNews1.html">
-                <p class="p1">1</p>
+                <p class="p1">0</p>
                 <p class="p2">优惠券</p>
             </a>
         </li>
         <li>
             <a href="allDd.html">
-                <p class="p1">0.00</p>
+                <p class="p1">{{ $order_num }}</p>
                 <p class="p2">订单数量</p>
             </a>
         </li>
         <li>
-            <a href="allDd.html">
-                <p class="p1">0.00</p>
-                <p class="p2">支付订单</p>
-            </a>
-        </li>
-        <li>
-            <a href="allDd.html">
+            <a href="/order">
                 <img src="/vendor/wechat/images/my01.png"/>
                 <p class="p2">消费记录</p>
             </a>
@@ -91,44 +85,59 @@
     <div class="con">
         <div class="pa2_tit">
             <p>我的订单</p>
-            <a href="allDd.html">查看更多订单 ></a>
+            <a href="/order">查看更多订单 ></a>
         </div>
         <ul>
             <li>
-                <a href="allDd.html">
+                <a href="/order?status=1">
                     <div class="ddimg">
                         <img src="/vendor/wechat/images/my02.png"/>
+                        @if(\App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 1)->count() > 0)
+                            <div
+                                class="num">{{ \App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 1)->count() }}</div>
+                        @endif
                     </div>
                     <p>待付款</p>
                 </a>
             </li>
             <li>
-                <a href="allDdfhno.html">
+                <a href="/order?status=2">
                     <div class="ddimg">
                         <img src="/vendor/wechat/images/my03.png"/>
+                        @if(\App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 2)->count() > 0)
+                            <div
+                                class="num">{{ \App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 2)->count() }}</div>
+                        @endif
                     </div>
                     <p>待发货</p>
                 </a>
             </li>
             <li>
-                <a href="allDdshno.html">
+                <a href="/order?status=4">
                     <div class="ddimg">
                         <img src="/vendor/wechat/images/my04.png"/>
+                        @if(\App\Models\Order::where('customer_id', session('wechat.customer.id'))->whereIn('status', [3,4])->count() > 0)
+                            <div
+                                class="num">{{ \App\Models\Order::where('customer_id', session('wechat.customer.id'))->whereIn('status', [3,4])->count() }}</div>
+                        @endif
                     </div>
                     <p>待收货</p>
                 </a>
             </li>
             <li>
-                <a href="allDdpjno.html">
+                <a href="/order?status=5">
                     <div class="ddimg">
                         <img src="/vendor/wechat/images/my05.png"/>
-                        <div class="num">2</div>
+                        @if(\App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 5)->count() > 0)
+                            <div
+                                class="num">{{ \App\Models\Order::where('customer_id', session('wechat.customer.id'))->where('status', 5)->count() }}</div>
+                        @endif
                     </div>
                     <p>待评价</p>
                 </a>
             </li>
             <li>
-                <a href="allDd.html">
+                <a href="tel:13419566683">
                     <div class="ddimg">
                         <img src="/vendor/wechat/images/my06.png"/>
                     </div>

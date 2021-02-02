@@ -369,7 +369,7 @@ p{text-align:justify}
 .myddcon{ padding:0 0.6rem 1rem 0.6rem}
 .myddcon1{ background:#fff; border:1px solid #eee; border-radius:4px; margin-top:0.4rem}
 .myddcon1 .dpbox{padding: 0.6rem;height: 1.2rem;line-height: 1.2rem;border-bottom: 1px solid #eee;}
-.myddcon1 .dpbox .dpL{float: left; width: 60%; overflow: hidden; height: 1.2rem;}
+.myddcon1 .dpbox .dpL{width: 100%;}
 .myddcon1 .dpbox .dpL span{display: block; font-size: 0.8rem; max-width:80%; float: left;height: 1.2rem;line-height: 1.2rem;overflow: hidden;}
 .myddcon1 .dpbox .dpL img{padding-left: 0.2rem;height: 1.1rem;margin-top: 0.1rem;}
 .myddcon1 .dpbox .dpR{ float:right; color:#ff2150; font-size:0.8rem}
@@ -389,7 +389,7 @@ p{text-align:justify}
 .shopboxR_2 .p4{ float:right;font-size:0.8rem;}
 
 .dphjbox{padding: 0.6rem;height: 1.2rem;line-height: 1.2rem;border-bottom: 1px solid #eee;}
-.dphjbox .p5{ color:#999; font-size:0.75rem; text-align:right}
+.dphjbox .p5{ color:#999; font-size:0.75rem;}
 .dphjbox .p5 span{color:#ff2150; font-size:0.9rem; font-weight:500}
 
 .dpbtn{padding: 0.6rem;height: 1.4rem;line-height: 1.4rem;}
@@ -878,7 +878,7 @@ p{text-align:justify}
 
 .mypart1{ position:relative; margin-top:-2rem; padding:0 1rem}
 .mypart1 ul{ overflow:hidden; background:#fff; padding:0.8rem; border-radius:6px}
-.mypart1 ul li{ float:left; width:20%; text-align:center}
+.mypart1 ul li{ float:left; width:25%; text-align:center}
 .mypart1 ul li .p1{ text-align:center; color:#000; font-size:0.8rem; line-height:1.5rem}
 .mypart1 ul li .p2{ text-align:center; color:#000; font-size:0.75rem; line-height:1.5rem}
 .mypart1 ul li img{ height:1.5rem}

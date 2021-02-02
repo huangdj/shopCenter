@@ -199,12 +199,12 @@
             <div class="likebox bort">
                 <ul>
 
-                    @foreach($products as $product)
+                    @foreach($products as $p)
                         <li>
-                            <a href="/product/{{ $product->id }}">
-                                <img src="{{ $product->image }}" class="proimg"/>
-                                <p class="tit">{{ $product->name }}</p>
-                                <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span><img
+                            <a href="/product/{{ $p->id }}">
+                                <img src="{{ $p->image }}" class="proimg"/>
+                                <p class="tit">{{ $p->name }}</p>
+                                <p class="price">￥{{ $p->price }}<span>￥{{ $p->original_price }}</span><img
                                         class="add_cart" src="/vendor/wechat/images/f3.png"/></p>
                             </a>
                         </li>
@@ -296,7 +296,7 @@
             $.ajax({
                 type: 'POST',
                 url: '/cart',
-                data: {product_id: "{{$product->id}}"},
+                data: {product_id: "{{ $product->id }}"},
                 success: function () {
                     location.href = '/cart';
                 }
