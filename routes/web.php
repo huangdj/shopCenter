@@ -33,9 +33,10 @@ Route::prefix('admin')->group(function () {
         });
         Route::resource('express', 'ExpressController'); // 物流管理
 
-        // 评价管理
-
-
+        Route::prefix('appraises')->group(function () {
+            Route::patch('is_something', 'AppraiseController@is_something')->name('appraises.is_something');
+        });
+        Route::resource('appraises', 'AppraiseController')->only('index', 'destroy'); // 评价管理
         Route::prefix('orders')->group(function () {
             Route::get('reminds', 'OrderController@reminds');  // 订单提醒
             Route::patch('picking', 'OrderController@picking'); // 配货

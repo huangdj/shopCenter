@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppraiseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/appraise/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/appraise.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/appraise.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Appraise.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Appraise.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,18 +160,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/wechat/order" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/appraise" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/appraise" />
       <recent name="$PROJECT_DIR$/resources/views/wechat/order" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/resources/views/admin/order" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/wechat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/wechat/order" />
@@ -222,7 +224,7 @@
       <workItem from="1611833555957" duration="2777000" />
       <workItem from="1611928538613" duration="4113000" />
       <workItem from="1612012752186" duration="12243000" />
-      <workItem from="1612069178555" duration="30458000" />
+      <workItem from="1612069178555" duration="33315000" />
     </task>
     <servers />
   </component>

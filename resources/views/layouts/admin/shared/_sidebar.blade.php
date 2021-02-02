@@ -51,6 +51,11 @@
                     <span class="am-icon-first-order"></span> 订单管理
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.appraises.index') }}" class="{{ $_appraise ?? '' }}">
+                    <span class="am-icon-commenting-o"></span> 评价管理
+                </a>
+            </li>
         </ul>
     </div>
 </div>

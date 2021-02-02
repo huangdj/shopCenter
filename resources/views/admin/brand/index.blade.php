@@ -14,7 +14,7 @@
         <div class="page-body">
             <div class="am-g">
                 <form action="" class="am-form am-form-horizontal">
-                    <div class="am-u-sm-12 am-u-md-3">
+                    <div class="am-u-sm-12 am-u-md-6">
                         <div class="am-form-group">
                             <label class="am-u-sm-3 am-form-label">按名称</label>
                             <div class="am-u-sm-9">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
 
-                    <div class="am-u-sm-12 am-u-md-9">
+                    <div class="am-u-sm-12 am-u-md-6">
                         <div class="am-form-group search-buttons">
                             <button class="am-btn am-btn-primary" type="submit">查 询</button>
                             <button class="am-btn am-btn-default" type="button"
