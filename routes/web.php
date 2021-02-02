@@ -56,8 +56,9 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
 
     Route::prefix('product')->group(function () {
         Route::get('category', 'ProductController@category'); //商品分类
-        Route::get('{id}', 'ProductController@show'); //商品详情
         Route::get('/', 'ProductController@index'); //商品列表
+        Route::get('appraise/{id}', 'ProductController@appraise'); //评价列表
+        Route::get('{id}', 'ProductController@show'); //商品详情
     });
 
     //购物车

@@ -120,13 +120,13 @@
 {{--        <img src="/vendor/wechat/images/more.png">--}}
 {{--    </div>--}}
 {{--</div>--}}
-{{--<div class="clear"></div>--}}
-{{--<div class="kbox"></div>--}}
+<div class="clear"></div>
+<div class="kbox"></div>
 <a name="m3">
     <div class="xqpj">
         <div class="xqpjtit">
             <div class="xqbox2L">
-                <span>商品评价(99)</span>
+                <span>商品评价({{ $total_num }})</span>
             </div>
             <div class="xqbox2R">
                 <img src="/vendor/wechat/images/more.png">
@@ -134,19 +134,20 @@
         </div>
         <div class="xqpjbox">
             <div class="pj1">
-                <img src="/vendor/wechat/images/tx.png"/>
-                <span>喵星人</span>
+                <img src="{{ $appraise->customer->headimgurl }}"/>
+                <span>{{ $appraise->customer->nickname }}</span>
             </div>
-            <div class="pj2">收到了，费了老大劲才穿上，但是非常合身，效果特别好，家里人都说很美，太棒了，五分好评。</div>
-            <div class="pj3">2015-12-28 颜色：白色 尺码：S</div>
+            <div class="pj2">{{ $appraise->content }}</div>
+            <img src="{{ $appraise->image }}" style="width: 3rem;height: 3rem;margin-top: 10px;">
+            <div class="pj3">{{ $appraise->created_at->format('Y-m-d') }}</div>
         </div>
         <div class="morepj">
-            <a href="pingjialist.html">查看更多评价</a>
+            <a href="/product/appraise/{{ $product->id }}">查看更多评价</a>
         </div>
     </div>
 </a>
-{{--<div class="clear"></div>--}}
-{{--<div class="kbox"></div>--}}
+<div class="clear"></div>
+<div class="kbox"></div>
 <div class="clear"></div>
 <div class="kbox"></div>
 <div class="xgtj">

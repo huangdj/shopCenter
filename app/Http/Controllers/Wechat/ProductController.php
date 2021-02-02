@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appraise;
 use App\Models\Category;
 use App\Models\Collection;
 use Illuminate\Http\Request;
@@ -51,6 +52,21 @@ class ProductController extends Controller
 
         // 相关推荐
         $recommends = Product::where('is_onsale', true)->where('is_recommend', 'true')->where('id', '<>', $id)->take(4)->get();
-        return view('wechat.product.show', compact('product', 'collection', 'products', 'recommends'));
+
+        // 商品评价
+        $appraise = Appraise::where('product_id', $id)->where('is_show', true)->orderBy('id', 'desc')->first();
+
+        // 商品评价总数
+        $total_num = Appraise::where('product_id', $id)->where('is_show', true)->count();
+        return view('wechat.product.show', compact('product', 'collection', 'products', 'recommends', 'appraise', 'total_num'));
+    }
+
+    /***
+     * 评价列表
+     */
+    public function appraise($id)
+    {
+        $appraises = Appraise::where('product_id', $id)->where('is_show', true)->orderBy('id', 'desc')->get();
+        return view('wechat.product.appraise', compact('appraises'));
     }
 }
