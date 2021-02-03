@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.products.index') }}" class="{{ $_productList ?? '' }}">
-                            <span class="am-icon-product-hunt"></span> 商品管理
+                            <span class="am-icon-product-hunt"></span> 商品列表
                         </a>
                     </li>
                 </ul>

@@ -91,7 +91,6 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
         Route::get('get_money', 'OrderController@get_money'); // 获取最低下单金额
         Route::get('pay_success', 'OrderController@pay_success'); // 支付成功页面
 
-
         Route::get('pay/{id}', 'OrderController@pay');
         Route::get('{id}', 'OrderController@show');  //
         Route::get('received/{id}', 'OrderController@received');  // 待收货

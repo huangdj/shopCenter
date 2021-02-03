@@ -73,6 +73,23 @@
                                 </div>
                             </div>
 
+                            <div class="am-form-group">
+                                <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">选择主题</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                    <select
+                                        data-am-selected="{btnWidth: '100%', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                        name="theme_id">
+                                        <option value="">请选择</option>
+                                        @foreach ($themes as $theme)
+                                            <option value="{{$theme->id}}">
+                                                {{$theme->name}}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="am-g am-margin-top">
                                 <div class="am-u-sm-12 am-u-md-3 am-form-label">
                                     缩略图

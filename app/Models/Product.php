@@ -16,6 +16,12 @@ class Product extends Model
         return $this->belongsTo('App\Models\Brand');
     }
 
+    // 商品属于主题
+    public function theme()
+    {
+        return $this->belongsTo('App\Models\Theme');
+    }
+
     //商品可以属于多个分类
     public function categories()
     {
@@ -61,7 +67,7 @@ class Product extends Model
             }
         };
 
-        $products = Product::with('categories', 'brand')
+        $products = Product::with('categories', 'brand', 'theme')
             ->where($where)
             ->orderBy('created_at', "desc")
             ->paginate(config('admin.page_size'));

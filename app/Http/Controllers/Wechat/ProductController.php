@@ -21,6 +21,10 @@ class ProductController extends Controller
             if ($request->has('brand_id') and $request->brand_id != '') {
                 $query->where('brand_id', $request->brand_id);
             }
+
+            if ($request->has('theme_id') and $request->theme_id != '') {
+                $query->where('theme_id', $request->theme_id);
+            }
         };
         $products = Product::where($where)->orderBy('is_top', "desc")->orderBy('created_at')->get();
         return view('wechat.product.index', compact('products'));

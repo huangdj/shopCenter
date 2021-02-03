@@ -62,47 +62,55 @@
 <div class="kbox"></div>
 <div class="likebox">
     <ul>
-
-        @foreach($products as $product)
-            <li>
-                <a href="/product/{{ $product->id }}">
-                    <img src="{{ $product->image }}" class="proimg"/>
-                    <p class="tit">{{ $product->name }}</p>
-                    <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span><img class="add_cart"
-                            src="/vendor/wechat/images/f3.png"/></p>
-                </a>
-            </li>
-        @endforeach
+        @if($products)
+            @foreach($products as $product)
+                <li data-id="{{ $product->id }}">
+                    <a href="/product/{{ $product->id }}">
+                        <img src="{{ $product->image }}" class="proimg"/>
+                        <p class="tit">{{ $product->name }}</p>
+                        <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span><img
+                                class="add_cart"
+                                src="/vendor/wechat/images/f3.png"/></p>
+                    </a>
+                </li>
+            @endforeach
+        @else
+            <li>暂无数据........</li>
+        @endif
     </ul>
 </div>
 <div class="shoplist" style="display:none">
     <ul>
-
-        @foreach($products as $product)
-            <li>
-                <a href="/product/{{ $product->id }}">
-                    <div class="listL"><img src="{{ $product->image }}"/></div>
-                    <div class="listR">
-                        <div class="v1">{{ $product->name }}</div>
-                        <div class="v2"><span>包邮</span></div>
-                        <div class="v3">
-                            <p class="p1">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span></p>
-                            <p class="p2">364人付款</p>
+        @if($products)
+            @foreach($products as $product)
+                <li>
+                    <a href="/product/{{ $product->id }}">
+                        <div class="listL"><img src="{{ $product->image }}"/></div>
+                        <div class="listR">
+                            <div class="v1">{{ $product->name }}</div>
+                            <div class="v2"><span>包邮</span></div>
+                            <div class="v3">
+                                <p class="p1">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span></p>
+                                <p class="p2">364人付款</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </li>
-        @endforeach
+                    </a>
+                </li>
+            @endforeach
+        @else
+            <li>暂无数据........</li>
+        @endif
     </ul>
 </div>
 
 <script type="text/javascript">
     $(function () {
         $('.add_cart').click(function () {
+            var product_id = $(this).parents('li').data('id')
             $.ajax({
                 type: 'POST',
                 url: '/cart',
-                data: {product_id: "{{$product->id}}"},
+                data: {product_id: product_id},
                 success: function () {
                     location.href = '/cart';
                 }

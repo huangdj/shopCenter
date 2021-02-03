@@ -170,46 +170,28 @@
         <i>太热门啦，要挤爆了</i>
     </div>
     <div class="hotM_4">
-        <div class="hotM_4L">
+        <div class="hotM_4L" onclick="location.href='/product?theme_id={{$left_theme->id}}'">
             <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/12.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
+                style="width:100%; height:100%;background-image:url({{ $left_theme->image }}); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
         </div>
         <div class="hotM_4R">
-            <div class="hotM_4R_1">
-                <div
-                    style="width:100%; height:100%;background-image:url(/vendor/wechat/images/13.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-            </div>
-            <div class="hotM_4R_1 br">
-                <div
-                    style="width:100%; height:100%;background-image:url(/vendor/wechat/images/14.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-            </div>
-            <div class="hotM_4R_1">
-                <div
-                    style="width:100%; height:100%;background-image:url(/vendor/wechat/images/15.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-            </div>
-            <div class="hotM_4R_1 br">
-                <div
-                    style="width:100%; height:100%;background-image:url(/vendor/wechat/images/16.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-            </div>
+
+            @foreach($right_themes as $right_theme)
+                <div class="hotM_4R_1" onclick="location.href='/product?theme_id={{$right_theme->id}}'">
+                    <div
+                        style="width:100%; height:100%;background-image:url({{ $right_theme->image }}); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
+                </div>
+            @endforeach
         </div>
     </div>
     <div class="hotM_5">
-        <div class="hotM_5L">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/17.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_5L">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/18.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_5L">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/19.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
-        <div class="hotM_5L br">
-            <div
-                style="width:100%; height:100%;background-image:url(/vendor/wechat/images/20.png); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
-        </div>
+
+        @foreach($bottom_themes as $bottom_theme)
+            <div class="hotM_5L" onclick="location.href='/product?theme_id={{$bottom_theme->id}}'">
+                <div
+                    style="width:100%; height:100%;background-image:url({{ $bottom_theme->image }}); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
+            </div>
+        @endforeach
     </div>
 </div>
 <div class="clear"></div>

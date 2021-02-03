@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\ProductParame;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
@@ -19,6 +20,7 @@ class ProductController extends Controller
             '_productList' => 'am-active',
             'categories' => Category::get_categories(),
             'brands' => Brand::orderBy('id', 'desc')->get(),
+            'themes' => Theme::all(),
             'filter_categories' => Category::filter_categories()
         ]);
     }
@@ -70,7 +72,6 @@ class ProductController extends Controller
         for ($i = 0; $i < $count; $i++) {
             $array[] = ['parame_name' => $parame_names[$i], 'parame_value' => $parame_values[$i]];
         }
-//        return $array;
 
         //通过循环插入
         foreach ($array as $k => $v) {

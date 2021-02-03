@@ -7,6 +7,7 @@ use App\Models\Advert;
 use App\Models\Brand;
 use App\Models\Notice;
 use App\Models\Product;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,12 +35,18 @@ class HomeController extends Controller
         $is_show_brand = Brand::where('is_show', true)->first();
         $brands = Brand::where('is_show', false)->get();
 
+        // 热门主题
+        $left_theme = Theme::where('is_left', true)->first();
+        $right_themes = Theme::where('is_right', true)->get();
+        $bottom_themes = Theme::where('is_bottom', true)->get();
+
         // 所有商品
         $products = Product::where('is_onsale', true)->orderBy('created_at', 'desc')->take(4)->get();
 
         // 所有商品数量
         $total = Product::where('is_onsale', true)->count();
-        return view('wechat.index', compact('adverts', 'notice', 'banner', 'products', 'is_show_brand', 'brands', 'total'));
+        return view('wechat.index', compact('adverts', 'notice', 'banner', 'products', 'is_show_brand',
+            'brands', 'total', 'left_theme', 'right_themes', 'bottom_themes'));
     }
 
     /***
