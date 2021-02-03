@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appraise;
+use App\Models\Config;
 use App\Models\OrderRemind;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -72,6 +73,15 @@ class OrderController extends Controller
         $address = Address::find(session('wechat.customer.address_id'));
 
         return view('wechat.order.checkout', compact('carts', 'count', 'address'));
+    }
+
+    /***
+     * 获取最低下单金额
+     */
+    public function get_money()
+    {
+        $money = Config::select('money')->find(1);
+        return $money;
     }
 
     /***
@@ -183,7 +193,8 @@ class OrderController extends Controller
                 'total_price' => $total_price,
                 'out_trade_no' => Order::make_orderNo(),
                 'message' => $request->message,
-                'status' => 1
+                'status' => 1,
+                'pay_type' => $request->pay_type
             ]);
 
             //订单地址
@@ -242,4 +253,8 @@ class OrderController extends Controller
     }
 
 
+    public function pay_success()
+    {
+        return view('wechat.order.pay_success');
+    }
 }

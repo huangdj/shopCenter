@@ -73,6 +73,12 @@
                     </li>
                 </ul>
             </li>
+
+            <li>
+                <a href="{{ route('admin.config.setting') }}" class="{{ $_setting ?? '' }}">
+                    <span class="am-icon-gear am-icon-spin"></span> 系统设置
+                </a>
+            </li>
         </ul>
     </div>
 </div>

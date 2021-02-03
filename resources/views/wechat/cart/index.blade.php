@@ -159,7 +159,7 @@
 
 @include('layouts.wechat.shared._footer')
 
-<script>
+<script type="text/javascript">
     $(function () {
         //删除
         $(".del").click(function () {

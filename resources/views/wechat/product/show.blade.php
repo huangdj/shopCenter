@@ -132,18 +132,25 @@
                 <img src="/vendor/wechat/images/more.png">
             </div>
         </div>
-        <div class="xqpjbox">
-            <div class="pj1">
-                <img src="{{ $appraise->customer->headimgurl }}"/>
-                <span>{{ $appraise->customer->nickname }}</span>
+
+        @if($appraise)
+            <div class="xqpjbox">
+                <div class="pj1">
+                    <img src="{{ $appraise->customer->headimgurl }}"/>
+                    <span>{{ $appraise->customer->nickname }}</span>
+                </div>
+                <div class="pj2">{{ $appraise->content }}</div>
+                <img src="{{ $appraise->image }}" style="width: 3rem;height: 3rem;margin-top: 10px;">
+                <div class="pj3">{{ $appraise->created_at->format('Y-m-d') }}</div>
             </div>
-            <div class="pj2">{{ $appraise->content }}</div>
-            <img src="{{ $appraise->image }}" style="width: 3rem;height: 3rem;margin-top: 10px;">
-            <div class="pj3">{{ $appraise->created_at->format('Y-m-d') }}</div>
-        </div>
-        <div class="morepj">
-            <a href="/product/appraise/{{ $product->id }}">查看更多评价</a>
-        </div>
+            <div class="morepj">
+                <a href="/product/appraise/{{ $product->id }}">查看更多评价</a>
+            </div>
+        @else
+            <div class="morepj">
+                <a href="javascript:;">该商品暂无评价</a>
+            </div>
+        @endif
     </div>
 </a>
 <div class="clear"></div>

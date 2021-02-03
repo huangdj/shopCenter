@@ -44,6 +44,9 @@ Route::prefix('admin')->group(function () {
             Route::patch('finish', 'OrderController@finish');  // 交易成功
         });
         Route::resource('orders', 'OrderController'); // 订单管理
+
+        Route::get('setting', 'ConfigController@setting')->name('config.setting');
+        Route::put('setting_update', 'ConfigController@setting_update')->name('config.setting_update');
     });
 });
 
@@ -85,6 +88,8 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
         Route::patch('finished', 'OrderController@finished'); // 确认收货
         Route::post('submit_appraise', 'OrderController@submit_appraise'); // 提交评价
         Route::get('appraise_success', 'OrderController@appraise_success'); // 加载评价成功页面
+        Route::get('get_money', 'OrderController@get_money'); // 获取最低下单金额
+        Route::get('pay_success', 'OrderController@pay_success'); // 支付成功页面
 
 
         Route::get('pay/{id}', 'OrderController@pay');

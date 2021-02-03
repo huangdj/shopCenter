@@ -102,20 +102,20 @@
 </div>
 <div class="clear"></div>
 <div class="kbox"></div>
-{{--<div class="jsyhq">--}}
-{{--    <div class="jsyhq_1">--}}
-{{--        <p class="p1">优惠券</p>--}}
-{{--        <p class="p2">无可用</p>--}}
-{{--    </div>--}}
-{{--    <div class="jsyhq_2">--}}
-{{--        <div class="jsjfL">--}}
-{{--            <p>积分抵用<span>共150积分，可抵1.5元</span></p>--}}
-{{--        </div>--}}
-{{--        <div class="jsjfR">--}}
-{{--            <div class="gwccheck"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="jsyhq">
+    {{--    <div class="jsyhq_1">--}}
+    {{--        <p class="p1">优惠券</p>--}}
+    {{--        <p class="p2">无可用</p>--}}
+    {{--    </div>--}}
+    <div class="jsyhq_2">
+        <div class="jsjfL">
+            <p>货到付款：<span>先送货，后付款</span></p>
+        </div>
+        <div class="jsjfR">
+            <div class="gwccheck"></div>
+        </div>
+    </div>
+</div>
 <div class="fbox2"></div>
 <div class="hejiBox jiesuan">
     <div class="heji">
@@ -126,35 +126,72 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
     $(function () {
         $("#pay").click(function () {
-            var address_id = $("#address").data('id');
-            var message = $("#message").val()
-            if (address_id == '') {
-                alert('请先填写一个送货地址~');
-                return false;
-            }
+            // 判断下单金额
+            $.get("/order/get_money", function (data) {
+                var total_money = data.money
+                var total_price = "{{$count['total_price']}}"
+                if (total_price < total_money) {
+                    alert("您的购物金额需满" + total_money + "元，才能下单")
+                    return false
+                }
 
-            $.ajax({
-                type: 'POST',
-                url: '/order',
-                data: {address_id: address_id, message: message},
-                dataType: 'json',
-                success: function (data) {
-                    if (data.status == '0') {
+                var address_id = $("#address").data('id');
+                var message = $("#message").val()
+                if (address_id == '') {
+                    alert('请先填写一个送货地址~');
+                    return false;
+                }
 
-                        if (data.info != '') {
-                            alert(data.info);
+                // 是否选中货到付款
+                var element = document.querySelector(".gwccheck")
+                var str = element.getAttribute("class").indexOf('on') != -1
+                if (str == true) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/order',
+                        data: {address_id: address_id, message: message, pay_type: 2},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.status == '0') {
+
+                                if (data.info != '') {
+                                    alert(data.info);
+                                }
+
+                                location.href = '/cart';
+                                return false;
+                            }
+
+                            //直接跳转到支付成功页面
+                            location.href = '/order/pay_success';
+                        }
+                    })
+                    return false
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/order',
+                    data: {address_id: address_id, message: message, pay_type: 1},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status == '0') {
+
+                            if (data.info != '') {
+                                alert(data.info);
+                            }
+
+                            location.href = '/cart';
+                            return false;
                         }
 
-                        location.href = '/cart';
-                        return false;
+                        //微信支付
+                        location.href = '/order/pay/' + data.order_id;
                     }
-
-                    //微信支付
-                    location.href = '/order/pay/' + data.order_id;
-                }
+                })
             })
         })
     })
