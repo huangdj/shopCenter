@@ -12,6 +12,7 @@ class CategoryController extends Controller
     public function __construct()
     {
         view()->share([
+            '_product' => 'am-in',
             '_category' => 'am-active',
             'categories' => Category::get_categories()
         ]);

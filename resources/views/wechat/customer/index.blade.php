@@ -65,7 +65,7 @@
             </a>
         </li>
         <li>
-            <a href="allDd.html">
+            <a href="/order">
                 <p class="p1">{{ $order_num }}</p>
                 <p class="p2">订单数量</p>
             </a>
@@ -152,13 +152,13 @@
 <div class="mypart3">
     <ul>
         <li>
-            <a href="quanNews1.html">
+            <a href="javascript:;">
                 <img src="/vendor/wechat/images/my7.png"/>
                 <p>我的优惠券</p>
             </a>
         </li>
         <li>
-            <a href="addressGL.html">
+            <a href="/address">
                 <img src="/vendor/wechat/images/my8.png"/>
                 <p>收获地址</p>
             </a>
@@ -170,7 +170,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void()">
+            <a href="tel:13419566683">
                 <img src="/vendor/wechat/images/my10.png"/>
                 <p>我的客服</p>
             </a>

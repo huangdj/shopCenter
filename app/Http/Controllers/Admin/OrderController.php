@@ -13,7 +13,8 @@ class OrderController extends Controller
     public function __construct()
     {
         view()->share([
-            '_order' => 'am-active',
+            '_order' => 'am-in',
+            '_orderList' => 'am-active',
             'order_status' => config('admin.order_status')
         ]);
     }
@@ -132,7 +133,7 @@ class OrderController extends Controller
      */
     public function reminds()
     {
-        view()->share(['_reminds' => 'am-active', '_order' => '']);
+        view()->share(['_reminds' => 'am-active', '_order' => 'am-in', '_orderList' => '']);
         $reminds = OrderRemind::with('order.customer')->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
         return view('admin.order.remind', compact('reminds'));
     }

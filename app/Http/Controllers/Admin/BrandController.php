@@ -12,6 +12,7 @@ class BrandController extends Controller
     public function __construct()
     {
         view()->share([
+            '_product' => 'am-in',
             '_brand' => 'am-active',
         ]);
     }

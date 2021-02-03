@@ -12,46 +12,46 @@
         @include('layouts.admin.shared._flash')
 
         <div class="page-body">
-            <div class="am-g">
-                <form action="" class="am-form am-form-horizontal">
-                    <div class="am-u-sm-12 am-u-md-3">
-                        <div class="am-form-group">
-                            <label for="title" class="am-u-sm-4 am-form-label">按订单号</label>
-                            <div class="am-u-sm-8">
-                                <input type="text" name="name" placeholder="请输入名称" value="{{ Request::input('name') }}">
-                            </div>
-                        </div>
-                    </div>
+{{--            <div class="am-g">--}}
+{{--                <form action="" class="am-form am-form-horizontal">--}}
+{{--                    <div class="am-u-sm-12 am-u-md-3">--}}
+{{--                        <div class="am-form-group">--}}
+{{--                            <label for="title" class="am-u-sm-4 am-form-label">按订单号</label>--}}
+{{--                            <div class="am-u-sm-8">--}}
+{{--                                <input type="text" name="name" placeholder="请输入订单号" value="{{ Request::input('name') }}">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="am-u-sm-12 am-u-md-3">
-                        <div class="am-form-group">
-                            <label for="title" class="am-u-sm-4 am-form-label">会员昵称</label>
-                            <div class="am-u-sm-8">
-                                <input type="text" name="name" placeholder="请输入名称" value="{{ Request::input('name') }}">
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="am-u-sm-12 am-u-md-3">--}}
+{{--                        <div class="am-form-group">--}}
+{{--                            <label for="title" class="am-u-sm-4 am-form-label">会员昵称</label>--}}
+{{--                            <div class="am-u-sm-8">--}}
+{{--                                <input type="text" name="name" placeholder="请输入名称" value="{{ Request::input('name') }}">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="am-u-sm-12 am-u-md-3">
-                        <div class="am-form-group">
-                            <label for="category_id" class="am-u-sm-4 am-form-label">按日期</label>
-                            <div class="am-u-sm-8">
-                                <input type="text" id="created_at" placeholder="选择时间日期" name="created_at"
-                                       value="{{ Request::input('created_at') }}" class="am-form-field am-input-sm"/>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="am-u-sm-12 am-u-md-3">--}}
+{{--                        <div class="am-form-group">--}}
+{{--                            <label for="category_id" class="am-u-sm-4 am-form-label">按日期</label>--}}
+{{--                            <div class="am-u-sm-8">--}}
+{{--                                <input type="text" id="created_at" placeholder="选择时间日期" name="created_at"--}}
+{{--                                       value="{{ Request::input('created_at') }}" class="am-form-field am-input-sm"/>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="am-u-sm-12 am-u-md-3">
-                        <div class="am-form-group search-buttons">
-                            <button class="am-btn am-btn-primary" type="submit">查 询</button>
-                            <button class="am-btn am-btn-default" type="button"
-                                    onclick="location.href='/admin/appraises'">重 置
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+{{--                    <div class="am-u-sm-12 am-u-md-3">--}}
+{{--                        <div class="am-form-group search-buttons">--}}
+{{--                            <button class="am-btn am-btn-primary" type="submit">查 询</button>--}}
+{{--                            <button class="am-btn am-btn-default" type="button"--}}
+{{--                                    onclick="location.href='/admin/appraises'">重 置--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
 
             <div class="am-g am-g-collapse">
                 <div class="am-u-sm-12">
@@ -66,6 +66,7 @@
                                 <th class="table-type">评论内容</th>
                                 <th class="table-type">评论图片</th>
                                 <th class="table-type">是否显示</th>
+                                <th class="table-type">评价时间</th>
                                 <th class="table-set">操作</th>
                             </tr>
                             </thead>
@@ -88,6 +89,7 @@
                                             <span class="am-icon-close is_something"></span>
                                         @endif
                                     </td>
+                                    <td>{{ $appraise->created_at->format('Y年m月d日') }}</td>
                                     <td>
                                         <a href="{{route('admin.appraises.destroy', $appraise->id)}}" data-method="delete"
                                            data-token="{{csrf_token()}}" data-confirm="确认删除吗?">删除</a>

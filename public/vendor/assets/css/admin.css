@@ -664,7 +664,7 @@ gallery.html css
 }
 
 .page-body {
-    margin: 24px 0px 0;
+    /*margin: 24px 0px 0;*/
     padding: 24px 16px;
     background-color: #fff;
     border-radius: 2px;
@@ -672,12 +672,12 @@ gallery.html css
     transition: all 0.3s;
 }
 
-@media only screen and (min-width: 641px) {
-    .page-body {
-        margin: 24px 24px 0;
-        padding: 24px 32px;
-    }
-}
+/*@media only screen and (min-width: 641px) {*/
+/*    .page-body {*/
+/*        margin: 24px 24px 0;*/
+/*        padding: 24px 32px;*/
+/*    }*/
+/*}*/
 
 .am-pagination > .am-active > a, .am-pagination > .am-active > a:focus, .am-pagination > .am-active > a:hover, .am-pagination > .am-active > span, .am-pagination > .am-active > span:focus, .am-pagination > .am-active > span:hover {
     border-color: #1f99b0;

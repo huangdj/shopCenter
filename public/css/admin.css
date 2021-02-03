@@ -1,5 +1,6 @@
 .thumb {
-    max-height: 60px;
+    height: 50px;
+    width: 70px;
 }
 
 .am-icon-close {

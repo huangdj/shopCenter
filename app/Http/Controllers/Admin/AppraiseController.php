@@ -11,6 +11,7 @@ class AppraiseController extends Controller
     public function __construct()
     {
         view()->share([
+            '_order' => 'am-in',
             '_appraise' => 'am-active',
         ]);
     }
@@ -20,9 +21,15 @@ class AppraiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $appraises = Appraise::with('customer')->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
+        $where = function ($query) use ($request) {
+            if ($request->has('keyword') and $request->keyword != '') {
+                $search = "%" . $request->keyword . "%";
+                $query->where('name', 'like', $search);
+            }
+        };
+        $appraises = Appraise::with('customer')->orderBy('id', 'desc')->paginate(config('admin.page_size'));
         return view('admin.appraise.index', compact('appraises'));
     }
 

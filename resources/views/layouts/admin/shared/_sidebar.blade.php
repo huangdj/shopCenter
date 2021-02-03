@@ -6,24 +6,33 @@
                     <span class="am-icon-dashboard"></span> Dashboard
                 </a>
             </li>
-            <li>
-                <a href="{{ route('admin.brands.index') }}" class="{{ $_brand ?? '' }}">
-                    <span class="am-icon-apple"></span> 商品品牌
+
+            <li class="admin-parent">
+                <a class="am-cf" data-am-collapse="{target: '#collapse-product'}">
+                    <span class="am-icon-shopping-cart"></span>
+                    商品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.categories.index') }}" class="{{ $_category ?? '' }}">
-                    <span class="am-icon-calendar"></span> 商品分类
-                </a>
+                <ul class="am-list am-collapse admin-sidebar-sub {{ $_product ?? '' }}" id="collapse-product">
+                    <li>
+                        <a href="{{ route('admin.brands.index') }}" class="{{ $_brand ?? '' }}">
+                            <span class="am-icon-apple"></span> 商品品牌
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.categories.index') }}" class="{{ $_category ?? '' }}">
+                            <span class="am-icon-calendar"></span> 商品分类
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.products.index') }}" class="{{ $_productList ?? '' }}">
+                            <span class="am-icon-product-hunt"></span> 商品管理
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="{{ route('admin.themes.index') }}" class="{{ $_theme ?? '' }}">
                     <span class="am-icon-themeisle"></span> 主题管理
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.products.index') }}" class="{{ $_product ?? '' }}">
-                    <span class="am-icon-product-hunt"></span> 商品管理
                 </a>
             </li>
             <li>
@@ -41,20 +50,28 @@
                     <span class="am-icon-truck"></span> 物流管理
                 </a>
             </li>
-            <li>
-                <a href="/admin/orders/reminds" class="{{ $_reminds ?? '' }}">
-                    <span class="am-icon-hand-o-right"></span> 订单提醒
+            <li class="admin-parent">
+                <a class="am-cf" data-am-collapse="{target: '#collapse-order'}">
+                    <span class="am-icon-shopping-cart"></span>
+                    订单管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.orders.index') }}" class="{{ $_order ?? '' }}">
-                    <span class="am-icon-first-order"></span> 订单管理
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.appraises.index') }}" class="{{ $_appraise ?? '' }}">
-                    <span class="am-icon-commenting-o"></span> 评价管理
-                </a>
+                <ul class="am-list am-collapse admin-sidebar-sub {{ $_order ?? '' }}" id="collapse-order">
+                    <li>
+                        <a href="/admin/orders/reminds" class="{{ $_reminds ?? '' }}">
+                            <span class="am-icon-volume-up"></span> 订单提醒
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.orders.index') }}" class="{{ $_orderList ?? '' }}">
+                            <span class="am-icon-list-ul"></span> 订单列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.appraises.index') }}" class="{{ $_appraise ?? '' }}">
+                            <span class="am-icon-commenting-o"></span> 订单评价
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

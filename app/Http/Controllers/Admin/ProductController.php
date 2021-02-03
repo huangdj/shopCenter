@@ -15,7 +15,8 @@ class ProductController extends Controller
     public function __construct()
     {
         view()->share([
-            '_product' => 'am-active',
+            '_product' => 'am-in',
+            '_productList' => 'am-active',
             'categories' => Category::get_categories(),
             'brands' => Brand::orderBy('id', 'desc')->get(),
             'filter_categories' => Category::filter_categories()
