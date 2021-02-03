@@ -116,3 +116,12 @@ function time_format($attr, $datetime)
     }
     return date($attr, strtotime($datetime));
 }
+
+
+//显示分类对应商品
+function show_category_products($category)
+{
+    if (!$category->products->isEmpty()) {
+        return '<a class="am-badge am-badge-secondary" href="' . route('admin.products.index', ['category_id' => $category->id]) . '">查看商品</a>';
+    }
+}

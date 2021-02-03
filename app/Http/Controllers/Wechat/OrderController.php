@@ -253,6 +253,10 @@ class OrderController extends Controller
     }
 
 
+    /***
+     * 货到付款下单成功页面
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function pay_success()
     {
         return view('wechat.order.pay_success');

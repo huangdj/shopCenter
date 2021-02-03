@@ -68,7 +68,7 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$child->name}}
                                         </td>
                                         <td class="am-hide-sm-only">无</td>
-                                        <td class="am-hide-sm-only">查看商品</td>
+                                        <td class="am-hide-sm-only">{!! show_category_products($child) !!}</td>
                                         <td>
                                             <a href="{{route('admin.categories.edit', $child->id)}}">编辑</a>
                                             <div class="divider divider-vertical"></div>
