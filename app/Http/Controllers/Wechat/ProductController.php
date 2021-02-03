@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Appraise;
 use App\Models\Category;
 use App\Models\Collection;
+use App\Models\Searche;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -24,6 +25,24 @@ class ProductController extends Controller
 
             if ($request->has('theme_id') and $request->theme_id != '') {
                 $query->where('theme_id', $request->theme_id);
+            }
+            // 按搜索关键词
+            if ($request->has('keyword')) {
+                if ($request->has('keyword') and $request->keyword != '') {
+                    // 判断当前搜索的关键词是否存在，若存在，增加搜索次数
+                    $info = Searche::where('keyword', $request->keyword)->first();
+                    if ($info) {
+                        Searche::where('keyword', $request->keyword)->where('customer_id', session('wechat.customer.id'))->increment('total_count');
+                        return;
+                    }
+                    // 把提交过来的数据存入数据库
+                    Searche::create([
+                        'customer_id' => session('wechat.customer.id'),
+                        'keyword' => $request->keyword
+                    ]);
+                    $search = "%" . $request->keyword . "%";
+                    $query->where('name', 'like', $search);
+                }
             }
         };
         $products = Product::where($where)->orderBy('is_top', "desc")->orderBy('created_at')->get();

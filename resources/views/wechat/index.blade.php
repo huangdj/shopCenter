@@ -18,7 +18,7 @@
 <body>
 <div class="topssbox1">
     <div class="topss">
-        <a href="seacher.html">
+        <a href="/search">
             <div class="topssbox">
                 <img src="/vendor/wechat/images/s.png"/>
             </div>

@@ -7,6 +7,7 @@ use App\Models\Advert;
 use App\Models\Brand;
 use App\Models\Notice;
 use App\Models\Product;
+use App\Models\Searche;
 use App\Models\Theme;
 use Illuminate\Http\Request;
 
@@ -60,5 +61,26 @@ class HomeController extends Controller
         $num = 4;
         $products = Product::where('is_onsale', true)->skip($page)->limit($page, $num)->orderBy('created_at', 'desc')->get();
         return $products;
+    }
+
+    /***
+     * 加载搜索页面
+     */
+    public function search()
+    {
+        // 最近搜索
+        $least_words = Searche::where('customer_id', session('wechat.customer.id'))->orderBy('id', 'desc')->take(10)->get();
+
+        // 热门搜索---根据搜索次数从高到低显示
+        $hot_words = Searche::orderBy('total_count', 'desc')->get();
+        return view('wechat.search', compact('least_words', 'hot_words'));
+    }
+
+    /***
+     * 删除搜索记录
+     */
+    public function del_search()
+    {
+        Searche::where('customer_id', session('wechat.customer.id'))->delete();
     }
 }

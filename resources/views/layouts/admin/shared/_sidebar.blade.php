@@ -9,7 +9,7 @@
 
             <li class="admin-parent">
                 <a class="am-cf" data-am-collapse="{target: '#collapse-product'}">
-                    <span class="am-icon-shopping-cart"></span>
+                    <span class="am-icon-reorder"></span>
                     商品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </a>
                 <ul class="am-list am-collapse admin-sidebar-sub {{ $_product ?? '' }}" id="collapse-product">
@@ -74,6 +74,11 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="{{ route('admin.config.setting') }}" class="{{ $_setting ?? '' }}">
+                    <span class="am-icon-user"></span> 会员管理
+                </a>
+            </li>
             <li>
                 <a href="{{ route('admin.config.setting') }}" class="{{ $_setting ?? '' }}">
                     <span class="am-icon-gear am-icon-spin"></span> 系统设置

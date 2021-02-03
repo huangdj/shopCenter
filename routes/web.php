@@ -56,6 +56,8 @@ Route::prefix('admin')->group(function () {
 Route::namespace('Wechat')->middleware('wechat')->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
     Route::post('get_products', 'HomeController@get_products'); // 加载更多
+    Route::get('search', 'HomeController@search'); // 首页搜索
+    Route::delete('del_search', 'HomeController@del_search'); // 删除搜索记录
 
     Route::prefix('product')->group(function () {
         Route::get('category', 'ProductController@category'); //商品分类
