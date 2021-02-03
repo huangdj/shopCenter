@@ -33,6 +33,8 @@ class ProductController extends Controller
                     $info = Searche::where('keyword', $request->keyword)->first();
                     if ($info) {
                         Searche::where('keyword', $request->keyword)->where('customer_id', session('wechat.customer.id'))->increment('total_count');
+                        $search = "%" . $request->keyword . "%";
+                        $query->where('name', 'like', $search);
                         return;
                     }
                     // 把提交过来的数据存入数据库

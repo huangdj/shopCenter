@@ -23,7 +23,7 @@
         <div class="headerC0">
             <form action="/product" id="search_form">
                 <div class="ssdiv">
-                    <input name="keyword" type="text"/>
+                    <input name="keyword" type="text" value="{{ Request::input('keyword') }}"/>
                     <a href="javascript:;" class="submit"><img src="/vendor/wechat/images/ss.png"/></a>
                 </div>
             </form>
