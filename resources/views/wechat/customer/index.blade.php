@@ -54,7 +54,7 @@
     <ul>
         <li>
             <a href="jifen.html">
-                <p class="p1">0</p>
+                <p class="p1">{{ $customer->points }}</p>
                 <p class="p2">我的积分</p>
             </a>
         </li>

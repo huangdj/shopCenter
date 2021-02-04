@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Wechat;
 use App\Http\Controllers\Controller;
 use App\Models\Appraise;
 use App\Models\Config;
+use App\Models\Customer;
 use App\Models\OrderRemind;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Address;
@@ -118,7 +120,9 @@ class OrderController extends Controller
      */
     public function finished(Request $request)
     {
-        Order::where('id', $request->id)->update(['status' => 5]);
+        $order = Order::find($request->id);
+        $order->update(['status' => 5, 'finish_time' => Carbon::now()]);
+        Customer::where('id', session('wechat.customer.id'))->increment('points', intval($order->total_price));
     }
 
     /***
