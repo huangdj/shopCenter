@@ -75,7 +75,7 @@
             </li>
 
             <li>
-                <a href="{{ route('admin.config.setting') }}" class="{{ $_setting ?? '' }}">
+                <a href="{{ route('admin.customers.index') }}" class="{{ $_customer ?? '' }}">
                     <span class="am-icon-user"></span> 会员管理
                 </a>
             </li>

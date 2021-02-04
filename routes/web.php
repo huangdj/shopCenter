@@ -45,6 +45,8 @@ Route::prefix('admin')->group(function () {
         });
         Route::resource('orders', 'OrderController'); // 订单管理
 
+        Route::resource('customers', 'CustomerController')->only('index'); // 会员管理
+
         Route::get('setting', 'ConfigController@setting')->name('config.setting');
         Route::put('setting_update', 'ConfigController@setting_update')->name('config.setting_update');
     });
