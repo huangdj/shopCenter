@@ -17,7 +17,7 @@
                     <span class="am-icon-users"></span> {{ucfirst(Auth::user()->name)}} 管理员 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="#"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <li><a href="{{ route('admin.change_password') }}"><span class="am-icon-cog"></span> 修改密码</a></li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="am-icon-power-off"></span> 安全退出</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

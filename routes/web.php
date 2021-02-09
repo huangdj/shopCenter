@@ -21,6 +21,8 @@ Route::prefix('admin')->group(function () {
 
     Route::namespace('Admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('/', 'HomeController@index')->name('home'); // 后台首页
+        Route::get('change_password', 'HomeController@change_password')->name('change_password');  //加载修改密码页面
+        Route::put('update_password', 'HomeController@update_password')->name('update_password');  //执行修改密码
 
         Route::resource('brands', 'BrandController'); // 品牌管理
         Route::resource('categories', 'CategoryController'); // 商品分类
