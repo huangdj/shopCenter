@@ -73,4 +73,19 @@ class Product extends Model
             ->paginate(config('admin.page_size'));
         return $products;
     }
+
+    public function order_products()
+    {
+        return $this->hasMany('App\Models\OrderProduct');
+    }
+
+    //检查当前商品是否有订单
+    static function check_orders($id)
+    {
+        $product = self::with('order_products')->find($id);
+        if ($product->order_products->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }

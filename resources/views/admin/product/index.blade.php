@@ -78,7 +78,7 @@
                                     onclick="location.href='/admin/products/create'"><span class="am-icon-plus"></span>
                                 新增
                             </button>
-                            <button type="button" class="am-btn am-btn-default">
+                            <button type="button" class="am-btn am-btn-default" id="destroy_checked">
                                 <span class="am-icon-trash-o"></span> 删除
                             </button>
                         </div>
@@ -94,7 +94,7 @@
                         <table class="am-table am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-check"><input type="checkbox"/></th>
+                                <th class="table-check"><input type="checkbox" id="checked"/></th>
                                 <th class="table-id">ID</th>
                                 <th class="table-title">缩略图</th>
                                 <th class="table-type">商品名称</th>
@@ -109,7 +109,7 @@
                                 <th class="am-hide-sm-only">热销</th>
                                 <th class="am-hide-sm-only">新品</th>
                                 <th class="am-hide-sm-only">有效期</th>
-                                <th class="am-hide-sm-only" style="width:6%">库存</th>
+                                <th class="am-hide-sm-only" style="width:7%">库存</th>
                                 <th class="table-date am-hide-sm-only">上架日期</th>
                                 <th class="table-set">操作</th>
                             </tr>
@@ -118,7 +118,8 @@
 
                             @foreach($products as $product)
                                 <tr>
-                                    <td><input type="checkbox"/></td>
+                                    <td><input type="checkbox" value="{{$product->id}}" class="checked_id"
+                                               name="checked_id[]"/></td>
                                     <td>{{ $product->id }}</td>
                                     <td>
                                         <img src="{{ $product->image }}" alt="" class="thumb">
@@ -169,4 +170,39 @@
     <script src="/vendor/daterangepicker/moment.min.js"></script>
     <script src="/vendor/daterangepicker/daterangepicker.js"></script>
     <script src="/js/daterange_config.js"></script>
+    <script>
+        $(function () {
+            //全选，反选
+            $("#checked").click(function () {
+                $(':checkbox').prop("checked", this.checked);
+            });
+
+            //删除所选
+            $('#destroy_checked').click(function () {
+                var length = $(".checked_id:checked").length;
+                if (length == 0) {
+                    alert("您必须至少选中一条!");
+                    return false;
+                }
+                var checked_id = $(".checked_id:checked").serialize();
+
+                $.ajax({
+                    type: "DELETE",
+                    url: "/admin/products/destroy_checked",
+                    data: checked_id,
+                    success: function (data) {
+                        if (data.status == false) {
+                            alert(data.message)
+                            return false
+                        } else {
+                            alert(data.message)
+                            $(".checked_id:checked").each(function () {
+                                $(this).parents('tr').remove()
+                            })
+                        }
+                    }
+                });
+            });
+        })
+    </script>
 @stop

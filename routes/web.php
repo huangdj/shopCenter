@@ -25,6 +25,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('brands', 'BrandController'); // 品牌管理
         Route::resource('categories', 'CategoryController'); // 商品分类
         Route::resource('themes', 'ThemeController'); // 主题管理
+        Route::prefix('products')->group(function () {
+            Route::delete('destroy_checked', 'ProductController@destroy_checked')->name('products.destroy_checked');
+        });
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
         Route::resource('notices', 'NoticeController'); // 通知管理

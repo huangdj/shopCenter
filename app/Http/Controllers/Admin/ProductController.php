@@ -164,4 +164,23 @@ class ProductController extends Controller
         Product::destroy($id);
         return back()->with('success', '被删商品已进入回收站~');
     }
+
+    /**
+     * 多选删除
+     * @param Request $request
+     */
+    function destroy_checked(Request $request)
+    {
+        $checked_id = $request->checked_id;
+
+        //检测商品是否能删除
+        foreach ($checked_id as $id) {
+            if (!Product::check_orders($id)) {
+                return response()->json(['status' => false, 'message' => '编号' . $id . '的商品有订单，不能删除~']);
+            }
+        }
+
+        Product::destroy($delete_id);
+        return response()->json(['status' => true, 'message' => '删除成功~']);
+    }
 }
