@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class Product extends Model
 {
-    protected $dates = ['deleted_at'];
     protected $guarded = ['category_id', 'imgs', 'file'];
 
     // 商品属于品牌

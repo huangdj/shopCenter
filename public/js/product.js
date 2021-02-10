@@ -53,6 +53,24 @@ $(function () {
         });
     })
 
+    //是否...
+    $(".is_something").click(function () {
+        var _this = $(this);
+        var data = {
+            id: _this.parents("tr").data('id'),
+            attr: _this.data('attr')
+        }
+
+        $.ajax({
+            type: "PATCH",
+            url: "/admin/products/is_something",
+            data: data,
+            success: function () {
+                _this.toggleClass('am-icon-close am-icon-check');
+            }
+        });
+    });
+
     //全选，反选
     $("#checked").click(function () {
         $(':checkbox').prop("checked", this.checked);
@@ -62,7 +80,7 @@ $(function () {
     $('#destroy_checked').click(function () {
         var length = $(".checked_id:checked").length;
         if (length == 0) {
-            alert("您必须至少选中一条!");
+            alert("请选择您要操作的数据!");
             return false;
         }
         var checked_id = $(".checked_id:checked").serialize();

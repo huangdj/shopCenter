@@ -33,6 +33,7 @@ Route::prefix('admin')->group(function () {
             Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
             Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
             Route::patch('change_discount', 'ProductController@change_discount')->name('products.change_discount'); // 改变折扣
+            Route::patch('is_something', 'ProductController@is_something')->name('products.is_something'); // 是否...
         });
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理

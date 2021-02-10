@@ -219,4 +219,18 @@ class ProductController extends Controller
         Product::destroy($delete_id);
         return response()->json(['status' => true, 'message' => '删除成功~']);
     }
+
+    /**
+     * 改变属性
+     * @param Request $request
+     * @return array
+     */
+    function is_something(Request $request)
+    {
+        $attr = $request->attr;
+        $product = Product::find($request->id);
+        $value = $product->$attr ? false : true;
+        $product->$attr = $value;
+        $product->save();
+    }
 }
