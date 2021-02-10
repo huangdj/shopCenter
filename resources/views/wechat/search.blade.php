@@ -29,7 +29,7 @@
             </form>
         </div>
         <div class="headerR">
-            <a href="/">取消</a>
+            <a href="/search">取消</a>
         </div>
     </div>
 </div>
@@ -69,8 +69,11 @@
 
         $('.del_keyword').click(function () {
             $.ajax({
-                type:'DELETE',
-                url:"/del_search"
+                type: 'DELETE',
+                url: "/del_search",
+                success: function () {
+                    location.href = location.href
+                }
             })
         })
     })

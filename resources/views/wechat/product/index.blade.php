@@ -48,12 +48,6 @@
         <div class="headerL">
             <a onclick="javascript:history.back(-1)" class="goback"><img src="/vendor/wechat/images/goback.png"/></a>
         </div>
-        <div class="headerC0">
-            <a href="seacher.html" style="display:block; width:100%; height:100%"></a>
-        </div>
-        <div class="headerR">
-            <a href="javascript:void()">取消</a>
-        </div>
     </div>
 </div>
 <div class="hbox1"></div>

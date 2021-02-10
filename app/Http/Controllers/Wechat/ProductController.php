@@ -26,6 +26,13 @@ class ProductController extends Controller
             if ($request->has('theme_id') and $request->theme_id != '') {
                 $query->where('theme_id', $request->theme_id);
             }
+
+            if ($request->has('category_id') and $request->category_id != '') {
+                $category_id = $request->category_id;
+                $product_ids = \DB::table('category_product')->where('category_id', $category_id)->pluck('product_id');
+                $query->whereIn('id', $product_ids);
+            }
+
             // 按搜索关键词
             if ($request->has('keyword')) {
                 if ($request->has('keyword') and $request->keyword != '') {

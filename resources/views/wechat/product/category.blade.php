@@ -13,11 +13,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var b = document.body.clientHeight;
-            //alert(b);
             b = b - 45.8;
             $('.shoptypebox').css('height', b);
-
-
             $(".shtypeLeft ul li").click(function () {
                 $('.shtypeLeft ul li').removeClass('on');
                 $(this).addClass('on');
@@ -34,12 +31,12 @@
         </div>
         <div class="headerC0">
             <div class="ssdiv">
-                <input name="" type="text" placeholder="进口生鲜今日三折起售"/>
-                <a href="shoplist.html"><img src="/vendor/wechat/images/ss.png"/></a>
+                <input name="" type="text"/>
+                <a href="/"><img src="/vendor/wechat/images/ss.png"/></a>
             </div>
         </div>
         <div class="headerR">
-            <a href="shoplist.html">取消</a>
+            <a href="/">取消</a>
         </div>
     </div>
 </div>
@@ -65,7 +62,7 @@
                     <ul>
                         @foreach($category->children as $child)
                             <li>
-                                <a href="shoplist.html">
+                                <a href="/product?category_id={{$child->id}}">
                                     <img src="{{ $child->image }}"/>
                                     <p>{{ $child->name }}</p>
                                 </a>

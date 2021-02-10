@@ -39,7 +39,7 @@
 <div class="typeNav">
     <ul>
         <li>
-            <a href="shoplist.html">
+            <a href="/">
                 <img src="/vendor/wechat/images/typeicon1.png"/>
                 <p>今日特惠</p>
             </a>
@@ -51,13 +51,13 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void()">
+            <a href="javascript:void(0)">
                 <img src="/vendor/wechat/images/typeicon3.png"/>
                 <p>充值中心</p>
             </a>
         </li>
         <li>
-            <a href="jifen.html">
+            <a href="/customer/points">
                 <img src="/vendor/wechat/images/typeicon4.png"/>
                 <p>我的积分</p>
             </a>
