@@ -28,6 +28,11 @@ class Order extends Model
         return $this->belongsTo('App\Models\Express');
     }
 
+    public function point()
+    {
+        return $this->hasOne('App\Models\Point');
+    }
+
     /***
      * 生成订单号
      * @return bool|string

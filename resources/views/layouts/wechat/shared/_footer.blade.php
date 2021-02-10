@@ -7,12 +7,12 @@
                     <p>首页</p>
                 </a>
             </li>
-            <li>
-                <a href="message.html">
-                    <img src="/vendor/wechat/images/f02.png"/>
-                    <p>发现</p>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="message.html">--}}
+{{--                    <img src="/vendor/wechat/images/f02.png"/>--}}
+{{--                    <p>发现</p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li class="{{ $_cart ?? '' }}">
                 <a href="/cart">
                     <img src="/vendor/wechat/images/f03.png"/>

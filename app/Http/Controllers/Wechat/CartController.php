@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 
@@ -20,7 +21,10 @@ class CartController extends Controller
     {
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->orderBy('id', 'desc')->get();
         $count = Cart::count_cart($carts);
-        return view('wechat.cart.index', compact('carts', 'count'));
+
+        // 空购物车推荐商品
+        $products = Product::where('is_onsale', true)->where('is_recommend', true)->get();
+        return view('wechat.cart.index', compact('carts', 'count', 'products'));
     }
 
     /***

@@ -166,6 +166,42 @@ class ProductController extends Controller
     }
 
     /**
+     * 更新库存
+     * @param Request $request
+     * @return array
+     */
+    function change_stock(Request $request)
+    {
+        $product = Product::find($request->id);
+        $product->stock = $request->stock;
+        $product->save();
+    }
+
+    /**
+     * 更新满额
+     * @param Request $request
+     * @return array
+     */
+    function change_full_num(Request $request)
+    {
+        $product = Product::find($request->id);
+        $product->full_num = $request->full_num;
+        $product->save();
+    }
+
+    /**
+     * 更新满额
+     * @param Request $request
+     * @return array
+     */
+    function change_discount(Request $request)
+    {
+        $product = Product::find($request->id);
+        $product->discount = $request->discount;
+        $product->save();
+    }
+
+    /**
      * 多选删除
      * @param Request $request
      */

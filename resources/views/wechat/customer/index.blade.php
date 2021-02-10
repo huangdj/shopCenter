@@ -35,13 +35,13 @@
                 </a>
             </li>
             <li>
-                <a href="javascript:void()">
+                <a href="javascript:void(0)">
                     <p class="p1">1</p>
                     <p class="p2">关注商品</p>
                 </a>
             </li>
             <li>
-                <a href="javascript:void()">
+                <a href="javascript:void(0)">
                     <p class="p1">3</p>
                     <p class="p2">浏览记录</p>
                 </a>
@@ -53,13 +53,13 @@
 <div class="mypart1">
     <ul>
         <li>
-            <a href="jifen.html">
-                <p class="p1">{{ $customer->points }}</p>
+            <a href="/customer/points">
+                <p class="p1">{{ $total_points }}</p>
                 <p class="p2">我的积分</p>
             </a>
         </li>
         <li>
-            <a href="quanNews1.html">
+            <a href="javascript:void(0)">
                 <p class="p1">0</p>
                 <p class="p2">优惠券</p>
             </a>

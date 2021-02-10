@@ -7,6 +7,7 @@ use App\Models\Appraise;
 use App\Models\Config;
 use App\Models\Customer;
 use App\Models\OrderRemind;
+use App\Models\Point;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -122,7 +123,6 @@ class OrderController extends Controller
     {
         $order = Order::find($request->id);
         $order->update(['status' => 5, 'finish_time' => Carbon::now()]);
-        Customer::where('id', session('wechat.customer.id'))->increment('points', intval($order->total_price));
     }
 
     /***
@@ -230,6 +230,12 @@ class OrderController extends Controller
                     'num' => $cart->num
                 ]);
             }
+
+            // 积分存入积分表
+            $order->point()->create([
+                'customer_id' => session('wechat.customer.id'),
+                'scores' => intval($total_price)
+            ]);
 
             //清空购物车
 //            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();

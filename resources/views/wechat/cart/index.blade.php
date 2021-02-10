@@ -57,62 +57,17 @@
         <img src="/vendor/wechat/images/heart.png"/><span>猜你喜欢</span>
     </div>
     <ul>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/21.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/22.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 </p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/23.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/24.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/25.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/26.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/27.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/28.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png"/></p>
-            </a>
-        </li>
+
+        @foreach($products as $product)
+            <li data-pid="{{ $product->id }}">
+                <a href="/product/{{ $product->id }}">
+                    <img src="{{ $product->image }}" class="proimg"/>
+                    <p class="tit">{{ $product->name }}</p>
+                    <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span><img
+                            src="/vendor/wechat/images/f3.png" class="add_cart"/></p>
+                </a>
+            </li>
+        @endforeach
     </ul>
 </div>
 
@@ -124,14 +79,20 @@
                     {{--                    <div class="go1">--}}
                     {{--                        <div class="gwccheck on"></div>--}}
                     {{--                    </div>--}}
-                    <div class="go2"><a href="xq.html"><img src="{{ $cart->product->image }}"/></a></div>
+                    <div class="go2"><a href="/product/{{ $cart->product->id }}"><img
+                                src="{{ $cart->product->image }}"/></a></div>
                     <div class="go3 info">
                         <div class="go3_1">
-                            <a href="xq.html"><p class="p1">{{ $cart->product->name }}</p></a>
+                            <a href="/product/{{ $cart->product->id }}"><p class="p1">{{ $cart->product->name }}</p></a>
                             <p class="p2">￥{{ $cart->product->price }}</p>
                         </div>
                         <div class="go3_2">
-                            {{-- <p class="p3">颜色：白色；尺码：L</p>--}}
+                            @if($cart->product->full_num >0)
+                                <p class="p3">数量满{{ $cart->product->full_num }}{{discount_value($cart->product->unit)}}
+                                    , 可享受{{$cart->product->discount}}折</p>
+                            @else
+                                <p class="p3">暂无优惠活动</p>
+                            @endif
                             <p class="p4 hj">￥{{number_format($cart->product->price * $cart->num,2,".","")}}</p>
                         </div>
                         <div class="go3_3 num" data-id="{{$cart->id}}" data-price="{{$cart->product->price}}">
@@ -151,6 +112,7 @@
         <div class="heji_3 price">
             <p>合计：<span id="total_price">￥{{$count['total_price']}}</span></p>
         </div>
+        <div class="heji_4">为您节省￥{{ $count['preferential_price'] }}</div>
         <div class="heji_5">
             <a href="/order/checkout" id="num">去结算({{$count['num']}})</a>
         </div>
@@ -206,9 +168,10 @@
                     type: 'add'
                 },
                 success: function (data) {
-                    console.log(data)
+                    // console.log(data)
                     $("#num").text('去结算(' + data.num + ')');
                     $("#total_price").text('￥' + data.total_price);
+                    location.href = location.href
                 }
             })
         })
@@ -242,9 +205,23 @@
                     type: 'sub'
                 },
                 success: function (data) {
-                    console.log(data)
+                    // console.log(data)
                     $("#num").text('去结算(' + data.num + ')');
                     $("#total_price").text('￥' + data.total_price);
+                    location.href = location.href
+                }
+            })
+        })
+
+        // 加入购物车
+        $('.add_cart').click(function () {
+            var product_id = $(this).data('pid')
+            $.ajax({
+                type: 'POST',
+                url: '/cart',
+                data: {product_id: product_id},
+                success: function () {
+                    location.href = '/cart';
                 }
             })
         })

@@ -45,7 +45,7 @@
             </a>
         </li>
         <li>
-            <a href="shoplist.html">
+            <a href="/">
                 <img src="/vendor/wechat/images/typeicon2.png"/>
                 <p>全球购</p>
             </a>
@@ -63,19 +63,19 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void()">
+            <a href="javascript:void(0);">
                 <img src="/vendor/wechat/images/typeicon5.png"/>
                 <p>签到</p>
             </a>
         </li>
         <li>
-            <a href="quanNews1.html">
+            <a href="javascript:void(0);">
                 <img src="/vendor/wechat/images/typeicon6.png"/>
                 <p>优惠券</p>
             </a>
         </li>
         <li>
-            <a href="shoplist.html">
+            <a href="/">
                 <img src="/vendor/wechat/images/typeicon7.png"/>
                 <p>闪电购</p>
             </a>

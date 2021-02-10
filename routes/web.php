@@ -29,6 +29,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('themes', 'ThemeController'); // 主题管理
         Route::prefix('products')->group(function () {
             Route::delete('destroy_checked', 'ProductController@destroy_checked')->name('products.destroy_checked');
+            Route::patch('change_stock', 'ProductController@change_stock')->name('products.change_stock'); // 改变库存
+            Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
+            Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
+            Route::patch('change_discount', 'ProductController@change_discount')->name('products.change_discount'); // 改变折扣
         });
         Route::resource('products', 'ProductController'); // 商品管理
         Route::resource('adverts', 'AdvertController'); // 广告管理
@@ -84,8 +88,9 @@ Route::namespace('Wechat')->middleware('wechat')->group(function () {
     // 我的
     Route::prefix('customer')->group(function () {
         Route::get('/', 'CustomerController@index');
-        Route::get('/collection', 'CustomerController@collection');
-        Route::post('/add_collection', 'CustomerController@add_collection');
+        Route::get('collection', 'CustomerController@collection');
+        Route::post('add_collection', 'CustomerController@add_collection');
+        Route::get('points', 'CustomerController@points');
     });
 
     // 订单

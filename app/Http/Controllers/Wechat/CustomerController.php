@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Point;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -21,7 +22,8 @@ class CustomerController extends Controller
         $customer = Customer::find(session('wechat.customer.id'));
         $count_collections = Collection::where('customer_id', session('wechat.customer.id'))->count();
         $order_num = Order::where('customer_id', session('wechat.customer.id'))->count();
-        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num'));
+        $total_points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
+        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points'));
     }
 
     /***
@@ -49,5 +51,16 @@ class CustomerController extends Controller
     {
         $collections = Collection::where('customer_id', session('wechat.customer.id'))->with('product')->orderBy('created_at', 'desc')->get();
         return view('wechat.customer.collection', compact('collections'));
+    }
+
+    /***
+     * 积分列表
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function points()
+    {
+        $total_points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
+        $points = Point::with('order')->where('customer_id', session('wechat.customer.id'))->orderBy('created_at', 'desc')->get();
+        return view('wechat.customer.points', compact('total_points', 'points'));
     }
 }

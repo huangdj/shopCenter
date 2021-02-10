@@ -63,8 +63,7 @@
                     <img src="{{ $collection->product->image }}" class="proimg"/>
                     <p class="tit">{{ $collection->product->name }}</p>
                     <p class="price">￥{{ $collection->product->price }}
-                        <span>￥{{ $collection->product->original_price }}</span><img
-                            src="/vendor/wechat/images/f3.png"/></p>
+                        <span>￥{{ $collection->product->original_price }}</span></p>
                 </a>
             </li>
         @endforeach

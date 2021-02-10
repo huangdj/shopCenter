@@ -109,7 +109,9 @@
                                 <th class="am-hide-sm-only">热销</th>
                                 <th class="am-hide-sm-only">新品</th>
                                 <th class="am-hide-sm-only">有效期</th>
-                                <th class="am-hide-sm-only" style="width:7%">库存</th>
+                                <th class="am-hide-sm-only" style="width:8%">库存</th>
+                                <th class="am-hide-sm-only" style="width:8%">满额</th>
+                                <th class="am-hide-sm-only" style="width:7%">折扣</th>
                                 <th class="table-date am-hide-sm-only">上架日期</th>
                                 <th class="table-set">操作</th>
                             </tr>
@@ -117,7 +119,7 @@
                             <tbody>
 
                             @foreach($products as $product)
-                                <tr>
+                                <tr data-id="{{ $product->id }}">
                                     <td><input type="checkbox" value="{{$product->id}}" class="checked_id"
                                                name="checked_id[]"/></td>
                                     <td>{{ $product->id }}</td>
@@ -138,6 +140,14 @@
                                     <td>{{ $product->expired_at }}</td>
                                     <td class="am-hide-sm-only">
                                         <input type="text" name="stock" class="am-input-sm" value="{{$product->stock}}">
+                                    </td>
+                                    <td class="am-hide-sm-only">
+                                        <input type="text" name="full_num" class="am-input-sm"
+                                               value="{{$product->full_num}}">
+                                    </td>
+                                    <td class="am-hide-sm-only">
+                                        <input type="text" name="discount" class="am-input-sm"
+                                               value="{{$product->discount}}">
                                     </td>
                                     <td class="am-hide-sm-only">
                                         {{$product->created_at->format("Y-m-d H:i")}}
@@ -170,39 +180,5 @@
     <script src="/vendor/daterangepicker/moment.min.js"></script>
     <script src="/vendor/daterangepicker/daterangepicker.js"></script>
     <script src="/js/daterange_config.js"></script>
-    <script>
-        $(function () {
-            //全选，反选
-            $("#checked").click(function () {
-                $(':checkbox').prop("checked", this.checked);
-            });
-
-            //删除所选
-            $('#destroy_checked').click(function () {
-                var length = $(".checked_id:checked").length;
-                if (length == 0) {
-                    alert("您必须至少选中一条!");
-                    return false;
-                }
-                var checked_id = $(".checked_id:checked").serialize();
-
-                $.ajax({
-                    type: "DELETE",
-                    url: "/admin/products/destroy_checked",
-                    data: checked_id,
-                    success: function (data) {
-                        if (data.status == false) {
-                            alert(data.message)
-                            return false
-                        } else {
-                            alert(data.message)
-                            $(".checked_id:checked").each(function () {
-                                $(this).parents('tr').remove()
-                            })
-                        }
-                    }
-                });
-            });
-        })
-    </script>
+    <script src="/js/product.js"></script>
 @stop

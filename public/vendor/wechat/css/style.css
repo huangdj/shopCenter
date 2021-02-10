@@ -107,7 +107,7 @@ p{text-align:justify}
 .footbox{width:100%; max-width:640px; margin:0 auto; }
 .footer{ position:fixed;width:100%;max-width:640px;bottom:0;background:#fff;z-index:99999;padding-top:0.2rem;height:2.5rem;}
 .footer ul{ overflow:hidden;}
-.footer ul li{ float:left; width:25%; text-align:center}
+.footer ul li{ float:left; width:33.3%; text-align:center}
 .footer ul li img{ height:1.3rem;}
 .footer ul li p{ text-align:center; color:#333; font-size:0.75rem; height:1.2rem; line-height:1.2rem}
 .footer ul li.on p{ color:#ff2150}

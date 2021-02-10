@@ -125,6 +125,9 @@
                                         <option value="2" @if($product->unit == 2) selected @endif>件</option>
                                         <option value="3" @if($product->unit == 3) selected @endif>个</option>
                                         <option value="4" @if($product->unit == 4) selected @endif>条</option>
+                                        <option value="5" @if($product->unit == 5) selected @endif>盒</option>
+                                        <option value="6" @if($product->unit == 6) selected @endif>袋</option>
+                                        <option value="7" @if($product->unit == 7) selected @endif>包</option>
                                     </select>
                                 </div>
                             </div>
@@ -133,6 +136,20 @@
                                 <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">商品库存</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
                                     <input type="text" name="stock" value="{{ $product->stock }}">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">满额优惠</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                    <input type="text" name="full_num" value="{{ $product->full_num }}">
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">折扣</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                    <input type="text" name="discount" value="{{ $product->discount }}">
                                 </div>
                             </div>
 
@@ -297,7 +314,7 @@
                                     增加
                                 </button>
                                 <p style="margin-left: 100px;margin-top: -30px;color: #f4645f">*
-                                    注：每次只能添加8条数据</p>
+                                    注：每次最多只能添加8条数据</p>
                             </div>
                             <div class="files">
 

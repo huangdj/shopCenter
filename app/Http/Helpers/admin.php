@@ -125,3 +125,31 @@ function show_category_products($category)
         return '<a class="am-badge am-badge-secondary" href="' . route('admin.products.index', ['category_id' => $category->id]) . '">查看商品</a>';
     }
 }
+
+/***
+ * 根据数值判断商品单位
+ * @param $value
+ * @return string
+ */
+function discount_value($value)
+{
+    switch ($value) {
+        case '1':
+            return '斤';
+            break;
+        case '2':
+            return '件';
+            break;
+        case '3':
+            return '个';
+            break;
+        case '4':
+            return '条';
+            break;
+        case '5':
+            return '盒';
+            break;
+        case '6':
+            return '袋';
+    }
+}
