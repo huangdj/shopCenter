@@ -33,6 +33,11 @@ class Order extends Model
         return $this->hasOne('App\Models\Point');
     }
 
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+
     /***
      * 生成订单号
      * @return bool|string

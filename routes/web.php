@@ -24,6 +24,11 @@ Route::prefix('admin')->group(function () {
         Route::get('change_password', 'HomeController@change_password')->name('change_password');  //加载修改密码页面
         Route::put('update_password', 'HomeController@update_password')->name('update_password');  //执行修改密码
 
+        // 统计
+        Route::get('today_orders', 'HomeController@today_orders')->name('today_orders'); // 今日订单详情
+        Route::get('month_orders', 'HomeController@month_orders')->name('month_orders'); // 本月订单详情
+        Route::get('year_orders', 'HomeController@year_orders')->name('year_orders'); // 全部订单详情
+
         Route::resource('brands', 'BrandController'); // 品牌管理
         Route::resource('categories', 'CategoryController'); // 商品分类
         Route::resource('themes', 'ThemeController'); // 主题管理

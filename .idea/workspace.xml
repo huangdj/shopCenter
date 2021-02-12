@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/month_orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/today_orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/year_orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,18 +162,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/wechat/customer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/wechat/customer" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/resources/views/admin/customer" />
       <recent name="$PROJECT_DIR$/resources/views/wechat" />
-      <recent name="$PROJECT_DIR$/resources/views/admin/theme" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/wechat/order" />
@@ -224,7 +227,8 @@
       <workItem from="1611928538613" duration="4113000" />
       <workItem from="1612012752186" duration="12243000" />
       <workItem from="1612069178555" duration="71747000" />
-      <workItem from="1612970859125" duration="3164000" />
+      <workItem from="1612970859125" duration="3670000" />
+      <workItem from="1613131209567" duration="6189000" />
     </task>
     <servers />
   </component>

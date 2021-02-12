@@ -14,19 +14,19 @@
         <div class="page-body">
             <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
                 <li>
-                    <a href="#" class="am-text-success"><span
-                            class="am-icon-btn am-icon-file-text"></span><br/>新增页面<br/>2300</a>
+                    <a href="{{ route('admin.today_orders') }}" class="am-text-success"><span
+                            class="am-icon-btn am-icon-file-text"></span><br/>今日订单<br/>{{ $today_orders }}</a>
                 </li>
                 <li>
-                    <a href="#" class="am-text-warning"><span
-                            class="am-icon-btn am-icon-briefcase"></span><br/>成交订单<br/>308</a>
+                    <a href="{{ route('admin.month_orders') }}" class="am-text-warning"><span
+                            class="am-icon-btn am-icon-briefcase"></span><br/>本月订单<br/>{{ $month_orders }}</a>
                 </li>
                 <li>
-                    <a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a>
+                    <a href="{{ route('admin.year_orders') }}" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>全部订单<br/>{{ $year_orders }}</a>
                 </li>
                 <li>
-                    <a href="#" class="am-text-secondary"><span
-                            class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a>
+                    <a href="{{ route('admin.customers.index') }}" class="am-text-secondary"><span
+                            class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>{{ $customer_count }}</a>
                 </li>
             </ul>
 
@@ -35,109 +35,54 @@
                     <table class="am-table am-table-bd am-table-striped admin-content-table">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>用户名</th>
-                            <th>最后成交任务</th>
-                            <th>成交订单</th>
-                            <th>管理</th>
+                            <th style="text-align: center">今日待付款订单金额</th>
+                            <th style="text-align: center">今日已成交订单金额</th>
+                            <th style="text-align: center">成交笔数</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John Clark</td>
-                            <td><a href="#">Business management</a></td>
-                            <td><span class="am-badge am-badge-success">+20</span></td>
-                            <td>
-                                <div class="am-dropdown" data-am-dropdown>
-                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle"
-                                            data-am-dropdown-toggle>
-                                        <span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span>
-                                    </button>
-                                    <ul class="am-dropdown-content">
-                                        <li><a href="#">1. 编辑</a></li>
-                                        <li><a href="#">2. 下载</a></li>
-                                        <li><a href="#">3. 删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
+                        <tr style="text-align: center">
+                            <td><span class="am-badge am-badge-warning">{{ $today_daifu_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-success">{{ $today_chengjiao_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-primary">{{ $today_chengjiao_count }}</span></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>风清扬</td>
-                            <td><a href="#">公司LOGO设计</a></td>
-                            <td><span class="am-badge am-badge-danger">+2</span></td>
-                            <td>
-                                <div class="am-dropdown" data-am-dropdown>
-                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle"
-                                            data-am-dropdown-toggle>
-                                        <span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span>
-                                    </button>
-                                    <ul class="am-dropdown-content">
-                                        <li><a href="#">1. 编辑</a></li>
-                                        <li><a href="#">2. 下载</a></li>
-                                        <li><a href="#">3. 删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>詹姆斯</td>
-                            <td><a href="#">开发一款业务数据软件</a></td>
-                            <td><span class="am-badge am-badge-warning">+10</span></td>
-                            <td>
-                                <div class="am-dropdown" data-am-dropdown>
-                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle"
-                                            data-am-dropdown-toggle>
-                                        <span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span>
-                                    </button>
-                                    <ul class="am-dropdown-content">
-                                        <li><a href="#">1. 编辑</a></li>
-                                        <li><a href="#">2. 下载</a></li>
-                                        <li><a href="#">3. 删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>云适配</td>
-                            <td><a href="#">适配所有网站</a></td>
-                            <td><span class="am-badge am-badge-secondary">+50</span></td>
-                            <td>
-                                <div class="am-dropdown" data-am-dropdown>
-                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle"
-                                            data-am-dropdown-toggle>
-                                        <span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span>
-                                    </button>
-                                    <ul class="am-dropdown-content">
-                                        <li><a href="#">1. 编辑</a></li>
-                                        <li><a href="#">2. 下载</a></li>
-                                        <li><a href="#">3. 删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
+                <div class="am-u-sm-12">
+                    <table class="am-table am-table-bd am-table-striped admin-content-table">
+                        <thead>
                         <tr>
-                            <td>5</td>
-                            <td>呵呵呵</td>
-                            <td><a href="#">基兰会获得BUFF</a></td>
-                            <td><span class="am-badge">+22</span></td>
-                            <td>
-                                <div class="am-dropdown" data-am-dropdown>
-                                    <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle"
-                                            data-am-dropdown-toggle>
-                                        <span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span>
-                                    </button>
-                                    <ul class="am-dropdown-content">
-                                        <li><a href="#">1. 编辑</a></li>
-                                        <li><a href="#">2. 下载</a></li>
-                                        <li><a href="#">3. 删除</a></li>
-                                    </ul>
-                                </div>
-                            </td>
+                            <th style="text-align: center">本月待付款订单金额</th>
+                            <th style="text-align: center">本月已成交订单金额</th>
+                            <th style="text-align: center">成交笔数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="text-align: center">
+                            <td><span class="am-badge am-badge-warning">{{ $month_daifu_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-success">{{ $month_chengjiao_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-primary">{{ $month_chengjiao_count }}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="am-u-sm-12">
+                    <table class="am-table am-table-bd am-table-striped admin-content-table">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center">全部待付款订单金额</th>
+                            <th style="text-align: center">全部已成交订单金额</th>
+                            <th style="text-align: center">成交笔数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="text-align: center">
+                            <td><span class="am-badge am-badge-warning">{{ $year_daifu_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-success">{{ $year_chengjiao_amount }}元</span></td>
+                            <td><span class="am-badge am-badge-primary">{{ $year_chengjiao_count }}</span></td>
                         </tr>
                         </tbody>
                     </table>

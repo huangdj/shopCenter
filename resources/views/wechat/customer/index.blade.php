@@ -164,7 +164,7 @@
             </a>
         </li>
         <li>
-            <a href="jifen.html">
+            <a href="/customer/points">
                 <img src="/vendor/wechat/images/my9.png"/>
                 <p>我的积分</p>
             </a>
