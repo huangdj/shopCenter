@@ -14,9 +14,6 @@
 <body style="background:#fff">
 <div class="headerbox">
     <div class="header">
-        <div class="headerL">
-            <a onclick="javascript:history.back(-1)" class="goback"><img src="/vendor/wechat/images/goback.png"/></a>
-        </div>
         <div class="headerC">
             <p>评价成功</p>
         </div>

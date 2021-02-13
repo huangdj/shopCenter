@@ -67,9 +67,6 @@
 <body>
 <div class="hdbox">
     <div class="hdbox0">
-        <div class="hdbox_1"><a onclick="location.href='/'" class="goback"><img
-                    src="/vendor/wechat/images/goback.png"></a>
-        </div>
         <div class="hdbox_2">
             <ul>
                 <li class="on"><a href="#m1">商品</a></li>

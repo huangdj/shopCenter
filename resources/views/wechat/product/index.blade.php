@@ -43,14 +43,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerL">
-            <a onclick="javascript:history.back(-1)" class="goback"><img src="/vendor/wechat/images/goback.png"/></a>
-        </div>
-    </div>
-</div>
-<div class="hbox1"></div>
 <div class="tolist"><img src="/vendor/wechat/images/tolist.png"/></div>
 <div class="totop"><a href="javascript:scrollTo(0,0)"><img src="/vendor/wechat/images/totop.png"/></a></div>
 <div class="kbox"></div>

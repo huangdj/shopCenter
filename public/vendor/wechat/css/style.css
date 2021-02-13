@@ -266,9 +266,9 @@ p{text-align:justify}
 .paysuccess .pay1_L img{ width:4.5rem; height:4.5rem; overflow:hidden}
 .paysuccess .pay1_R{ flex:1; height:4.5rem}
 .paysuccess .pay1_R p.p1{ color:#ff2150; font-size:1rem}
-.paysuccess .pay1_R p.p2{ color:#999; font-size:0.75rem; line-height:1.5; padding-top:0.5rem}
+.paysuccess .pay1_R p.p2{ color:#999; font-size:0.69rem; line-height:1.5; padding-top:2.0rem;}
 
-.paysuccess .pay2{ width:65%; margin:0 auto; padding:0.5rem 0; height:2rem; margin-top:0.8rem}
+.paysuccess .pay2{ width:65%; margin:0 auto; padding:0.5rem 0; height:2rem; margin-top:3.5rem}
 .paysuccess .pay2 a{ display:block;height:1.5rem; width:6rem; text-align:center; line-height:1.5rem; border:1px solid #eee; background:#f9f9f9;font-size:0.75rem; color:#333; border-radius:3px}
 .paysuccess .pay2 a.seedd{ float:left}
 .paysuccess .pay2 a.comeshop{ float:right}

@@ -28,12 +28,8 @@
 <body>
 <div class="headerbox">
     <div class="header">
-        <div class="headerL">
-            <a onclick="location.href='/order/checkout'" class="goback"><img
-                    src="/vendor/wechat/images/goback.png"/></a>
-        </div>
         <div class="headerC">
-            <p>管理收货地址</p>
+            <p>收货地址</p>
         </div>
         <div class="headerR">
             <a href="/address/create">添加</a>
@@ -115,14 +111,16 @@
         })
 
         $('.del_one').click(function () {
-            var id = $(this).data("id");
-            $.ajax({
-                type: "DELETE",
-                url: "/address/" + id,
-                success: function () {
-                    window.location.reload();
-                }
-            })
+            if(confirm('是否确定要删除?')){
+                var id = $(this).data("id");
+                $.ajax({
+                    type: "DELETE",
+                    url: "/address/" + id,
+                    success: function () {
+                        window.location.reload();
+                    }
+                })
+            }
         })
     })
 </script>

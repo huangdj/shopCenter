@@ -32,7 +32,7 @@
             <img src="/vendor/wechat/images/pay1.png"/>
         </div>
         <div class="pay1_R">
-            <p class="p1">恭喜您，下单成功啦！等待货品确认收货后，再付款！</p>
+            <p class="p1">恭喜您，下单成功啦！请验货后，再付款！</p>
             <p class="p2">本商城不会以付款异常为由要求您退款，谨防诈骗</p>
         </div>
     </div>
