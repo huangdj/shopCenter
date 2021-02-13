@@ -5,16 +5,12 @@ namespace App\Http\Controllers\Wechat;
 use App\Http\Controllers\Controller;
 use App\Models\Appraise;
 use App\Models\Config;
-use App\Models\Customer;
 use App\Models\OrderRemind;
-use App\Models\Point;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Address;
 use App\Models\Order;
-use App\Models\OrderProduct;
-use App\Models\OrderAddress;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller

@@ -93,7 +93,7 @@
     </div>
     <div class="jsyf">
         <div class="jsyfL">买家留言：</div>
-        <div class="addiv1_r"><input type="text" style="border: none;outline:none;"></div>
+        <div class="addiv1_r"><input id="message" type="text" style="width:90%;border: none;outline:none;"></div>
     </div>
     <div class="jshj">
         <div class="jshjp">共{{$count['num']}}件商品<span class="sp1">合计：</span><span

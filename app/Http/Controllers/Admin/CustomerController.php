@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Point;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -43,6 +44,9 @@ class CustomerController extends Controller
             }
         };
         $customers = Customer::where($where)->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
+        foreach ($customers as $k => $v) {
+            $customers[$k]['points'] = Point::where('customer_id', $v->id)->count();
+        }
         return view('admin.customer.index', compact('customers'));
     }
 }

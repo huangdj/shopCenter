@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ $remind->id }}</td>
                                 <td>{{ $remind->order->customer->nickname }}</td>
-                                <td><a href="tel:{{ $remind->order->customer->tel }}">{{ $remind->order->customer->tel }}</a></td>
+                                <td><a href="tel:{{ $remind->order->address->tel }}">{{ $remind->order->address->tel }}</a></td>
                                 <td>{{ $remind->order->out_trade_no }}</td>
                                 <td><span class="am-badge am-badge-success">{{ time_format("Y年m月d日 H:i", $remind->order->pay_time) }}</span></td>
                                 <td><span class="am-badge am-badge-warning">{{$remind->created_at->format('Y年m月d日 H:i')}}</span></td>

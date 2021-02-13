@@ -44,7 +44,7 @@
 <div class="hbox"></div>
 <div class="addressbox on">
     @if($default_address)
-        <div class="addressbox_1">
+        <div class="addressbox_1" onclick="location.href='/order/checkout'">
             <p class="p1">收货人：{{$default_address->name}}<span>{{$default_address->tel}}</span></p>
             <p class="p2">{{$default_address->province}} {{$default_address->city}} {{$default_address->area}} {{$default_address->detail}} </p>
         </div>

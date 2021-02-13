@@ -47,7 +47,7 @@ class AddressController extends Controller
         $address = Address::where('customer_id', session('wechat.customer.id'))->first();
         if (!$address) {
             $pca = explode(" ", $request->pca);
-            Address::create([
+            $res = Address::create([
                 'customer_id' => session('wechat.customer.id'),
                 'name' => $request->name,
                 'province' => $pca[0],
@@ -57,6 +57,10 @@ class AddressController extends Controller
                 'detail' => $request->detail,
                 'status' => 1
             ]);
+            Customer::where('id', session('wechat.customer.id'))->update(['address_id' => $res->id]);
+            $customer = session()->get('wechat.customer');
+            $customer['address_id'] = $res->id;
+            session()->put('wechat.customer', $customer);
         } else {
             $pca = explode(" ", $request->pca);
             Address::create([
@@ -107,13 +111,13 @@ class AddressController extends Controller
         $pca = explode(" ", $request->pca);
 
         Address::where('id', $id)->update([
-                'name' => $request->name,
-                'province' => $pca[0],
-                'city' => $pca[1],
-                'area' => $pca[2],
-                'tel' => $request->tel,
-                'detail' => $request->detail,
-            ]);
+            'name' => $request->name,
+            'province' => $pca[0],
+            'city' => $pca[1],
+            'area' => $pca[2],
+            'tel' => $request->tel,
+            'detail' => $request->detail,
+        ]);
     }
 
     /**
@@ -148,7 +152,7 @@ class AddressController extends Controller
             $customer = session()->get('wechat.customer');
             $customer['address_id'] = $request->address_id;
             session()->put('wechat.customer', $customer);
-        } else{
+        } else {
             Address::where('id', $request->address_id)->update(['status' => true]); // 修改地址表的 status
 
             Customer::where('id', session('wechat.customer.id'))->update(['address_id' => $request->address_id]);

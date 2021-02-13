@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function () {
 /***
  * 前台路由
  */
-Route::namespace('Wechat')->middleware('wechat')->group(function () {
+Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
     Route::post('get_products', 'HomeController@get_products'); // 加载更多
     Route::get('search', 'HomeController@search'); // 首页搜索

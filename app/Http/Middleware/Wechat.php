@@ -17,9 +17,21 @@ class Wechat
     public function handle($request, Closure $next)
     {
         if (!session('wechat.customer')) {
-            $customer = Customer::find(63);
+            /**
+             * 获取用户信息并 存入/更新 数据库
+             */
+            $original = session('wechat.oauth_user.default.original');
+
+            $openid = $original['openid'];
+            $customer = Customer::where('openid', $openid)->first();
+            if ($customer) {
+                $customer->update($original);
+            } else {
+                $customer = Customer::create($original);
+            }
             session(['wechat.customer' => $customer]);
         }
+
         return $next($request);
     }
 }

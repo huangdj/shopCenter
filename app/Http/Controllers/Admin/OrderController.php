@@ -134,7 +134,7 @@ class OrderController extends Controller
     public function reminds()
     {
         view()->share(['_reminds' => 'am-active', '_order' => 'am-in', '_orderList' => '']);
-        $reminds = OrderRemind::with('order.customer')->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
+        $reminds = OrderRemind::with('order.customer', 'order.address')->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
         return view('admin.order.remind', compact('reminds'));
     }
 }
