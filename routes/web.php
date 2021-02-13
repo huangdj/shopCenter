@@ -36,7 +36,6 @@ Route::prefix('admin')->group(function () {
             Route::delete('destroy_checked', 'ProductController@destroy_checked')->name('products.destroy_checked');
             Route::patch('change_stock', 'ProductController@change_stock')->name('products.change_stock'); // 改变库存
             Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
-            Route::patch('change_full_num', 'ProductController@change_full_num')->name('products.change_full_num'); // 改变满额
             Route::patch('change_discount', 'ProductController@change_discount')->name('products.change_discount'); // 改变折扣
             Route::patch('is_something', 'ProductController@is_something')->name('products.is_something'); // 是否...
         });

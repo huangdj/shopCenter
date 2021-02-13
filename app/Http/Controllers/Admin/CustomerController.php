@@ -45,7 +45,7 @@ class CustomerController extends Controller
         };
         $customers = Customer::where($where)->orderBy('created_at', 'desc')->paginate(config('admin.page_size'));
         foreach ($customers as $k => $v) {
-            $customers[$k]['points'] = Point::where('customer_id', $v->id)->count();
+            $customers[$k]['points'] = Point::where('customer_id', $v->id)->sum('scores');
         }
         return view('admin.customer.index', compact('customers'));
     }
