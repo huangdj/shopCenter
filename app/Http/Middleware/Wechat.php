@@ -25,9 +25,25 @@ class Wechat
             $openid = $original['openid'];
             $customer = Customer::where('openid', $openid)->first();
             if ($customer) {
-                $customer->update($original);
+                $customer->update([
+                    'openid' => $openid,
+                    'nickname' => Customer::filterEmoji($original['nickname']),
+                    'sex' => $original['sex'],
+                    'country' => $original['country'],
+                    'city' => $original['city'],
+                    'province' => $original['province'],
+                    'headimgurl' => $original['headimgurl'],
+                ]);
             } else {
-                $customer = Customer::create($original);
+                $customer = Customer::create([
+                    'openid' => $openid,
+                    'nickname' => Customer::filterEmoji($original['nickname']),
+                    'sex' => $original['sex'],
+                    'country' => $original['country'],
+                    'city' => $original['city'],
+                    'province' => $original['province'],
+                    'headimgurl' => $original['headimgurl'],
+                ]);
             }
             session(['wechat.customer' => $customer]);
         }
