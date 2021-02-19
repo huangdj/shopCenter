@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Wechat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Wechat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customer/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/collection.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +225,8 @@
       <workItem from="1612970859125" duration="3670000" />
       <workItem from="1613131209567" duration="11413000" />
       <workItem from="1613195499131" duration="377000" />
-      <workItem from="1613195977553" duration="7409000" />
+      <workItem from="1613195977553" duration="8061000" />
+      <workItem from="1613739892430" duration="259000" />
     </task>
     <servers />
   </component>

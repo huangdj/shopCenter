@@ -9,7 +9,7 @@
 
             <li class="admin-parent">
                 <a class="am-cf" data-am-collapse="{target: '#collapse-product'}">
-                    <span class="am-icon-reorder"></span>
+                    <span class="am-icon-product-hunt"></span>
                     商品管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
                 </a>
                 <ul class="am-list am-collapse admin-sidebar-sub {{ $_product ?? '' }}" id="collapse-product">
@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.products.index') }}" class="{{ $_productList ?? '' }}">
-                            <span class="am-icon-product-hunt"></span> 商品列表
+                            <span class="am-icon-reorder"></span> 商品列表
                         </a>
                     </li>
                 </ul>

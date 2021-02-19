@@ -20,7 +20,7 @@
                 <form class="am-form am-form-horizontal" method="get">
                     <div class="am-u-sm-12 am-u-md-3">
                         <div class="am-form-group">
-                            <label for="title" class="am-u-sm-3 am-form-label">会员昵称</label>
+                            <label for="title" class="am-u-sm-3 am-form-label">昵称</label>
                             <div class="am-u-sm-9">
                                 <input type="text" name="nickname" placeholder="请输入昵称" value="{{ Request::input('nickname') }}">
                             </div>
