@@ -63,6 +63,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('setting', 'ConfigController@setting')->name('config.setting');
         Route::put('setting_update', 'ConfigController@setting_update')->name('config.setting_update');
+
+        Route::resource('coupons', 'CouponController'); // 优惠券管理
     });
 });
 
