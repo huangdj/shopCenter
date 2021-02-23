@@ -43,7 +43,6 @@ class CustomerController extends Controller
             'product_id' => $product_id,
             'customer_id' => session('wechat.customer.id')
         ]);
-        return response()->json(['success' => true, 'message' => '收藏成功']);
     }
 
     // 我的收藏

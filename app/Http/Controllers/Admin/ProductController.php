@@ -190,7 +190,7 @@ class ProductController extends Controller
     }
 
     /**
-     * 更新满额
+     * 更新折扣
      * @param Request $request
      * @return array
      */

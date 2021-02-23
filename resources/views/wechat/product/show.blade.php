@@ -39,7 +39,6 @@
                 $('.hdbox_2 ul li').removeClass('on');
                 $(this).addClass('on');
             })
-
         })
     </script>
     <script type="text/javascript">
@@ -315,12 +314,7 @@
                 type: 'POST',
                 url: '/customer/add_collection',
                 data: {product_id: product_id},
-                success: function (data) {
-                    if (data.success == true) {
-                        alert(data.message)
-                    } else {
-                        alert(data.message)
-                    }
+                success: function () {
                     window.location.reload()
                 }
             })

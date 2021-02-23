@@ -11,6 +11,8 @@
     <title>商城首页</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <script type="text/javascript" src="/vendor/wechat/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/inewsticker/jquery.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/inewsticker/inewsticker.js"></script>
     <script type="text/javascript" src="/vendor/wechat/js/banner.js"></script>
     <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
 </head>
@@ -36,32 +38,9 @@
     </div>
 </div>
 <div class="clear"></div>
+<div class="kbox"></div>
 <div class="typeNav">
     <ul>
-        <li>
-            <a href="/">
-                <img src="/vendor/wechat/images/typeicon1.png"/>
-                <p>今日特惠</p>
-            </a>
-        </li>
-        <li>
-            <a href="/">
-                <img src="/vendor/wechat/images/typeicon2.png"/>
-                <p>全球购</p>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:void(0)">
-                <img src="/vendor/wechat/images/typeicon3.png"/>
-                <p>充值中心</p>
-            </a>
-        </li>
-        <li>
-            <a href="/customer/points">
-                <img src="/vendor/wechat/images/typeicon4.png"/>
-                <p>我的积分</p>
-            </a>
-        </li>
         <li>
             <a href="javascript:void(0);">
                 <img src="/vendor/wechat/images/typeicon5.png"/>
@@ -75,9 +54,9 @@
             </a>
         </li>
         <li>
-            <a href="/">
-                <img src="/vendor/wechat/images/typeicon7.png"/>
-                <p>闪电购</p>
+            <a href="/customer/points">
+                <img src="/vendor/wechat/images/typeicon4.png"/>
+                <p>我的积分</p>
             </a>
         </li>
         <li>
@@ -89,14 +68,29 @@
     </ul>
 </div>
 <div class="clear"></div>
+<div class="kbox"></div>
 <div class="hotTit">
     <div class="hotTitL">
         <img src="/vendor/wechat/images/hotit.png"/>
     </div>
-    <div class="hotTitR">
-        <p>{{ $notice->title }}</p>
+    <div class="hotTitR notice">
+        @foreach($notices as $notice)
+            <p>{{ $notice->title }}</p>
+        @endforeach
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.notice').inewsticker({
+            speed: 2500,
+            effect: 'fade',
+            dir: 'ltr',
+            delay_after: 1000
+        });
+    });
+</script>
+
 <div class="clear"></div>
 <div class="kbox"></div>
 <div class="timeBuy">

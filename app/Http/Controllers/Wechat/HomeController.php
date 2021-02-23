@@ -28,7 +28,7 @@ class HomeController extends Controller
         $adverts = Advert::where('type', true)->orderBy('id', 'desc')->get();
 
         // 热门资讯
-        $notice = Notice::orderBy('id', 'desc')->first();
+        $notices = Notice::orderBy('id', 'desc')->get();
 
         // 广告图
         $banner = Advert::where('type', 2)->first();
@@ -47,7 +47,7 @@ class HomeController extends Controller
 
         // 所有商品数量
         $total = Product::where('is_onsale', true)->count();
-        return view('wechat.index', compact('adverts', 'notice', 'banner', 'products', 'is_show_brand',
+        return view('wechat.index', compact('adverts', 'notices', 'banner', 'products', 'is_show_brand',
             'brands', 'total', 'left_theme', 'right_themes', 'bottom_themes'));
     }
 

@@ -137,7 +137,6 @@
                         }
                         $("#num").text('去结算(' + data.num + ')');
                         $("#total_price").text('￥' + data.total_price);
-
                         _this.parents('.gwcone').remove();
                     }
                 })
