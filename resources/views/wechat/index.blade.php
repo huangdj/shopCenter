@@ -48,7 +48,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0);">
+            <a href="/coupons">
                 <img src="/vendor/wechat/images/typeicon6.png"/>
                 <p>优惠券</p>
             </a>

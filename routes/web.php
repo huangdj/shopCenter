@@ -125,6 +125,9 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
         Route::patch('/', 'AddressController@default_address');
     });
     Route::resource('address', 'AddressController');
+
+    // 优惠券
+    Route::resource('coupons', 'CouponController')->only('index', 'store');
 });
 
 

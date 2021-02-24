@@ -24,6 +24,15 @@
                     </div>
                 </div>
 
+                <div class="am-tabs am-margin">
+                    <div class="am-form-group">
+                        <label for="name" class="am-u-sm-12 am-u-md-3 am-form-label">领券说明</label>
+                        <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                            <textarea name="receive" cols="5">{{ $config->receive }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="am-form-group">
                     <div class="am-u-sm-12 am-u-md-9 am-u-md-offset-3">
                         <button type="button" onclick="location.href='/admin/setting'"

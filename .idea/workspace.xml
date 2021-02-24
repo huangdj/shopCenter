@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CouponController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CouponValidate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Coupon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/coupon/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/coupon/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/coupon/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CouponController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/wechat/coupon/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/inewsticker/inewsticker.jquery.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/inewsticker/inewsticker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/inewsticker/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/Gruntfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/build/jquery.toast.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/toast/src/jquery.toast.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/config/setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/config/setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,18 +160,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/coupon" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/wechat/coupon" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/wechat/coupon" />
       <recent name="$PROJECT_DIR$/resources/views/admin/coupon" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/public/vendor/wechat" />
-      <recent name="$PROJECT_DIR$/public/vendor/wechat/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/wechat/order" />
@@ -246,7 +234,8 @@
       <workItem from="1613974900180" duration="8654000" />
       <workItem from="1613986027106" duration="1989000" />
       <workItem from="1614044224773" duration="1236000" />
-      <workItem from="1614059429769" duration="8825000" />
+      <workItem from="1614059429769" duration="10166000" />
+      <workItem from="1614145377604" duration="3394000" />
     </task>
     <servers />
   </component>
