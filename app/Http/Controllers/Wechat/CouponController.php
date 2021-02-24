@@ -54,9 +54,9 @@ class CouponController extends Controller
             'customer_id' => session('wechat.customer.id'),
         ]);
 
-        // 领取成功后，削减优惠券总数,增加使用量
+        // 领取成功后，削减优惠券总数,增加领取数
         Coupon::where('id', $coupon_id)->decrement('total');
-        Coupon::where('id', $coupon_id)->increment('used');
+        Coupon::where('id', $coupon_id)->increment('recived');
         return response()->json(['success' => true, 'message' => '领取成功~']);
     }
 }

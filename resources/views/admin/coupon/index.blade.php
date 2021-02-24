@@ -56,7 +56,8 @@
                                 <th class="table-id">ID</th>
                                 <th class="table-title">名称</th>
                                 <th class="table-title">优惠金额</th>
-                                <th class="table-type">用量</th>
+                                <th class="table-type">领取数/总量</th>
+                                <th class="table-type">使用数</th>
                                 <th class="table-type">是否启用</th>
                                 <th class="table-type">创建时间</th>
                                 <th class="table-set">操作</th>
@@ -69,7 +70,8 @@
                                     <td>{{ $coupon->id }}</td>
                                     <td>{{ $coupon->name }}</td>
                                     <td>￥{{ $coupon->value }}</td>
-                                    <td>{{ $coupon->used }} / {{ $coupon->total }}</td>
+                                    <td>{{ $coupon->recived }} / {{ $coupon->total }}</td>
+                                    <td>{{ $coupon->used }}</td>
                                     <td>
                                         @if($coupon->enabled == 1)
                                             <span class="am-badge am-badge-success">是</span>
