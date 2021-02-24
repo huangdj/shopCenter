@@ -26,17 +26,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>确认订单</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="hbox"></div>
-<div class="kbox"></div>
 @if($address)
     <div class="jsaddress">
         <a href="/address">
@@ -100,16 +89,24 @@
 <div class="clear"></div>
 <div class="kbox"></div>
 <div class="jsyhq">
-    {{--    <div class="jsyhq_1">--}}
-    {{--        <p class="p1">优惠券</p>--}}
-    {{--        <p class="p2">无可用</p>--}}
-    {{--    </div>--}}
+    <div class="jsyhq_1">
+        <p class="p1">优惠券</p>
+        <p class="p2">无可用</p>
+    </div>
+    <div class="jsyhq_2">
+        <div class="jsjfL">
+            <p>积分抵用<span>共150积分，可抵1.5元</span></p>
+        </div>
+        <div class="jsjfR">
+            <div class="gwccheck"></div>
+        </div>
+    </div>
     <div class="jsyhq_2">
         <div class="jsjfL">
             <p>货到付款：<span>先送货，后付款</span></p>
         </div>
         <div class="jsjfR">
-            <div class="gwccheck"></div>
+            <div class="gwccheck after_pay"></div>
         </div>
     </div>
 </div>
@@ -143,7 +140,7 @@
                 }
 
                 // 是否选中货到付款
-                var element = document.querySelector(".gwccheck")
+                var element = document.querySelector(".after_pay")
                 var str = element.getAttribute("class").indexOf('on') != -1
                 if (str == true) {
                     $.ajax({

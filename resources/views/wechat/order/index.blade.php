@@ -48,7 +48,7 @@
         <div class="myddcon1">
             <div class="dpbox">
                 <div class="dpL">
-                    <a href="dpxq.html">
+                    <a href="javascript:;">
                         <span>订单号：{{ $order->out_trade_no }}</span>
                     </a>
                 </div>

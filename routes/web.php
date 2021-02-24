@@ -98,6 +98,7 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
         Route::get('collection', 'CustomerController@collection');
         Route::post('add_collection', 'CustomerController@add_collection');
         Route::get('points', 'CustomerController@points');
+        Route::get('coupons', 'CustomerController@coupons');
     });
 
     // 订单

@@ -59,7 +59,7 @@
             </a>
         </li>
         <li>
-            <a href="javascript:void(0)">
+            <a href="/customer/coupons">
                 <p class="p1">0</p>
                 <p class="p2">优惠券</p>
             </a>
@@ -152,7 +152,7 @@
 <div class="mypart3">
     <ul>
         <li>
-            <a href="javascript:;">
+            <a href="/customer/coupons">
                 <img src="/vendor/wechat/images/my7.png"/>
                 <p>我的优惠券</p>
             </a>

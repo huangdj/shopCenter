@@ -26,19 +26,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>购物车</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="clear"></div>
-<div class="hbox"></div>
-<div class="kbox"></div>
-
 <div class="paysuccess" id="more" @if (!$carts->isEmpty()) style="display: none;" @endif>
     <div class="pay30">
         <img src="/vendor/wechat/images/gwc.jpg"/>
