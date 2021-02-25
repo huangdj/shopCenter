@@ -125,7 +125,7 @@
                 <span>商品评价({{ $total_num }})</span>
             </div>
             <div class="xqbox2R">
-                <img src="/vendor/wechat/images/more.png">
+                <a href="/product/appraise/{{ $product->id }}"><img src="/vendor/wechat/images/more.png"></a>
             </div>
         </div>
 

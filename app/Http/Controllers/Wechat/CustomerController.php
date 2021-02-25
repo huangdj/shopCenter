@@ -24,7 +24,8 @@ class CustomerController extends Controller
         $count_collections = Collection::where('customer_id', session('wechat.customer.id'))->count();
         $order_num = Order::where('customer_id', session('wechat.customer.id'))->count();
         $total_points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
-        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points'));
+        $coupon_num = GetCoupon::where('customer_id', session('wechat.customer.id'))->count();
+        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points', 'coupon_num'));
     }
 
     /***

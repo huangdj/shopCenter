@@ -12,16 +12,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>积分</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="hbox"></div>
 <div class="jfheader">
     <div class="guize">积分使用规则</div>
     <div class="jfnum">共 {{ $total_points }}<span>积分</span></div>

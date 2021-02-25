@@ -83,7 +83,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('.notice').inewsticker({
-            speed: 2500,
+            speed: 3000,
             effect: 'fade',
             dir: 'ltr',
             delay_after: 1000
@@ -141,9 +141,9 @@
         <i>知名品牌，特价销售</i>
     </div>
     <div class="hotM_3">
-        <div class="hotM_3L" onclick="location.href='/product?brand_id={{$is_show_brand->id}}'">
+        <div class="hotM_3L" onclick="location.href='/product?brand_id={{$left_brand->id}}'">
             <div
-                style="width:100%; height:100%;background-image:url({{ $is_show_brand->image }}); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
+                style="width:100%; height:100%;background-image:url({{ $left_brand->image }}); background-repeat:no-repeat; background-position:center center; background-size:contain"></div>
         </div>
         <div class="hotM_3R">
 
@@ -192,7 +192,7 @@
 <div class="kbox"></div>
 <div class="likebox">
     <div class="likeTit">
-        <img src="/vendor/wechat/images/heart.png"/><span>猜你喜欢</span>
+        <img src="/vendor/wechat/images/heart.png"/><span>新品上架</span>
     </div>
     <ul class="product">
 

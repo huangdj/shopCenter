@@ -21,6 +21,14 @@
                     $(this).addClass('on');
                 }
             })
+
+            $('.after_pay').click(function () {
+                if ($(this).attr("class") == "after_pay on") {
+                    $(this).removeClass('on');
+                } else {
+                    $(this).addClass('on');
+                }
+            })
         })
     </script>
 </head>
@@ -66,7 +74,12 @@
                     <p class="p2">￥{{ $cart->product->price }}</p>
                 </div>
                 <div class="js_2">
-                    <p class="p3">颜色：白色；尺码：L</p>
+                    @if($cart->product->full_num >0)
+                        <p class="p3">数量满{{ $cart->product->full_num }}{{discount_value($cart->product->unit)}}
+                            , 可享受{{$cart->product->discount}}折</p>
+                    @else
+                        <p class="p3">暂无优惠活动</p>
+                    @endif
                     <p class="p4">×{{ $cart->num }}</p>
                 </div>
             </div>
@@ -79,7 +92,7 @@
     </div>
     <div class="jsyf">
         <div class="jsyfL">买家留言：</div>
-        <div class="addiv1_r"><input id="message" type="text" style="width:90%;border: none;outline:none;"></div>
+        <div class="addiv1_r"><input id="message" type="text" style="width:80%;border: none;outline:none;"></div>
     </div>
     <div class="jshj">
         <div class="jshjp">共{{$count['num']}}件商品<span class="sp1">合计：</span><span
@@ -98,7 +111,7 @@
             <p>积分抵用<span>共150积分，可抵1.5元</span></p>
         </div>
         <div class="jsjfR">
-            <div class="gwccheck"></div>
+            <div class="gwccheck jifen"></div>
         </div>
     </div>
     <div class="jsyhq_2">

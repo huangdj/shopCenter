@@ -60,7 +60,7 @@
         </li>
         <li>
             <a href="/customer/coupons">
-                <p class="p1">0</p>
+                <p class="p1">{{ $coupon_num }}</p>
                 <p class="p2">优惠券</p>
             </a>
         </li>
@@ -178,6 +178,86 @@
     </ul>
 </div>
 <div class="clear"></div>
+<div class="clear"></div>
+<div class="kbox"></div><div class="kbox"></div>
+<div class="clear"></div>
+<div class="mypart2">
+    <div class="con">
+        <div class="pa2_tit">
+            <p>天猫超市卡</p>
+            <a href="javascript:void()">立刻充值 ></a>
+        </div>
+        <div class="pa2con">
+            <img src="/vendor/wechat/images/my00.jpg" />
+            <p>账户余额：￥0.00</p>
+        </div>
+    </div>
+</div>
+<div class="kbox"></div><div class="kbox"></div>
+<div class="clear"></div>
+<div class="mypart4">
+    <img src="/vendor/wechat/images/my15.png" />
+</div>
+<div class="likebox my">
+    <ul>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/21.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/22.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 </p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/23.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/24.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/25.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/26.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/27.png" class="proimg"/>
+                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
+                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+        <li>
+            <a href="xq.html">
+                <img src="/vendor/wechat/images/28.png" class="proimg"/>
+                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
+                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
+            </a>
+        </li>
+    </ul>
+</div>
 @include('layouts.wechat.shared._footer')
 </body>
 </html>

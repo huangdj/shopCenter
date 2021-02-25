@@ -60,9 +60,6 @@
         <div class="gwc1_2">
             @foreach ($carts as $cart)
                 <div class="gwcone">
-                    {{--                    <div class="go1">--}}
-                    {{--                        <div class="gwccheck on"></div>--}}
-                    {{--                    </div>--}}
                     <div class="go2"><a href="/product/{{ $cart->product->id }}"><img
                                 src="{{ $cart->product->image }}"/></a></div>
                     <div class="go3 info">
