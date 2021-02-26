@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        return session()->all();
         // 轮播图
         $adverts = Advert::where('type', true)->orderBy('id', 'desc')->get();
 

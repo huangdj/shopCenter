@@ -52,7 +52,7 @@ class ProductController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductValidate $request)
     {
         $product = Product::create($request->all());
 
@@ -116,7 +116,7 @@ class ProductController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductValidate $request, $id)
     {
         $product = Product::find($id);
         $product->categories()->sync($request->category_id);

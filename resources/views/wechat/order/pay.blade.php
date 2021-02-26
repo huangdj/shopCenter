@@ -36,31 +36,6 @@
 <div class="hbox"></div>
 <div class="kbox"></div>
 <div class="paybox">
-    {{--    <div class="pay3">--}}
-    {{--        <div class="pay3_L">--}}
-    {{--            <img src="/vendor/wechat/images/pay3.png"/><span>余额</span>--}}
-    {{--        </div>--}}
-    {{--        <div class="pay3_R">--}}
-    {{--            <div class="gwccheck"></div>--}}
-    {{--        </div>--}}
-    {{--        <div class="pay3_C">可用金额0.00元</div>--}}
-    {{--    </div>--}}
-    {{--    <div class="pay3">--}}
-    {{--        <div class="pay3_L">--}}
-    {{--            <img src="images/pay4.png"/><span>快捷支付</span>--}}
-    {{--        </div>--}}
-    {{--        <div class="pay3_R">--}}
-    {{--            <div class="gwccheck"></div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-    {{--    <div class="pay3">--}}
-    {{--        <div class="pay3_L">--}}
-    {{--            <img src="images/pay5.png"/><span>银联支付</span>--}}
-    {{--        </div>--}}
-    {{--        <div class="pay3_R">--}}
-    {{--            <div class="gwccheck"></div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
     <div class="pay3 wx">
         <div class="pay3_L">
             <img src="/vendor/wechat/images/pay6.png"/><span>微信支付</span>
@@ -78,7 +53,7 @@
     <div class="heji">
         <div class="heji_3"><p>支付金额：<span>￥{{ number_format($order->total_price, 2) }}</span></p></div>
         <div class="heji_5">
-            <a href="paySuccess.html">付款</a>
+            <a href="javascript:;">付款</a>
         </div>
     </div>
 </div>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Wechat;
 use App\Http\Controllers\Controller;
 use App\Models\Appraise;
 use App\Models\Config;
+use App\Models\GetCoupon;
 use App\Models\OrderRemind;
+use App\Models\Point;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -64,14 +66,22 @@ class OrderController extends Controller
     {
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
         $count = Cart::count_cart($carts);
-
+//        return $count;
         //如果购物车中没有商品,跳回购物车页面
         if ($carts->isEmpty()) {
             return redirect('/cart');
         }
         $address = Address::find(session('wechat.customer.address_id'));
 
-        return view('wechat.order.checkout', compact('carts', 'count', 'address'));
+        // 查找当前用户是否有优惠券
+        $coupons = GetCoupon::where('customer_id', session('wechat.customer.id'))->get();
+
+        // 查找当前用户的积分
+        $points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
+        // 查出当前积分兑现比例
+        $cash = number_format(Config::find(1)->value('point_money') * $points, 2);
+
+        return view('wechat.order.checkout', compact('carts', 'count', 'address', 'points', 'cash', 'coupons'));
     }
 
     /***

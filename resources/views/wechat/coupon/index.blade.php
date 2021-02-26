@@ -10,6 +10,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>优惠券列表</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
+    <style>
+        .a2{
+            color: #ccc;
+            background: #ccc;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,7 +31,11 @@
                     </div>
                     <div class="quanR">
                         <p class="p3">￥{{ $coupon->value }}元</p>
-                        <a href="javascript:;" class="a1 receive_code">立即领取</a>
+                        @if($coupon->recived == $coupon->total)
+                            <a href="javascript:;" class="a2 receive_code">已被抢光</a>
+                        @else
+                            <a href="javascript:;" class="a1 receive_code">立即领取</a>
+                        @endif
                     </div>
                     <div class="clear"></div>
                 </div>

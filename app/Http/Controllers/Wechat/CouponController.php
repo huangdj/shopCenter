@@ -10,12 +10,9 @@ use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
-    private $today;
-
     public function __construct()
     {
         view()->share(['_home' => 'on']);
-        $this->today = date('Y-m-d', time()); // 当天日期
     }
 
     /**
@@ -26,7 +23,7 @@ class CouponController extends Controller
     public function index()
     {
         // 查出当前发放的有效优惠券
-        $coupons = Coupon::where('enabled', true)->whereDate('not_after', '>=', $this->today)->orderBy('id', 'desc')->get();
+        $coupons = Coupon::where('enabled', true)->whereDate('not_after', '>=', date('Y-m-d', time()))->orderBy('id', 'desc')->get();
 
         // 查出领取说明
         $receive = Config::find(1)->value('receive');
@@ -42,8 +39,15 @@ class CouponController extends Controller
     public function store(Request $request)
     {
         $coupon_id = $request->coupon_id;
-        $coupon = GetCoupon::where('coupon_id', $coupon_id)->where('customer_id', session('wechat.customer.id'))->first();
 
+        // 优惠券剩余数量
+        $surplus_num = Coupon::where('id', $coupon_id)->first();
+        if ($surplus_num->recived >= $surplus_num->total) {
+            return response()->json(['success' => false, 'message' => '很遗憾，该优惠券已被抢完啦~']);
+        }
+
+        // 不能重复领取
+        $coupon = GetCoupon::where('coupon_id', $coupon_id)->where('customer_id', session('wechat.customer.id'))->first();
         if ($coupon) {
             return response()->json(['success' => false, 'message' => '您已领取过了，请勿重复领取~']);
         }

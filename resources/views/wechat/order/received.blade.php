@@ -34,15 +34,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>待收货订单</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
 <div class="hbox"></div>
 <div class="dddshbox1">
     <div class="dddshbox1_1">买家已付款</div>

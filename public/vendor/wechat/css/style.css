@@ -813,7 +813,7 @@ p{text-align:justify}
 .size1 .size1_2 .p3{ color:#999; font-size:0.75rem;line-height:1.2rem}
 .size1 .size1_3{ position:absolute; top:0.5rem; right:0.5rem; width:1.2rem; height:1.2rem; overflow:hidden;}
 .size1 .size1_3 img{ height:1.2rem}
-.size2{padding:1rem 0.6rem;}
+/*.size2{padding:1rem 0.6rem;}*/
 .size2 .size2_1{ border-top:1px solid #eee;padding-bottom: 0.5rem;}
 .size2 .size2_1 .tit{color: #333;padding: 0.6rem 0 0.3rem;}
 .size2 .size2_1 a{padding:0.3rem 0.8rem;font-size: 0.75rem;white-space: nowrap;background: #eee;color: #666;margin-right: 0.5rem;margin-bottom: 0.5rem;border-radius: 3px;line-height: 2rem;}

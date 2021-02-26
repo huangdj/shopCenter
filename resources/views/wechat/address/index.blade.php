@@ -29,7 +29,6 @@
 <div class="headerbox">
     <div class="header">
         <div class="headerC">
-            <p>收货地址</p>
         </div>
         <div class="headerR">
             <a href="/address/create">添加</a>

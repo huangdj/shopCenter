@@ -12,16 +12,6 @@
 </head>
 
 <body style="background:#fff">
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>评价成功</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="hbox"></div>
 <div class="pjsuccess">
     <img src="/vendor/wechat/images/pj.png"/>
     <p class="p1">感谢您的评价！</p>

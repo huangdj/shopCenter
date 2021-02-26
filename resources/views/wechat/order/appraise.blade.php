@@ -13,16 +13,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>评价晒单</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="hbox"></div>
 
 @foreach($order->order_products as $item)
     <div class="pingjiabox1">

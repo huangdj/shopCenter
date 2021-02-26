@@ -90,6 +90,7 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
         Route::get('/', 'CartController@index');
         Route::delete('/', 'CartController@destroy');
         Route::patch('/', 'CartController@change_num');
+        Route::patch('is_coupon', 'CartController@is_coupon'); // 是否选择优惠或者积分
     });
 
     // 我的

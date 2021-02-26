@@ -15,16 +15,6 @@
 </head>
 
 <body>
-<div class="headerbox">
-    <div class="header">
-        <div class="headerC">
-            <p>我的订单</p>
-        </div>
-        <div class="headerR"></div>
-    </div>
-</div>
-<div class="clear"></div>
-<div class="hbox"></div>
 <div class="myddstatu">
     <ul>
         <li class="{{ $_status ?? '' }}">
