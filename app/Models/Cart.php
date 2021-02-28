@@ -39,6 +39,7 @@ class Cart extends Model
 
         // 判断是否使用了优惠券，如果使用了，则获取优惠金额进行计算
         $coupon = Coupon::find(session('wechat.customer.coupon_id'));
+
         if ($coupon) {
             $count['total_price'] = number_format(($total_price - $coupon->value), 2, ".", "");
             // 加上优惠券后节省了多少钱

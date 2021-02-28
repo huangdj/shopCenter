@@ -228,59 +228,115 @@
 
             // 判断下单金额
             $.get("/order/get_money", function (data) {
-                var total_money = data.money
-                var total_price = "{{$count['total_price']}}"
-                if (total_price < total_money) {
-                    alert("实付金额需满" + total_money + "元，才能下单")
-                    return false
-                }
-
-                // 是否选中货到付款
-                var element = document.querySelector(".gwccheck")
-                var str = element.getAttribute("class").indexOf('on') != -1
-                if (str == true) {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/order',
-                        data: {
-                            address_id: address_id,
-                            message: message,
-                            pay_type: 2,
-                        },
-                        dataType: 'json',
-                        success: function (data) {
-                            if (data.status == '0') {
-                                if (data.info != '') {
-                                    alert(data.info);
-                                }
-                                location.href = '/cart';
-                                return false;
-                            }
-                            //直接跳转到支付成功页面
-                            location.href = '/order/pay_success';
-                        }
-                    })
-                    return false
-                }
-                // 没有优惠券时下单
-                $.ajax({
-                    type: 'POST',
-                    url: '/order',
-                    data: {address_id: address_id, message: message, pay_type: 1},
-                    dataType: 'json',
-                    success: function (data) {
-                        if (data.status == '0') {
-                            if (data.info != '') {
-                                alert(data.info);
-                            }
-                            location.href = '/cart';
-                            return false;
-                        }
-                        //微信支付
-                        location.href = '/order/pay/' + data.order_id;
+                    var total_money = data.money   // 管理员设置的购物车最低下单金额
+                    var total_price = "{{$count['total_price']}}"  // 下单金额
+                    if (total_price < total_money) {
+                        alert("实付金额需满" + total_money + "元，才能下单")
+                        return false
                     }
-                })
-            })
+                    var coupon_id = "{{session('wechat.customer.coupon_id')}}"
+
+                    if (coupon_id != '') {
+                        // 使用了优惠券并选中了货到付款
+                        var element = document.querySelector(".gwccheck")
+                        var str = element.getAttribute("class").indexOf('on') != -1
+                        if (str == true) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/order',
+                                data: {
+                                    address_id: address_id,
+                                    message: message,
+                                    pay_type: 2,
+                                    coupon_id: coupon_id,
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.status == '0') {
+                                        if (data.info != '') {
+                                            alert(data.info);
+                                        }
+                                        location.href = '/order/checkout';
+                                        return false;
+                                    }
+                                    //直接跳转到支付成功页面
+                                    location.href = '/order/pay_success';
+                                }
+                            })
+                        } else {
+                            // 使用了优惠券但是没有选中货到付款
+                            $.ajax({
+                                type: 'POST',
+                                url: '/order',
+                                data: {
+                                    address_id: address_id,
+                                    message: message,
+                                    pay_type: 1,
+                                    coupon_id: coupon_id,
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.status == '0') {
+                                        if (data.info != '') {
+                                            alert(data.info);
+                                        }
+                                        location.href = '/order/checkout';
+                                        return false;
+                                    }
+                                    //微信支付
+                                    location.href = '/order/pay/' + data.order_id;
+                                }
+                            })
+                        }
+                    } else {
+                        // 没有使用优惠券，选中货到付款
+                        var element = document.querySelector(".gwccheck")
+                        var str = element.getAttribute("class").indexOf('on') != -1
+                        if (str == true) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/order',
+                                data: {
+                                    address_id: address_id,
+                                    message: message,
+                                    pay_type: 2,
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.status == '0') {
+                                        if (data.info != '') {
+                                            alert(data.info);
+                                        }
+                                        location.href = '/cart';
+                                        return false;
+                                    }
+                                    //直接跳转到支付成功页面
+                                    location.href = '/order/pay_success';
+                                }
+                            })
+                        } else {
+                            // 什么都没选，正常付款
+                            $.ajax({
+                                type: 'POST',
+                                url: '/order',
+                                data: {address_id: address_id, message: message, pay_type: 1},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.status == '0') {
+                                        if (data.info != '') {
+                                            alert(data.info);
+                                        }
+                                        location.href = '/cart';
+                                        return false;
+                                    }
+                                    //微信支付
+                                    location.href = '/order/pay/' + data.order_id;
+                                }
+                            })
+                        }
+                    }
+                }
+            )
         })
     })
 </script>

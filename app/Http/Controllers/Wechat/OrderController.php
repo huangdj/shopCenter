@@ -1,11 +1,15 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appraise;
 use App\Models\Config;
+use App\Models\Coupon;
+use App\Models\CouponRecord;
 use App\Models\GetCoupon;
+use App\Models\OrderAddress;
+use App\Models\OrderProduct;
 use App\Models\OrderRemind;
 use App\Models\Point;
 use Carbon\Carbon;
@@ -66,22 +70,21 @@ class OrderController extends Controller
     {
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
         $count = Cart::count_cart($carts);
-//        return $count;
+
         //如果购物车中没有商品,跳回购物车页面
         if ($carts->isEmpty()) {
             return redirect('/cart');
         }
         $address = Address::find(session('wechat.customer.address_id'));
 
-        // 查找当前用户是否有优惠券
-        $coupons = GetCoupon::where('customer_id', session('wechat.customer.id'))->get();
+        // 获取用户所有的优惠券
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->get();
 
-        // 查找当前用户的积分
-        $points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
-        // 查出当前积分兑现比例
-        $cash = number_format(Config::find(1)->value('point_money') * $points, 2);
+        // 获取用户当前使用的优惠券
+//        $coupon = Coupon::find(session('wechat.customer.coupon_id'));
+//        return $coupon;
 
-        return view('wechat.order.checkout', compact('carts', 'count', 'address', 'points', 'cash', 'coupons'));
+        return view('wechat.order.checkout', compact('carts', 'count', 'address', 'coupons'));
     }
 
     /***
@@ -243,11 +246,23 @@ class OrderController extends Controller
                 'scores' => intval($total_price)
             ]);
 
+            // 如果使用了优惠券，则存入优惠券使用记录表
+            if ($request->coupon_id) {
+                $coupon = CouponRecord::where('coupon_id', $request->coupon_id)->first();
+                if ($coupon) {
+                    throw new \Exception('该优惠券已被使用了');
+                }
+                CouponRecord::create([
+                    'order_id' => $order->id,
+                    'customer_id' => session('wechat.customer.id'),
+                    'coupon_id' => $request->coupon_id
+                ]);
+            }
+
             //清空购物车
 //            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();
 
         } catch (\Exception $e) {
-            //echo $e->getMessage();
             DB::rollback();
             return ['status' => 0, 'info' => $e->getMessage()];
         }

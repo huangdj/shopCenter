@@ -24,6 +24,7 @@ class CartController extends Controller
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->orderBy('id', 'desc')->get();
         $count = Cart::count_cart($carts);
 
+        // 如果优惠券 session 存在，则清空
         if (session()->exists('wechat.customer.coupon_id')) {
             session()->forget('wechat.customer');
         }
