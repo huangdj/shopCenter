@@ -214,48 +214,6 @@
                 <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
             </a>
         </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/23.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/24.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/25.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/26.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/27.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/28.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 休闲迷彩磨砂真皮运动鞋女单鞋</p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
     </ul>
 </div>
 @include('layouts.wechat.shared._footer')

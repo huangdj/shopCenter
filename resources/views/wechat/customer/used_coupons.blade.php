@@ -42,7 +42,7 @@
                 <div class="clear"></div>
             </div>
             <div class="quanbg"><img src="/vendor/wechat/images/q3.png"/></div>
-            <div class="quanstate"><img src="/vendor/wechat/images/q5.png"/></div>
+            <div class="quanstate"><img src="/vendor/wechat/images/q4.png"/></div>
         </div>
     @endforeach
 </div>

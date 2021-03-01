@@ -100,7 +100,9 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
         Route::get('collection', 'CustomerController@collection');
         Route::post('add_collection', 'CustomerController@add_collection');
         Route::get('points', 'CustomerController@points');
-        Route::get('coupons', 'CustomerController@coupons');
+        Route::get('coupons', 'CustomerController@coupons'); // 已领取且未过期
+        Route::get('used_coupons', 'CustomerController@used_coupons'); // 已使用且未过期
+        Route::get('expired_coupons', 'CustomerController@expired_coupons'); // 已过期
     });
 
     // 订单

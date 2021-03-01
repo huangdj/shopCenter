@@ -244,7 +244,7 @@ class OrderController extends Controller
             // 如果使用了优惠券，则修改优惠券状态
             if ($request->coupon_id) {
                 $coupon = GetCoupon::where('customer_id', session('wechat.customer.id'))->where('coupon_id', $request->coupon_id)->first();
-                $coupon->update(['status' => 0]);
+                $coupon->update(['status' => 2]);
             }
 
             //清空购物车

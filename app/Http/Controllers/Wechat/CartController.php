@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
-use App\Models\CouponRecord;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -91,31 +90,5 @@ class CartController extends Controller
         $customer = session()->get('wechat.customer');
         $customer['coupon_id'] = $coupon->id;
         session()->put('wechat.customer', $customer);
-
-
-//        $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
-//        $total = Cart::count_cart($carts);
-//        if ($total['total_price'] < $coupon->min_amount) {
-//            return response()->json(['status' => false, 'message' => '下单金额不能低于优惠券金额']);
-//        }
-
-//        $data = CouponRecord::where('coupon_id', $coupon->id)->where('customer_id', session('wechat.customer.id'))->first();
-//        if ($data) {
-//            return response()->json(['status' => false, 'message' => '该优惠券只能使用一次']);
-//        }
-//        // 存入数据到优惠券记录表
-//        CouponRecord::create([
-//            'customer_id' => session('wechat.customer.id'),
-//            'coupon_id' => $coupon->id
-//        ]);
-
-//        $count = [];
-//        // 计算最终付款金额，返回给前端
-//        $count['total_price'] = number_format($total['total_price'] - $coupon->value, 2);
-//
-//        // 优惠了多少钱
-//        $count['preferential_price'] = $total['preferential_price'] + $coupon->value;
-//        return response()->json(compact('coupon', 'count'));
     }
-
 }

@@ -24,7 +24,8 @@ class CustomerController extends Controller
         $count_collections = Collection::where('customer_id', session('wechat.customer.id'))->count();
         $order_num = Order::where('customer_id', session('wechat.customer.id'))->count();
         $total_points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
-        $coupon_num = GetCoupon::where('customer_id', session('wechat.customer.id'))->count();
+        // 未使用且未过期的优惠券数量
+        $coupon_num = GetCoupon::where('customer_id', session('wechat.customer.id'))->where('status', true)->where('expired', true)->count();
         return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points', 'coupon_num'));
     }
 
@@ -66,33 +67,36 @@ class CustomerController extends Controller
     }
 
     /***
-     * 会员已领取的优惠券
+     * 已领取且未过期的优惠券
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function coupons(Request $request)
+    public function coupons()
     {
-        $where = function ($query) use ($request) {
-            $query->where('customer_id', session('wechat.customer.id'));
-
-            switch ($request->status) {
-                case '':
-                    view()->share(['_status' => 'on']);
-                    break;
-                case '1':
-                    view()->share(['_status' => 'on']);
-                    $query->where('status', 1);
-                    break;
-                case '2':
-                    view()->share(['_status_2' => 'on', '_status' => '']);
-                    $query->where('status', 2);
-                    break;
-                case '3':
-                    view()->share(['_status_3' => 'on', '_status' => '', '_status_2' => '']);
-                    $query->where('status', 3);
-                    break;
-            }
-        };
-        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where($where)->orderBy('created_at', 'desc')->get();
+        view()->share(['_status' => 'on']);
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', 1)->where('expired', 1)->orderBy('created_at', 'desc')->get();
         return view('wechat.customer.coupon', compact('coupons'));
+    }
+
+
+    /***
+     * 已使用且未过期的优惠券
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function used_coupons()
+    {
+        view()->share(['_status_2' => 'on']);
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', 2)->where('expired', 1)->orderBy('created_at', 'desc')->get();
+        return view('wechat.customer.used_coupons', compact('coupons'));
+    }
+
+    /***
+     * 已过期的优惠券
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function expired_coupons()
+    {
+        view()->share(['_status_3' => 'on']);
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', 3)->where('expired', 0)->orderBy('created_at', 'desc')->get();
+        return view('wechat.customer.expired_coupons', compact('coupons'));
     }
 }

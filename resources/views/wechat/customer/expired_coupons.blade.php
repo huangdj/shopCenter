@@ -29,20 +29,21 @@
 <div class="quannewsbox1" @if ($coupons->isEmpty()) style="display: none;" @endif>
     @foreach($coupons as $coupon)
         <div class="quannews_1">
-            <div class="quanbg"><img src="/vendor/wechat/images/q1.png"/></div>
-            <div class="quanb">
+            <div class="quanbg"><img src="/vendor/wechat/images/q6.png"/></div>
+            <div class="quanb bg">
                 <div class="quanL">
                     <p class="p1">{{ $coupon->coupon->name }}</p>
                     <p class="p2">{{ $coupon->coupon->not_before->format('Y年m月d日') }}至{{ $coupon->coupon->not_after->format('Y年m月d日') }}</p>
                 </div>
                 <div class="quanR">
                     <p class="p3">￥{{ $coupon->coupon->value }}元</p>
-                    <a href="/" class="a1">立即使用</a>
+                    <a href="quanNews_xq2.html" class="a3">查看使用</a>
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="quanbg"><img src="/vendor/wechat/images/q3.png"/></div>
-            <div class="quanstate"><img src="/vendor/wechat/images/q5.png"/></div>
+            <div class="quanbg"><img src="/vendor/wechat/images/q8.png"/></div>
+            <div class="quanstate"><img src="/vendor/wechat/images/q9.png"/></div>
+            <div class="quanstate2"><img src="/vendor/wechat/images/q10.png"/></div>
         </div>
     @endforeach
 </div>
