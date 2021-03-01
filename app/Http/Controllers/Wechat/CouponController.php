@@ -42,7 +42,7 @@ class CouponController extends Controller
 
         // 优惠券剩余数量
         $surplus_num = Coupon::where('id', $coupon_id)->first();
-        if ($surplus_num->recived >= $surplus_num->total) {
+        if ($surplus_num->recived == $surplus_num->total) {
             return response()->json(['success' => false, 'message' => '很遗憾，该优惠券已被抢完啦~']);
         }
 
@@ -58,9 +58,9 @@ class CouponController extends Controller
             'customer_id' => session('wechat.customer.id'),
         ]);
 
-        // 领取成功后，削减优惠券总数,增加领取数
-        Coupon::where('id', $coupon_id)->decrement('total');
+        // 领取成功后，增加领取数
         Coupon::where('id', $coupon_id)->increment('recived');
+
         return response()->json(['success' => true, 'message' => '领取成功~']);
     }
 }

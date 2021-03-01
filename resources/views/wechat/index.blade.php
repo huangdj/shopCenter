@@ -42,9 +42,9 @@
 <div class="typeNav">
     <ul>
         <li>
-            <a href="javascript:void(0);">
-                <img src="/vendor/wechat/images/typeicon5.png"/>
-                <p>签到</p>
+            <a href="/special_products">
+                <img src="/vendor/wechat/images/typeicon1.png"/>
+                <p>今日特价</p>
             </a>
         </li>
         <li>

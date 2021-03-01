@@ -46,7 +46,7 @@ class HomeController extends Controller
 
         // 所有商品数量
         $total = Product::where('is_onsale', true)->count();
-        return view('wechat.index', compact('adverts', 'notices', 'banner', 'products', 'left_brand',
+        return view('wechat.index', compact('adverts', 'special_products', 'notices', 'banner', 'products', 'left_brand',
             'brands', 'total', 'left_theme', 'right_themes', 'bottom_themes'));
     }
 
@@ -61,6 +61,15 @@ class HomeController extends Controller
         $num = 4;
         $products = Product::where('is_onsale', true)->skip($page)->limit($page, $num)->orderBy('created_at', 'desc')->get();
         return $products;
+    }
+
+    /***
+     * 今日特价
+     */
+    public function special_products()
+    {
+        $special_products = Product::where('is_onsale', true)->where('discount', '<>', '0.0')->orderBy('id', 'desc')->get();
+        return view('wechat.special_products', compact('special_products'));
     }
 
     /***

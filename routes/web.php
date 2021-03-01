@@ -76,6 +76,7 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
     Route::post('get_products', 'HomeController@get_products'); // 加载更多
     Route::get('search', 'HomeController@search'); // 首页搜索
     Route::delete('del_search', 'HomeController@del_search'); // 删除搜索记录
+    Route::get('special_products', 'HomeController@special_products'); // 今日特价
 
     Route::prefix('product')->group(function () {
         Route::get('category', 'ProductController@category'); //商品分类

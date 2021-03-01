@@ -128,17 +128,20 @@
 <div class="clear"></div>
 <div class="kbox"></div>
 <div class="jsyhq">
-    <div class="jsyhq_1 sizetype">
-        <p class="p1">优惠券：</p>
-        @if($coupons->isEmpty())
+    @if($coupons->isEmpty())
+        <div class="jsyhq_1">
+            <p class="p1">优惠券：</p>
             <p class="p2">无可用</p>
-        @else
+        </div>
+    @else
+        <div class="jsyhq_1 sizetype">
+            <p class="p1">优惠券：</p>
             <p class="coupon3">您有{{ count($coupons) }}张优惠券</p>
             <div class="coupon">
                 <img src="/vendor/wechat/images/more.png"/>
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
     <div class="jsyhq_2">
         <div class="jsjfL">
             <p>货到付款：<span>先送货，后付款</span></p>

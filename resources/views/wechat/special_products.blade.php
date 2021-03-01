@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     <meta name="renderer" content="webkit"/>
     <meta name="force-rendering" content="webkit"/>
-    <title>我的收藏</title>
+    <title>今日特价</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <script type="text/javascript" src="/vendor/wechat/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript">
@@ -26,13 +26,13 @@
 <div class="kbox"></div>
 <div class="likebox">
     <ul>
-        @foreach($collections as $collection)
+        @foreach($special_products as $special_product)
             <li>
-                <a href="/product/{{ $collection->product->id }}">
-                    <img src="{{ $collection->product->image }}" class="proimg"/>
-                    <p class="tit">{{ $collection->product->name }}</p>
-                    <p class="price">￥{{ $collection->product->price }}
-                        <span>￥{{ $collection->product->original_price }}</span></p>
+                <a href="/product/{{ $special_product->id }}">
+                    <img src="{{ $special_product->image }}" class="proimg"/>
+                    <p class="tit">{{ $special_product->name }}</p>
+                    <p class="price">￥{{ $special_product->price }}
+                        <span>￥{{ $special_product->original_price }}</span></p>
                 </a>
             </li>
         @endforeach
@@ -41,15 +41,15 @@
 
 <div class="shoplist" style="display:none">
     <ul>
-        @foreach($collections as $collection)
+        @foreach($special_products as $special_product)
         <li>
-            <a href="/product/{{ $collection->product->id }}">
-                <div class="listL"><img src="{{ $collection->product->image }}"/></div>
+            <a href="/product/{{ $special_product->id }}">
+                <div class="listL"><img src="{{ $special_product->image }}"/></div>
                 <div class="listR">
-                    <div class="v1">{{ $collection->product->name }}</div>
+                    <div class="v1">{{ $special_product->name }}</div>
                     <div class="v2"><span>包邮</span></div>
                     <div class="v3">
-                        <p class="p1">￥{{ $collection->product->price }}<span>￥{{ $collection->product->original_price }}</span></p>
+                        <p class="p1">￥{{ $special_product->price }}<span>￥{{ $special_product->original_price }}</span></p>
                         <p class="p2">364人付款</p>
                     </div>
                 </div>

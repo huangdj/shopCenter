@@ -80,8 +80,10 @@
                 success: function (data) {
                     if (data.status = true) {
                         alert(data.message)
+                        location.href=location.href
                     } else {
                         alert(data.message)
+                        location.href=location.href
                     }
                 }
             })
