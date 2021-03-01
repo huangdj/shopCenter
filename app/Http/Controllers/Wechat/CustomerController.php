@@ -41,7 +41,7 @@ class CustomerController extends Controller
         // 如果已经收藏了
         if ($product) {
             Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $product_id)->delete();
-            return response()->json(['success' => false, 'message' => '您取消了收藏']);
+            return;
         }
         Collection::create([
             'product_id' => $product_id,

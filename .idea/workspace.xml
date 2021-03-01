@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/css/ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/css/print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/css/showMessage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/css/toast.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/jquery插件库.url" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/js/toast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/sass/ie.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/sass/print.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/wechat/toast/sass/toast.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/coupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/coupon/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,17 +171,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/wechat/customer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor/wechat" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/vendor/wechat" />
       <recent name="$PROJECT_DIR$/resources/views/wechat/customer" />
       <recent name="$PROJECT_DIR$/resources/views/wechat" />
       <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/public/vendor/wechat" />
       <recent name="$PROJECT_DIR$/resources/views/wechat/coupon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -234,7 +249,10 @@
       <workItem from="1614145377604" duration="29042000" />
       <workItem from="1614244119986" duration="6868000" />
       <workItem from="1614319161426" duration="12434000" />
-      <workItem from="1614346838114" duration="24767000" />
+      <workItem from="1614346838114" duration="25423000" />
+      <workItem from="1614583116719" duration="11000" />
+      <workItem from="1614586558995" duration="34000" />
+      <workItem from="1614588405480" duration="3201000" />
     </task>
     <servers />
   </component>

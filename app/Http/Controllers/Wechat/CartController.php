@@ -45,7 +45,7 @@ class CartController extends Controller
 
         if ($cart) {
             Cart::where('id', $cart->id)->increment('num');
-            return;
+            return response()->json(['status' => true, 'message' => '添加成功，在购物车等亲~']);
         }
 
         //否则购物车表,创建新数据
@@ -53,6 +53,8 @@ class CartController extends Controller
             'product_id' => $request->product_id,
             'customer_id' => session('wechat.customer.id'),
         ]);
+
+        return response()->json(['status' => true, 'message' => '添加成功，在购物车等亲~']);
     }
 
     /***

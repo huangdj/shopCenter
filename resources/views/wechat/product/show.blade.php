@@ -11,37 +11,22 @@
     <title>商品详情页</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <link rel="stylesheet" href="/vendor/wechat/flexslider/flexslider.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/toast.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/showMessage.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/animate.css">
+
     <script type="text/javascript" src="/vendor/wechat/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="/vendor/wechat/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/toast//js/toast.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            //选择尺寸
-            $('.sizetype').click(function () {
-                $("#size").animate({bottom: "0"}, 500);
-                $('.f_mask0').show();
-                $("body").css({'height': '100%', 'overflow': 'hidden'});
-            })
-            $('.size3 a').click(function () {
-                $('.f_mask0').hide();
-                $('#size').animate({bottom: "-80%"}, 500);
-                $("body").css({'height': 'auto', 'overflow': ''});
-            })
-
-            $('.size1_3 img').click(function () {
-                $('.f_mask0').hide();
-                $('#size').animate({bottom: "-80%"}, 500);
-                $("body").css({'height': 'auto', 'overflow': ''});
-            })
-
-            //
             $('.hdbox_2 ul li').click(function () {
                 $('.hdbox_2 ul li').removeClass('on');
                 $(this).addClass('on');
             })
         })
-    </script>
-    <script type="text/javascript">
+
         //选项卡
         function setTab(name, cursel, n) {
             for (i = 1; i <= n; i++) {
@@ -52,6 +37,7 @@
             }
         }
 
+        // 轮播图
         $(window).load(function () {
             $('.flexslider').flexslider({
                 animation: "slide",
@@ -243,60 +229,30 @@
             </ul>
         </div>
         <div class="xqbotboxR">
-            <a class="a2 add_cart">立即购买</a> <!--sizetype 代表弹出选择商品 sku 属性框的事件-->
+            <a class="a2 buy_now">立即购买</a> <!--sizetype 代表弹出选择商品 sku 属性框的事件-->
             <a class="a1 add_cart">加入购物车</a>
         </div>
     </div>
 </div>
-{{--<div class="xzsize">--}}
-{{--    <div class="xzsize0">--}}
-{{--        <div class="f_mask0"></div>--}}
-{{--        <div id="size">--}}
-{{--            <div class="size1">--}}
-{{--                <div class="size1_1">--}}
-{{--                    <img src="/vendor/wechat/images/gwc1.png"/>--}}
-{{--                </div>--}}
-{{--                <div class="size1_2">--}}
-{{--                    <p class="p1">￥489.00</p>--}}
-{{--                    <p class="p2">商品编号：2015125412654</p>--}}
-{{--                    <p class="p3">库存13540件</p>--}}
-{{--                </div>--}}
-{{--                <div class="size1_3">--}}
-{{--                    <img src="/vendor/wechat/images/close.png"/>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="size2">--}}
-{{--                <div class="size2_1">--}}
-{{--                    <p class="tit">颜色</p>--}}
-{{--                    <a href="javascript:void()" class="on">白色</a>--}}
-{{--                </div>--}}
-{{--                <div class="size2_1">--}}
-{{--                    <p class="tit">尺码</p>--}}
-{{--                    <a href="javascript:void()">X</a>--}}
-{{--                    <a href="javascript:void()">L</a>--}}
-{{--                    <a href="javascript:void()">XL</a>--}}
-{{--                    <a href="javascript:void()">XXL</a>--}}
-{{--                    <a href="javascript:void()">量身定做</a>--}}
-{{--                </div>--}}
-{{--                <div class="size2_1">--}}
-{{--                    <p class="tit">数量</p>--}}
-{{--                    <div class="lnums">--}}
-{{--                        <div class="num1">-</div>--}}
-{{--                        <div class="num2">1</div>--}}
-{{--                        <div class="num3">+</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="size3">--}}
-{{--                <a href="javascript:void()">确定</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
 
 <script type="text/javascript">
     $(function () {
+        // 加入购物车
         $('.add_cart').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/cart',
+                data: {product_id: "{{ $product->id }}"},
+                success: function (data) {
+                    if (data.status = true) {
+                        showMessage(data.message, 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
+                    }
+                }
+            })
+        })
+
+        // 立即购买
+        $('.buy_now').click(function () {
             $.ajax({
                 type: 'POST',
                 url: '/cart',
@@ -315,7 +271,7 @@
                 url: '/customer/add_collection',
                 data: {product_id: product_id},
                 success: function () {
-                    window.location.reload()
+                    location.href = location.href
                 }
             })
         })

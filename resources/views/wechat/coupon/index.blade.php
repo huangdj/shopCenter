@@ -10,6 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>优惠券列表</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/toast.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/animate.css">
     <style type="text/css">
         .a2 {
             color: #ccc;
@@ -67,6 +69,7 @@
 
 <script type="text/javascript" src="/vendor/wechat/js/jquery.min.js"></script>
 <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
+<script type="text/javascript" src="/vendor/wechat/toast/js/toast.js"></script>
 <script type="text/javascript">
     $(function () {
         // 领取优惠券
@@ -78,11 +81,9 @@
                 data: {coupon_id: coupon_id},
                 success: function (data) {
                     if (data.status = true) {
-                        alert(data.message)
-                        location.href = location.href
+                        showMessage(data.message, 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
                     } else {
-                        alert(data.message)
-                        location.href = location.href
+                        showMessage(data.message, 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
                     }
                 }
             })

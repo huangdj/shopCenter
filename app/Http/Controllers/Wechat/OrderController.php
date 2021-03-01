@@ -11,6 +11,7 @@ use App\Models\OrderAddress;
 use App\Models\OrderProduct;
 use App\Models\OrderRemind;
 use App\Models\Point;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -69,7 +70,6 @@ class OrderController extends Controller
     {
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
         $count = Cart::count_cart($carts);
-//        return $count;
 
         //如果购物车中没有商品,跳回购物车页面
         if ($carts->isEmpty()) {
@@ -234,6 +234,9 @@ class OrderController extends Controller
                     'product_id' => $cart->product_id,
                     'num' => $cart->num
                 ]);
+
+                // 增加商品销量
+                Product::where('id', $cart->product->id)->increment('sales_volume', $cart->num);
             }
 
             // 积分存入积分表
