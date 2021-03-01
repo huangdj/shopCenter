@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Collection;
+use App\Models\Coupon;
 use App\Models\Customer;
 use App\Models\GetCoupon;
 use App\Models\Order;
@@ -67,7 +68,7 @@ class CustomerController extends Controller
     }
 
     /***
-     * 已领取且未过期的优惠券
+     * 已领取并未使用且未过期的优惠券
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function coupons()
@@ -96,7 +97,21 @@ class CustomerController extends Controller
     public function expired_coupons()
     {
         view()->share(['_status_3' => 'on']);
-        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', 3)->where('expired', 0)->orderBy('created_at', 'desc')->get();
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->whereDate('expired_at', '<', date('Y-m-d', time()))->orderBy('created_at', 'desc')->get();
+        foreach ($coupons as $k => $v) {
+            GetCoupon::where('id', $v->id)->update(['status' => 3, 'expired' => 0]);
+        }
         return view('wechat.customer.expired_coupons', compact('coupons'));
+    }
+
+    /***
+     * 查看已领取且未过期的优惠券详情
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show_coupon($id)
+    {
+        $coupon = Coupon::find($id);
+        return view('wechat.customer.show_coupon', compact('coupon'));
     }
 }

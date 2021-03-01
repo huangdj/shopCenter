@@ -83,7 +83,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('.notice').inewsticker({
-            speed: 3000,
+            speed: 4000,
             effect: 'fade',
             dir: 'ltr',
             delay_after: 1000

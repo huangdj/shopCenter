@@ -25,7 +25,7 @@ class CouponController extends Controller
         // 查出当前发放的有效优惠券
         $coupons = Coupon::where('enabled', true)->whereDate('not_after', '>=', date('Y-m-d', time()))->orderBy('id', 'desc')->get();
 
-        // 查出领取说明
+        // 查出优惠券说明
         $receive = Config::find(1)->value('receive');
         return view('wechat.coupon.index', compact('coupons', 'receive'));
     }
@@ -56,6 +56,7 @@ class CouponController extends Controller
         GetCoupon::create([
             'coupon_id' => $request->coupon_id,
             'customer_id' => session('wechat.customer.id'),
+            'expired_at' => $surplus_num->not_after, // 存入优惠券过期时间
         ]);
 
         // 领取成功后，增加领取数

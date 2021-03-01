@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>优惠券列表</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
-    <style>
+    <style type="text/css">
         .a2 {
             color: #ccc;
             background: #ccc;
@@ -22,12 +22,11 @@
 <div class="quannewsbox1" @if($coupons->isEmpty()) style="display: none" @endif>
     @foreach($coupons as $coupon)
         <div class="quannews_1" data-id="{{ $coupon->id }}">
-            <div class="quanbg"><img src="/vendor/wechat/images/q1.png"/></div>
+            <div class="quanbg"><img src="/vendor/wechat/images/q1.png"></div>
             <div class="quanb">
                 <div class="quanL">
                     <p class="p1">{{ $coupon->name }}</p>
-                    <p class="p2">{{ $coupon->not_before->format('Y年m月d日') }}
-                        至{{ $coupon->not_after->format('Y年m月d日') }}</p>
+                    <p class="p2">{{ $coupon->not_before->format('Y年m月d日') }}至{{ $coupon->not_after->format('Y年m月d日') }}</p>
                 </div>
                 <div class="quanR">
                     <p class="p3">￥{{ $coupon->value }}元</p>
@@ -39,8 +38,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="quanbg"><img src="/vendor/wechat/images/q3.png"/></div>
-            <div class="quanstate"><img src="/vendor/wechat/images/q5.png"/></div>
+            <div class="quanbg"><img src="/vendor/wechat/images/q3.png"></div>
+            <div class="quanstate"><img src="/vendor/wechat/images/q5.png"></div>
         </div>
     @endforeach
     <div class="clear"></div>
@@ -70,6 +69,7 @@
 <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
 <script type="text/javascript">
     $(function () {
+        // 领取优惠券
         $('.receive_code').click(function () {
             var coupon_id = $(this).parents('.quannews_1').data('id')
             $.ajax({

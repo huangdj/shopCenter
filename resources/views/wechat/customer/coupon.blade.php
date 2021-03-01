@@ -37,7 +37,7 @@
                 </div>
                 <div class="quanR">
                     <p class="p3">￥{{ $coupon->coupon->value }}元</p>
-                    <a href="/" class="a1">立即使用</a>
+                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a1">查看使用</a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -46,6 +46,7 @@
         </div>
     @endforeach
 </div>
+<div class="clear"></div>
 <div class="quannewsbox1" @if (!$coupons->isEmpty()) style="display: none;" @endif>
     <div class="quannews_2 bg">
         <div class="d1"><p></p></div>

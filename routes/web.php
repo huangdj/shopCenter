@@ -103,6 +103,7 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
         Route::get('coupons', 'CustomerController@coupons'); // 已领取且未过期
         Route::get('used_coupons', 'CustomerController@used_coupons'); // 已使用且未过期
         Route::get('expired_coupons', 'CustomerController@expired_coupons'); // 已过期
+        Route::get('coupon/{id}', 'CustomerController@show_coupon'); // 优惠券详情
     });
 
     // 订单
