@@ -69,6 +69,7 @@ class OrderController extends Controller
     {
         $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
         $count = Cart::count_cart($carts);
+//        return $count;
 
         //如果购物车中没有商品,跳回购物车页面
         if ($carts->isEmpty()) {
@@ -77,7 +78,7 @@ class OrderController extends Controller
         $address = Address::find(session('wechat.customer.address_id'));
 
         // 获取用户所有未使用的优惠券
-        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', true)->get();
+        $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', true)->where('expired', 1)->get();
 
         return view('wechat.order.checkout', compact('carts', 'count', 'address', 'coupons'));
     }
@@ -243,12 +244,16 @@ class OrderController extends Controller
 
             // 如果使用了优惠券，则修改优惠券状态
             if ($request->coupon_id) {
+                $coupon = Coupon::where('id', $request->coupon_id)->first();
+                if ($total_price < $coupon->min_amount) {
+                    throw new \Exception('下单金额不能低于优惠券金额');
+                }
                 $coupon = GetCoupon::where('customer_id', session('wechat.customer.id'))->where('coupon_id', $request->coupon_id)->first();
                 $coupon->update(['status' => 2]);
             }
 
             //清空购物车
-//            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();
+            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();
 
         } catch (\Exception $e) {
             DB::rollback();

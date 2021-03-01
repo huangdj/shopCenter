@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/wechat/customer/show_coupon.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CouponController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/coupon/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/coupon/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/customer/coupon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/customer/coupon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +234,7 @@
       <workItem from="1614145377604" duration="29042000" />
       <workItem from="1614244119986" duration="6868000" />
       <workItem from="1614319161426" duration="12434000" />
-      <workItem from="1614346838114" duration="23217000" />
+      <workItem from="1614346838114" duration="24767000" />
     </task>
     <servers />
   </component>

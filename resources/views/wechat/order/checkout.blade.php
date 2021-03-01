@@ -232,7 +232,7 @@
             // 判断下单金额
             $.get("/order/get_money", function (data) {
                     var total_money = data.money   // 管理员设置的购物车最低下单金额
-                    var total_price = "{{$count['total_price']}}"  // 下单金额
+                    var total_price = "{{$count['total_price']}}"  // 实付金额
                     if (total_price < total_money) {
                         alert("实付金额需满" + total_money + "元，才能下单")
                         return false
