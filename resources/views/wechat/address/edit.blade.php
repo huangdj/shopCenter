@@ -11,13 +11,14 @@
     <title>编辑地址</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
     <link rel="stylesheet" href="/vendor/wechat/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/mobiscroll/css/mobiscroll.scroller.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/mobiscroll/css/mobiscroll.frame.css"/>
 </head>
 
 <body>
 <div class="headerbox">
     <div class="header">
         <div class="headerC">
-            <p>编辑收货地址</p>
         </div>
         <div class="headerR">
             <a href="javascript:;" class="save-button">完成</a>
@@ -39,7 +40,7 @@
     <div class="addiv1">
         <div class="addiv1_l">省市区：</div>
         <div class="addiv1_r">
-            <input placeholder="省 市 区" name="pca" id="pca" maxlength="20" type="text"
+            <input placeholder="省 市 区" name="pca" id="area" maxlength="20" type="text"
                    readonly="readonly" value="{{$address->province}} {{$address->city}} {{$address->area}}">
         </div>
     </div>
@@ -49,22 +50,16 @@
     </div>
 </div>
 
-
-<div class="ui-mask" style="display:none;"></div>
-<div class="ui-pop" style="display:none;">
-    <div class="ui-pop-content">
-        <div class="region-list" id="city">
-
-        </div>
-    </div>
-</div>
-
-<div class="popup-risk-check"></div>
-
 <script type="text/javascript" src="/vendor/wechat/js/jquery.min.js"></script>
-<script type="text/javascript" src="/vendor/wechat/js/citySelect.js"></script>
+<script type="text/javascript" src="/vendor/mobiscroll/js/mobiscroll.core.js"></script>
+<script type="text/javascript" src="/vendor/mobiscroll/js/mobiscroll.frame.js"></script>
+<script type="text/javascript" src="/vendor/mobiscroll/js/mobiscroll.scroller.js"></script>
+<script type="text/javascript" src="/vendor/mobiscroll/js/mobiscroll.select.js"></script>
+<script type="text/javascript" src="/vendor/mobiscroll/js/i18n/mobiscroll.i18n.zh.js"></script>
+<script type="text/javascript" src="/vendor/wechat/js/areas.js"></script>
+<script type="text/javascript" src="/vendor/wechat/js/areas_config.js"></script>
 <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
-<script>
+<script type="text/javascript">
     $(function () {
         $('.save-button').click(function () {
             var status = true;
