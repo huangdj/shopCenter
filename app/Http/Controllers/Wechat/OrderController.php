@@ -79,7 +79,6 @@ class OrderController extends Controller
 
         // 获取用户所有未使用的优惠券
         $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('status', true)->where('expired', 1)->get();
-
         return view('wechat.order.checkout', compact('carts', 'count', 'address', 'coupons'));
     }
 

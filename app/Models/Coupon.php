@@ -32,4 +32,9 @@ class Coupon extends Model
         }
         return $str . '使用';
     }
+
+    public function get_coupon()
+    {
+        return $this->hasOne(GetCoupon::class);
+    }
 }

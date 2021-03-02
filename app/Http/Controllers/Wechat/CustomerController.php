@@ -105,13 +105,13 @@ class CustomerController extends Controller
     }
 
     /***
-     * 查看已领取且未过期的优惠券详情
+     * 查看优惠券详情
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show_coupon($id)
     {
-        $coupon = Coupon::find($id);
+        $coupon = Coupon::with('get_coupon')->find($id);
         return view('wechat.customer.show_coupon', compact('coupon'));
     }
 }
