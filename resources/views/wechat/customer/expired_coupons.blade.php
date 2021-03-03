@@ -37,13 +37,17 @@
                 </div>
                 <div class="quanR">
                     <p class="p3">￥{{ $coupon->coupon->value }}元</p>
-                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a3">查看使用</a>
+                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a3">查看详情</a>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="quanbg"><img src="/vendor/wechat/images/q8.png"/></div>
             <div class="quanstate"><img src="/vendor/wechat/images/q9.png"/></div>
-            <div class="quanstate2"><img src="/vendor/wechat/images/q10.png"/></div>
+            @if($coupon->status == 2)
+                <div class="quanstate2"><img src="/vendor/wechat/images/q10.png"/></div>
+            @else
+                <div class="quanstate2"><img src="/vendor/wechat/images/weishiyong_1.png"/></div>
+            @endif
         </div>
     @endforeach
 </div>

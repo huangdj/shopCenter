@@ -99,7 +99,7 @@ class CustomerController extends Controller
         view()->share(['_status_3' => 'on']);
         $coupons = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->whereDate('expired_at', '<', date('Y-m-d', time()))->orderBy('created_at', 'desc')->get();
         foreach ($coupons as $k => $v) {
-            GetCoupon::where('id', $v->id)->update(['status' => 3, 'expired' => 0]);
+            GetCoupon::where('id', $v->id)->update(['expired' => 0]);
         }
         return view('wechat.customer.expired_coupons', compact('coupons'));
     }
@@ -111,7 +111,7 @@ class CustomerController extends Controller
      */
     public function show_coupon($id)
     {
-        $coupon = Coupon::with('get_coupon')->find($id);
+        $coupon = GetCoupon::with('coupon')->where('customer_id', session('wechat.customer.id'))->where('coupon_id', $id)->first();
         return view('wechat.customer.show_coupon', compact('coupon'));
     }
 }

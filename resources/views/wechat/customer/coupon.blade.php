@@ -37,7 +37,7 @@
                 </div>
                 <div class="quanR">
                     <p class="p3">￥{{ $coupon->coupon->value }}元</p>
-                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a1">查看使用</a>
+                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a1">查看详情</a>
                 </div>
                 <div class="clear"></div>
             </div>

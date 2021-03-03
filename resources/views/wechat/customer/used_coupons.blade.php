@@ -36,8 +36,8 @@
                     <p class="p2">{{ $coupon->coupon->not_before->format('Y年m月d日') }}至{{ $coupon->coupon->not_after->format('Y年m月d日') }}</p>
                 </div>
                 <div class="quanR">
-                    <p class="p3">￥{{ $coupon->coupon->value }}元</p>
-                    <a href="/" class="a1">立即使用</a>
+                    <p class="p3">￥{{ number_format($coupon->coupon->value, 2) }}元</p>
+                    <a href="/customer/coupon/{{ $coupon->coupon->id }}" class="a1">查看详情</a>
                 </div>
                 <div class="clear"></div>
             </div>

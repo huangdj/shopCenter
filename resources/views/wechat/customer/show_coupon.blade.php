@@ -21,17 +21,17 @@
 <body>
 <div class="quannewsbox1">
     <div class="quannews_2">
-        <div class="d1"><p>{{ $coupon->name }}</p></div>
+        <div class="d1"><p>{{ $coupon->coupon->name }}</p></div>
         <div class="d2">
             <div class="d21"><img src="/vendor/wechat/images/q13.png"/></div>
-            <div class="d22">使用期限 {{ $coupon->not_before->format('Y.m.d') }}-{{ $coupon->not_after->format('Y.m.d') }}</div>
+            <div class="d22">使用期限 {{ $coupon->coupon->not_before->format('Y.m.d') }}-{{ $coupon->coupon->not_after->format('Y.m.d') }}</div>
             <div class="d21"><img src="/vendor/wechat/images/q13.png"/></div>
             <div class="clear"></div>
         </div>
-        <div class="d3">￥{{ number_format($coupon->value, 2) }}</div>
-        @if($coupon->get_coupon->status == 2)
+        <div class="d3">￥{{ number_format($coupon->coupon->value, 2) }}</div>
+        @if($coupon->status == 2)
             <div class="d4"><img src="/vendor/wechat/images/yishiyong.png"/></div>
-        @elseif($coupon->get_coupon->status == 1)
+        @elseif($coupon->status == 1)
             <div class="d4"><img src="/vendor/wechat/images/weishiyong.png"/></div>
         @else
             <div class="d4"><img src="/vendor/wechat/images/q12.png"/></div>
@@ -46,9 +46,9 @@
     <div class="kbox"></div>
     <div class="quannews_4">
         <p class="p1">面额详情</p>
-        <p class="p2">{{ number_format($coupon->value, 2) }}元</p>
+        <p class="p2">{{ number_format($coupon->coupon->value, 2) }}元</p>
         <p class="p1">使用说明</p>
-        <p class="p3">"{{ $coupon->name }}"使用须知：<br/>{{ $coupon->description }}</p>
+        <p class="p3">"{{ $coupon->coupon->name }}"使用须知：<br/>{{ $coupon->coupon->description }}</p>
     </div>
 </div>
 </body>
