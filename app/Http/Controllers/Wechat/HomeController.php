@@ -29,6 +29,9 @@ class HomeController extends Controller
         // 热门资讯
         $notices = Notice::orderBy('id', 'desc')->get();
 
+        // 秒杀商品
+        $seckills = Product::where('is_onsale', true)->where('is_seckill', true)->orderBy('created_at', 'desc')->take(4)->get();
+
         // 广告图
         $banner = Advert::where('type', 2)->first();
 
@@ -46,7 +49,7 @@ class HomeController extends Controller
 
         // 所有商品数量
         $total = Product::where('is_onsale', true)->where('is_seckill', false)->count();
-        return view('wechat.index', compact('adverts', 'special_products', 'notices', 'banner', 'products', 'left_brand',
+        return view('wechat.index', compact('adverts', 'special_products', 'notices', 'seckills', 'banner', 'products', 'left_brand',
             'brands', 'total', 'left_theme', 'right_themes', 'bottom_themes'));
     }
 

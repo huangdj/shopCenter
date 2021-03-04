@@ -100,30 +100,15 @@
         <a href="shoplist.html" class="btn">全场一折起</a>
     </div>
     <ul>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/timebuy1.png"/>
-                <p>超值特惠电饭煲</p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/timebuy2.png"/>
-                <p>达芙妮秋款包包</p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/timebuy3.png"/>
-                <p>特百惠优质水杯</p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/timebuy4.png"/>
-                <p>易捷手机充电宝</p>
-            </a>
-        </li>
+
+        @foreach($seckills as $seckill)
+            <li>
+                <a href="xq.html">
+                    <img src="{{ $seckill->image }}"/>
+                    <p>{{ $seckill->name }}</p>
+                </a>
+            </li>
+        @endforeach
     </ul>
     <div class="clear"></div>
 </div>
