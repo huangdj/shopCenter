@@ -219,7 +219,7 @@ class OrderController extends Controller
             $carts = Cart::with('product')->where('customer_id', session('wechat.customer.id'))->get();
             foreach ($carts as $cart) {
                 //判断库存是否足够
-                if ($cart->product->stock != '-1' and $cart->product->stock - $cart->num < 0) {
+                if ($cart->product->stock != '-1' and $cart->product->stock - $cart->num <= 0) {
                     throw new \Exception('商品' . $cart->product->name . ", 目前仅剩下" . $cart->product->stock . " 件. \n请返回购物车, 修改订单后再下单!");
                 }
 
@@ -246,12 +246,15 @@ class OrderController extends Controller
 
             // 如果使用了优惠券，则修改优惠券状态
             if ($request->coupon_id) {
-                $coupon = Coupon::where('id', $request->coupon_id)->first();
-                if ($total_price < $coupon->min_amount) {
+                $data = Coupon::where('id', $request->coupon_id)->first();
+                if ($total_price < $data->min_amount) {
                     throw new \Exception('下单金额不能低于优惠券金额');
                 }
                 $coupon = GetCoupon::where('customer_id', session('wechat.customer.id'))->where('coupon_id', $request->coupon_id)->first();
                 $coupon->update(['status' => 2]);
+
+                // 增加优惠券的使用数
+                $data->increment('used');
             }
 
             //清空购物车

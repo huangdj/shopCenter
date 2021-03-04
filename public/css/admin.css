@@ -32,6 +32,10 @@
     display: none;
 }
 
+.seckill_time {
+    display: none;
+}
+
 
 /* ==========================================================================
    Component: Pagination

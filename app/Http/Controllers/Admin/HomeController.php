@@ -105,7 +105,7 @@ class HomeController extends Controller
                 $query->where('status', $request->status);
             }
         };
-        $orders = Order::with('customer')->whereDate('created_at', $this->today)->where($where)->paginate(env('admin.page_size'));
+        $orders = Order::with('customer')->whereDate('created_at', $this->today)->where($where)->orderBy('created_at', 'desc')->paginate(env('admin.page_size'));
         return view('admin.today_orders', compact('orders'));
     }
 
@@ -120,7 +120,7 @@ class HomeController extends Controller
                 $query->where('status', $request->status);
             }
         };
-        $orders = Order::with('customer')->whereMonth('created_at', $this->month)->where($where)->paginate(env('admin.page_size'));
+        $orders = Order::with('customer')->whereMonth('created_at', $this->month)->where($where)->orderBy('created_at', 'desc')->paginate(env('admin.page_size'));
         return view('admin.month_orders', compact('orders'));
     }
 
@@ -135,7 +135,7 @@ class HomeController extends Controller
                 $query->where('status', $request->status);
             }
         };
-        $orders = Order::with('customer')->whereYear('created_at', $this->year)->where($where)->paginate(env('admin.page_size'));
+        $orders = Order::with('customer')->whereYear('created_at', $this->year)->where($where)->orderBy('created_at', 'desc')->paginate(env('admin.page_size'));
         return view('admin.year_orders', compact('orders'));
     }
 }

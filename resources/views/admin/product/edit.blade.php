@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('css')
+    <link rel="stylesheet" href="/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="/vendor/markdown/css/editormd.min.css"/>
     <link rel="stylesheet" href="/vendor/webupload/dist/webuploader.css"/>
     <link rel="stylesheet" type="text/css" href="/vendor/webupload/style.css"/>
@@ -140,19 +141,50 @@
                             </div>
 
                             <div class="am-form-group">
-                                <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">满额优惠</label>
+                                <label class="am-u-sm-12 am-u-md-3 am-form-label">参与秒杀?</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
-                                    <input type="text" name="full_num" value="{{ $product->full_num }}">
+                                    <label class="am-radio-inline">
+                                        <input type="radio" value="1" name="is_seckill"
+                                               @if($product->is_seckill) checked @endif> 是
+                                    </label>
+                                    <label class="am-radio-inline">
+                                        <input type="radio" value="0" name="is_seckill" disabled
+                                               @if(!$product->is_seckill) checked @endif> 否
+                                    </label>
                                 </div>
                             </div>
 
-                            <div class="am-form-group">
-                                <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">折扣</label>
-                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
-                                    <input type="text" name="discount" value="{{ $product->discount }}">
+                            @if($product->is_seckill == 0)
+                                <div class="am-form-group ">
+                                    <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">满额优惠</label>
+                                    <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                        <input type="text" name="full_num" value="{{ $product->full_num }}">
+                                    </div>
                                 </div>
-                            </div>
 
+                                <div class="am-form-group ">
+                                    <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">折扣</label>
+                                    <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                        <input type="text" name="discount" value="{{ $product->discount }}">
+                                    </div>
+                                </div>
+                            @else
+                                <div class="am-form-group ">
+                                    <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">开始时间</label>
+                                    <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                        <input type="text" name="start_at" placeholder="输入开始时间" class="change_time"
+                                               value="{{substr($product->start_at, 0,10)}}">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group ">
+                                    <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">结束时间</label>
+                                    <div class="am-u-sm-12 am-u-md-5 am-u-end">
+                                        <input type="text" name="end_at" placeholder="输入结束时间" class="change_time"
+                                               value="{{substr($product->end_at, 0,10)}}">
+                                    </div>
+                                </div>
+                            @endif
                             <div class="am-form-group">
                                 <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">有效期至</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
@@ -357,6 +389,9 @@
     <script src="/vendor/html5-fileupload/jquery.html5-fileupload.js"></script>
     <script src="/js/upload.js"></script>
 
+    <script src="/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/vendor/daterangepicker/daterangepicker.js"></script>
+
     <script src="/vendor/markdown/editormd.min.js"></script>
     <script src="/js/editormd_config.js"></script>
 
@@ -364,6 +399,16 @@
     <script type="text/javascript" src="/vendor/webupload/upload.js"></script>
     <script>
         $(function () {
+            // 启动时间插件
+            $('.change_time').daterangepicker({
+                "singleDatePicker": true,
+                "locale": {
+                    "format": "YYYY-MM-DD",
+                    "daysOfWeek": ["日", "一", "二", "三", "四", "五", "六"],
+                    "monthNames": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+                },
+            });
+
             $(".add_file").click(function () {
                 var length = $(".files").children().length;
                 if (length >= 8) {

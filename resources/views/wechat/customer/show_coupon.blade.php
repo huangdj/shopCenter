@@ -29,10 +29,10 @@
             <div class="clear"></div>
         </div>
         <div class="d3">￥{{ number_format($coupon->coupon->value, 2) }}</div>
-        @if($coupon->status == 2)
-            <div class="d4"><img src="/vendor/wechat/images/yishiyong.png"/></div>
-        @elseif($coupon->status == 1)
+        @if($coupon->status == 1 && $coupon->expired == 1)
             <div class="d4"><img src="/vendor/wechat/images/weishiyong.png"/></div>
+        @elseif($coupon->status == 2 && $coupon->expired == 1)
+            <div class="d4"><img src="/vendor/wechat/images/yishiyong.png"/></div>
         @else
             <div class="d4"><img src="/vendor/wechat/images/q12.png"/></div>
         @endif

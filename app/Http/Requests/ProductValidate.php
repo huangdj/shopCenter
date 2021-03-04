@@ -36,7 +36,7 @@ class ProductValidate extends FormRequest
                 ];
             case 'PUT':
                 return [
-                    'name' => 'required|unique:products,name,' . $this->route('products') . '|max:255',
+                    'name' => 'required|max:255',
                     'price' => 'required|numeric',
                     'original_price' => 'numeric',
                     'unit' => 'required',

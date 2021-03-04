@@ -44,7 +44,7 @@
         <li>
             <a href="/special_products">
                 <img src="/vendor/wechat/images/typeicon1.png"/>
-                <p>今日特价</p>
+                <p>特价折扣</p>
             </a>
         </li>
         <li>
@@ -62,7 +62,7 @@
         <li>
             <a href="/product/category">
                 <img src="/vendor/wechat/images/typeicon8.png"/>
-                <p>分类</p>
+                <p>全部分类</p>
             </a>
         </li>
     </ul>

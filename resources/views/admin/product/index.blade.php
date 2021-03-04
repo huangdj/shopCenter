@@ -27,6 +27,18 @@
 
                     <div class="am-u-sm-12 am-u-md-3">
                         <div class="am-form-group">
+                            <label for="title" class="am-u-sm-3 am-form-label">秒杀商品</label>
+                            <div class="am-u-sm-9">
+                                <select name="is_seckill" data-am-selected="{btnWidth: '100%', btnSize: 'sm'}">
+                                    <option value="-1">请选择</option>
+                                    <option value="1">查看秒杀</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-3">
+                        <div class="am-form-group">
                             <label for="category_id" class="am-u-sm-3 am-form-label">分类</label>
                             <div class="am-u-sm-9">
                                 <select name="category_id" data-am-selected="{btnWidth: '100%', btnSize: 'sm'}">
@@ -97,10 +109,10 @@
                                 <th class="table-check"><input type="checkbox" id="checked"/></th>
                                 <th class="table-id">ID</th>
                                 <th class="table-title">缩略图</th>
-                                <th class="table-type">商品名称</th>
-                                <th class="table-type">所属品牌</th>
-                                <th class="table-type">所属主题</th>
-                                <th class="table-type">所属分类</th>
+                                <th class="table-type">名称</th>
+                                <th class="table-type">品牌</th>
+                                <th class="table-type">主题</th>
+                                <th class="table-type">分类</th>
                                 <th class="table-type">售价</th>
                                 <th class="table-type">原价</th>
                                 <th class="am-hide-sm-only">上架</th>
@@ -108,10 +120,13 @@
                                 <th class="am-hide-sm-only">推荐</th>
                                 <th class="am-hide-sm-only">热销</th>
                                 <th class="am-hide-sm-only">新品</th>
+                                <th class="am-hide-sm-only">秒杀</th>
                                 <th class="am-hide-sm-only">有效期</th>
                                 <th class="am-hide-sm-only" style="width:8%">库存</th>
                                 <th class="am-hide-sm-only" style="width:8%">满额</th>
                                 <th class="am-hide-sm-only" style="width:7%">折扣</th>
+                                <th class="am-hide-sm-only" style="width:8%">开始时间</th>
+                                <th class="am-hide-sm-only" style="width:7%">结束时间</th>
                                 <th class="table-date am-hide-sm-only">上架日期</th>
                                 <th class="table-set">操作</th>
                             </tr>
@@ -137,17 +152,31 @@
                                             {!! is_something($attr, $product) !!}
                                         </td>
                                     @endforeach
+                                    <td>
+                                        @if($product->is_seckill)
+                                            <span class="am-badge am-badge-success">是</span>
+                                        @else
+                                            <span class="am-badge am-badge-warning">否</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $product->expired_at }}</td>
                                     <td class="am-hide-sm-only">
                                         <input type="text" name="stock" class="am-input-sm" value="{{$product->stock}}">
                                     </td>
                                     <td class="am-hide-sm-only">
                                         <input type="text" name="full_num" class="am-input-sm"
-                                               value="{{$product->full_num}}">
+                                               value="{{$product->full_num}}" @if($product->is_seckill) disabled @endif>
                                     </td>
                                     <td class="am-hide-sm-only">
                                         <input type="text" name="discount" class="am-input-sm"
-                                               value="{{$product->discount}}">
+                                               value="{{$product->discount}}" @if($product->is_seckill) disabled @endif>
+                                    </td>
+
+                                    <td class="am-hide-sm-only">
+                                        {{substr($product->start_at, 0,10)}}
+                                    </td>
+                                    <td class="am-hide-sm-only">
+                                        {{substr($product->end_at, 0,10)}}
                                     </td>
                                     <td class="am-hide-sm-only">
                                         {{$product->created_at->format("Y-m-d H:i")}}

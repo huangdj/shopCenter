@@ -44,17 +44,18 @@ class Product extends Model
     {
         //多条件查找
         $where = function ($query) use ($request) {
-
             if ($request->has('name') and $request->name != '') {
                 $search = "%" . $request->name . "%";
                 $query->where('name', 'like', $search);
             }
 
-            if ($request->has('category_id') and $request->category_id != '-1') {
+            if ($request->has('is_seckill') and $request->is_seckill != '-1') {
+                $query->where('is_seckill', $request->is_seckill);
+            }
 
+            if ($request->has('category_id') and $request->category_id != '-1') {
                 $category_id = $request->category_id;
                 $product_ids = \DB::table('category_product')->where('category_id', $category_id)->pluck('product_id');
-
                 $query->whereIn('id', $product_ids);
             }
 
