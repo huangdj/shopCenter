@@ -179,6 +179,32 @@
                                 </div>
                             </div>
 
+                            <div class="am-margin-top discount_temp">
+                                <label class="am-u-sm-12 am-u-md-3 am-form-label">推荐类型</label>
+                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
+
+                                    <input type="hidden" name="is_top" value="0">
+                                    <input type="hidden" name="is_recommend" value="0">
+                                    <input type="hidden" name="is_hot" value="0">
+                                    <input type="hidden" name="is_new" value="0">
+
+                                    <div class="am-btn-group" data-am-button>
+                                        <label class="am-btn am-btn-default am-btn-sm">
+                                            <input type="checkbox" name="is_top" value="1"> 置顶
+                                        </label>
+                                        <label class="am-btn am-btn-default am-btn-sm">
+                                            <input type="checkbox" name="is_recommend" value="1"> 推荐
+                                        </label>
+                                        <label class="am-btn am-btn-default am-btn-sm">
+                                            <input type="checkbox" name="is_hot" value="1"> 热销
+                                        </label>
+                                        <label class="am-btn am-btn-default am-btn-sm">
+                                            <input type="checkbox" name="is_new" value="1"> 新品
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="am-form-group seckill_time">
                                 <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">开始时间</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
@@ -217,32 +243,6 @@
                                 <label for="description" class="am-u-sm-12 am-u-md-3 am-form-label">商品描述</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
                                     <textarea rows="5" placeholder="输入商品的描述信息" name="description"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="am-margin-top">
-                                <label class="am-u-sm-12 am-u-md-3 am-form-label">推荐类型</label>
-                                <div class="am-u-sm-12 am-u-md-5 am-u-end">
-
-                                    <input type="hidden" name="is_top" value="0">
-                                    <input type="hidden" name="is_recommend" value="0">
-                                    <input type="hidden" name="is_hot" value="0">
-                                    <input type="hidden" name="is_new" value="0">
-
-                                    <div class="am-btn-group" data-am-button>
-                                        <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_top" value="1"> 置顶
-                                        </label>
-                                        <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_recommend" value="1"> 推荐
-                                        </label>
-                                        <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_hot" value="1"> 热销
-                                        </label>
-                                        <label class="am-btn am-btn-default am-btn-sm">
-                                            <input type="checkbox" name="is_new" value="1"> 新品
-                                        </label>
-                                    </div>
                                 </div>
                             </div>
                         </div>

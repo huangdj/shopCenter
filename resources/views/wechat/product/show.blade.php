@@ -85,23 +85,14 @@
                     <span>新品促销</span>
                 @endif
             </p>
-            <p class="p2">全国包邮 | 销量{{ $product->sales_volume }}</p>
+            {{--            <p class="p2 change_text">全国包邮 | 销量{{ $product->sales_volume }}</p>--}}
+            <p class="p2" style="color: #D92E2E"></p>
         </div>
     </div>
 </a>
 <div class="xqbox2" style="color: #08c">
     {{ $product->description }}
 </div>
-<div class="clear"></div>
-<div class="kbox"></div>
-{{--<div class="xqbox2 sizetype">--}}
-{{--    <div class="xqbox2L">--}}
-{{--        <span>请选择尺码</span>--}}
-{{--    </div>--}}
-{{--    <div class="xqbox2R">--}}
-{{--        <img src="/vendor/wechat/images/more.png">--}}
-{{--    </div>--}}
-{{--</div>--}}
 <div class="clear"></div>
 <div class="kbox"></div>
 <a name="m3">
@@ -143,10 +134,9 @@
     <div class="tjtit">相关推荐</div>
     <div class="tjcon">
         <ul>
-
             @foreach($recommends as $recommend)
                 <li>
-                    <a href="xq.html">
+                    <a href="/product/{{ $recommend->id }}">
                         <img src="{{ $recommend->image }}"/>
                         <div class="tit"><span>￥{{ $recommend->price }}</span></div>
                     </a>
@@ -236,6 +226,35 @@
 </div>
 
 <script type="text/javascript">
+    window.onload = function () {
+        countDown();
+
+        function addZero(i) {
+            return i < 10 ? "0" + i : i + "";
+        }
+
+        function countDown() {
+            var nowtime = new Date();
+            var end_at = {!! json_encode($product->end_at) !!}
+            var endtime = new Date(end_at.replace(/\-/g, "/"));  // 防止 iOS 手机显示 Nan 问题
+            var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+            var d = parseInt(lefttime / (24 * 60 * 60))
+            var h = parseInt(lefttime / (60 * 60) % 24);
+            var m = parseInt(lefttime / 60 % 60);
+            var s = parseInt(lefttime % 60);
+            d = addZero(d)
+            h = addZero(h);
+            m = addZero(m);
+            s = addZero(s);
+            document.querySelector(".p2").innerHTML = `抢购倒计时：${d}天 ${h} 时 ${m} 分 ${s} 秒`;
+            if (lefttime <= 0) {
+                document.querySelector(".p2").innerHTML = "活动已结束";
+                return;
+            }
+            setTimeout(countDown, 1000);
+        }
+    }
+
     $(function () {
         // 加入购物车
         $('.add_cart').click(function () {

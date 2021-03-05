@@ -20,17 +20,17 @@ class ProductController extends Controller
     {
         $where = function ($query) use ($request) {
             if ($request->has('brand_id') and $request->brand_id != '') {
-                $query->where('brand_id', $request->brand_id);
+                $query->where('brand_id', $request->brand_id)->where('is_seckill', false);
             }
 
             if ($request->has('theme_id') and $request->theme_id != '') {
-                $query->where('theme_id', $request->theme_id);
+                $query->where('theme_id', $request->theme_id)->where('is_seckill', false);
             }
 
             if ($request->has('category_id') and $request->category_id != '') {
                 $category_id = $request->category_id;
                 $product_ids = \DB::table('category_product')->where('category_id', $category_id)->pluck('product_id');
-                $query->whereIn('id', $product_ids);
+                $query->whereIn('id', $product_ids)->where('is_seckill', false);
             }
 
             // 按搜索关键词
@@ -80,10 +80,10 @@ class ProductController extends Controller
         $collection = Collection::where('customer_id', session('wechat.customer.id'))->where('product_id', $id)->first();
 
         // 热卖推荐
-        $products = Product::where('is_hot', true)->orWhere('is_recommend', true)->where('id', '<>', $id)->get();
+        $products = Product::where('is_hot', true)->where('is_seckill', false)->where('is_recommend', true)->where('id', '<>', $id)->get();
 
         // 相关推荐
-        $recommends = Product::where('is_onsale', true)->where('is_recommend', 'true')->where('id', '<>', $id)->take(4)->get();
+        $recommends = Product::where('is_onsale', true)->where('is_seckill', false)->where('is_recommend', 'true')->where('id', '<>', $id)->take(4)->get();
 
         // 商品评价
         $appraise = Appraise::where('product_id', $id)->where('is_show', true)->orderBy('id', 'desc')->first();
@@ -100,5 +100,15 @@ class ProductController extends Controller
     {
         $appraises = Appraise::where('product_id', $id)->where('is_show', true)->orderBy('id', 'desc')->get();
         return view('wechat.product.appraise', compact('appraises'));
+    }
+
+    /***
+     * 秒杀商品列表
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function seckill()
+    {
+        $products = Product::where('is_onsale', true)->where('is_seckill', true)->orderBy('created_at', 'desc')->get();
+        return view('wechat.product.seckill', compact('products'));
     }
 }

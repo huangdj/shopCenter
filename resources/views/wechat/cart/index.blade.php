@@ -71,6 +71,8 @@
                             @if($cart->product->full_num >0)
                                 <p class="p3">数量满{{ $cart->product->full_num }}{{discount_value($cart->product->unit)}}
                                     , 可享受{{$cart->product->discount}}折</p>
+                            @elseif($cart->product->is_seckill)
+                                <p class="p3" style="color: #ff2150">秒杀商品，尽快下单</p>
                             @else
                                 <p class="p3">暂无优惠活动</p>
                             @endif

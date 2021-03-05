@@ -81,6 +81,7 @@ Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(functi
     Route::prefix('product')->group(function () {
         Route::get('category', 'ProductController@category'); //商品分类
         Route::get('/', 'ProductController@index'); //商品列表
+        Route::get('seckill', 'ProductController@seckill'); //秒杀商品列表
         Route::get('appraise/{id}', 'ProductController@appraise'); //评价列表
         Route::get('{id}', 'ProductController@show'); //商品详情
     });

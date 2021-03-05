@@ -96,14 +96,14 @@
 <div class="timeBuy">
     <div class="Buybox">
         <p><span>限时</span>抢购</p>
-        <a href="shoplist.html" class="more"></a>
-        <a href="shoplist.html" class="btn">全场一折起</a>
+        <a href="/product/seckill" class="more"></a>
+        <a href="/product/seckill" class="btn">查看更多</a>
     </div>
     <ul>
 
         @foreach($seckills as $seckill)
-            <li>
-                <a href="xq.html">
+            <li onclick="location.href='/product/seckill'">
+                <a href="/product/seckill">
                     <img src="{{ $seckill->image }}"/>
                     <p>{{ $seckill->name }}</p>
                 </a>
@@ -186,8 +186,7 @@
                 <a href="/product/{{ $product->id }}">
                     <img src="{{ $product->image }}" class="proimg" style="width: 190px;height: 190px;"/>
                     <p class="tit">{{ $product->name }}</p>
-                    <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span>
-                        <img src="/vendor/wechat/images/f3.png" class="add_cart"/></p>
+                    <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span></p>
                 </a>
             </li>
         @endforeach
@@ -223,7 +222,7 @@
                                 '<a href="/product/' + item.id + '">' +
                                 '<img src="' + item.image + '" class="proimg" style="width: 190px;height: 190px;"/>' +
                                 '<p class="tit">' + item.name + '</p>' +
-                                '<p class="price">￥' + item.price + '<span>￥' + item.original_price + '</span><img src="/vendor/wechat/images/f3.png"/></p>' +
+                                '<p class="price">￥' + item.price + '<span>￥' + item.original_price + '</span></p>' +
                                 '</a>' +
                                 '</li>')
                         })
@@ -233,18 +232,6 @@
                 }
             }
         });
-
-        $('.add_cart').click(function () {
-            var product_id = $(this).parents('li').data('id')
-            $.ajax({
-                type: 'POST',
-                url: '/cart',
-                data: {product_id: product_id},
-                success: function () {
-                    location.href = '/cart';
-                }
-            })
-        })
     })
 </script>
 </body>
