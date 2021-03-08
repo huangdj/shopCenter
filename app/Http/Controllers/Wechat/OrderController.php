@@ -18,6 +18,7 @@ use App\Models\Cart;
 use App\Models\Address;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use App\Jobs\CloseOrder;
 
 class OrderController extends Controller
 {
@@ -265,6 +266,7 @@ class OrderController extends Controller
             return ['status' => 0, 'info' => $e->getMessage()];
         }
         DB::commit();
+        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return ['status' => 1, 'order_id' => $order->id];
     }
 

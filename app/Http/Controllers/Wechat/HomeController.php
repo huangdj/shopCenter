@@ -49,7 +49,7 @@ class HomeController extends Controller
 
         // 所有商品数量
         $total = Product::where('is_onsale', true)->where('is_seckill', false)->count();
-        return view('wechat.index', compact('adverts', 'special_products', 'notices', 'seckills', 'banner', 'products', 'left_brand',
+        return view('wechat.index', compact('adverts', 'notices', 'seckills', 'banner', 'products', 'left_brand',
             'brands', 'total', 'left_theme', 'right_themes', 'bottom_themes'));
     }
 

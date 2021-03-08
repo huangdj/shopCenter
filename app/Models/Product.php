@@ -39,6 +39,15 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductParame');
     }
 
+    /***
+     * 增加库存
+     * @param $num
+     * @return int
+     */
+    public function addStock($num)
+    {
+        return $this->increment('stock', $num);
+    }
 
     static function all_products(Request $request)
     {
