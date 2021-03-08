@@ -26,39 +26,20 @@
     <ul>
         @foreach($products as $product)
             <li data-id="{{ $product->id }}">
-                <a>
-                    <img src="{{ $product->image }}" class="proimg"
-                         onclick="location.href='/product/{{ $product->id }}'"/>
+                <a href="/product/{{ $product->id }}">
+                    <img src="{{ $product->image }}" class="proimg"/>
                     <p class="tit">{{ $product->name }}</p>
-                    <p class="price">
-                        ￥{{ $product->price }}
-                        <span style="margin-left: -8px;">原价￥{{ $product->original_price }}</span>
-                    </p>
-                    <p class="price add_cart">
-                        <img src="/vendor/wechat/images/f3.png" style="margin-top: -22px;"/>
+                    <p class="price">￥{{ $product->price }}<span style="margin-left: -8px;">￥{{ $product->original_price }}</span>
+                        @if($product->end_at > \Carbon\Carbon::now()->format('Y-m-d'))
+                        <i style="margin-left: 25px;border: 1px solid #ff2150;border-radius: 3px;box-sizing: border-box;font-size: 0.8rem;">立即抢购</i>
+                        @else
+                            <i style="margin-left: 25px;border: 1px solid #999;border-radius: 3px;box-sizing: border-box;font-size: 0.8rem;color: #999">活动结束</i>
+                        @endif
                     </p>
                 </a>
             </li>
         @endforeach
     </ul>
 </div>
-
-<script type="text/javascript">
-    $(function () {
-        $('.add_cart').click(function () {
-            var product_id = $(this).parents('li').data('id')
-            $.ajax({
-                type: 'POST',
-                url: '/cart',
-                data: {product_id: product_id},
-                success: function (data) {
-                    if (data.status = true) {
-                        showMessage(data.message, 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
-                    }
-                }
-            })
-        })
-    })
-</script>
 </body>
 </html>

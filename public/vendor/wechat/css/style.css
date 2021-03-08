@@ -94,7 +94,7 @@ p{text-align:justify}
 .likebox ul li:nth-child(2n){ border-right:1px solid #fff}
 .likebox ul li a{ display:block; padding:0.5rem}
 .likebox ul li img.proimg{ width:100%;}
-.likebox ul li p.tit{ height:2.5rem; font-size:0.8rem; padding-top:0.5rem; color:#333; line-height:1.5;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;}
+.likebox ul li p.tit{font-size:0.8rem; padding-top:0.5rem; color:#333; line-height:1.5;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;}
 .likebox ul li p.price{ color:#ff2150;padding-top:0.5rem; height:1rem; line-height:1rem;font-size:0.875rem;}
 .likebox ul li p.price span{ padding-left:1rem; color:#999; text-decoration:line-through;font-size:0.7rem; height:1rem;line-height:1rem}
 .likebox ul li p.price img{ float:right}

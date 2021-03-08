@@ -219,8 +219,13 @@
             </ul>
         </div>
         <div class="xqbotboxR">
-            <a class="a2 buy_now">立即购买</a> <!--sizetype 代表弹出选择商品 sku 属性框的事件-->
-            <a class="a1 add_cart">加入购物车</a>
+            @if($product->end_at > \Carbon\Carbon::now()->format('Y-m-d'))
+                <a class="a2 buy_now">立即购买</a>
+                <a class="a1 add_cart">加入购物车</a>
+            @else
+                <a href="javascript:;" class="a2 end_product"
+                   style="color: #999;border: 1px solid;background:none">活动结束</a>
+            @endif
         </div>
     </div>
 </div>
@@ -293,6 +298,10 @@
                     location.href = location.href
                 }
             })
+        })
+
+        $('.end_product').click(function () {
+            showMessage('活动已结束，请下次再来', 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
         })
     })
 </script>
