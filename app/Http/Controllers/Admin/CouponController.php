@@ -21,9 +21,15 @@ class CouponController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $coupons = Coupon::orderBy('id', 'desc')->paginate(config('admin.page_size'));
+        $where = function ($query) use ($request) {
+            if ($request->has('keyword') and $request->keyword != '') {
+                $search = "%" . $request->keyword . "%";
+                $query->where('name', 'like', $search);
+            }
+        };
+        $coupons = Coupon::where($where)->orderBy('id', 'desc')->paginate(config('admin.page_size'));
         return view('admin.coupon.index', compact('coupons'));
     }
 

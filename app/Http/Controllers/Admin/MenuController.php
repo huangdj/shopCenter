@@ -12,6 +12,7 @@ class MenuController extends Controller
 
     public function __construct()
     {
+        view()->share('_menu', 'am-active');
         $app = app('wechat.official_account');  // 获取实例
         $this->menu = $app->menu;
     }
