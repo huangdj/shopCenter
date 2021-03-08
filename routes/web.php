@@ -47,6 +47,13 @@ Route::prefix('admin')->group(function () {
         });
         Route::resource('express', 'ExpressController'); // 物流管理
 
+        // 微信管理
+        Route::prefix('menu')->group(function () {
+            Route::get('edit', 'MenuController@edit')->name('menu.edit');
+            Route::put('update', 'MenuController@update')->name('menu.update');
+            Route::delete('destroy', 'MenuController@destroy')->name('menu.destroy');
+        });
+
         Route::prefix('appraises')->group(function () {
             Route::patch('is_something', 'AppraiseController@is_something')->name('appraises.is_something');
         });
@@ -71,7 +78,7 @@ Route::prefix('admin')->group(function () {
 /***
  * 前台路由
  */
-Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(function () {
+Route::namespace('Wechat')->middleware(['wechat'])->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
     Route::post('get_products', 'HomeController@get_products'); // 加载更多
     Route::get('search', 'HomeController@search'); // 首页搜索

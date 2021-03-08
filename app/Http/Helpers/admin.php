@@ -153,3 +153,48 @@ function discount_value($value)
             return '袋';
     }
 }
+
+
+/**
+ * 微信菜单, 删除空数组
+ * @param $buttons
+ * break 用来跳出目前执行的循环，并不再继续执行循环了。
+ * continue 立即停止目前执行循环，并回到循环的条件判断处，继续下一个循环。
+ */
+function wechat_menus($request_buttons)
+{
+    $buttons = [];
+    foreach ($request_buttons as $key => $value) {
+        if ($value['name'] == "") {
+            continue;//终止本次循环而进入到下一次循环中，
+        }
+
+        $buttons["$key"] = wechat_key_url($value);
+
+        foreach ($value["sub_button"] as $k => $v) {
+            if ($v['name'] == "") {
+                continue;
+            }
+            $buttons["$key"]["sub_button"][] = wechat_key_url($v);
+        }
+    }
+    return $buttons;
+}
+
+/**
+ * 根据类型,返回url或者key
+ * @param $value
+ * @return array
+ */
+function wechat_key_url($value)
+{
+    $result = [];
+    $result['type'] = $value['type'];
+    $result['name'] = $value['name'];
+    if ($value['type'] == "click") {
+        $result['key'] = $value['value'];
+    } else {
+        $result['url'] = $value['value'];
+    }
+    return $result;
+}

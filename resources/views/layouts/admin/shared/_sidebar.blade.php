@@ -49,6 +49,11 @@
                     <span class="am-icon-truck"></span>物流管理
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.menu.edit') }}" class="{{ $_menu ?? '' }}">
+                    <span class="am-icon-wechat"></span>微信管理
+                </a>
+            </li>
             <li class="admin-parent">
                 <a class="am-cf" data-am-collapse="{target: '#collapse-order'}">
                     <span class="am-icon-shopping-cart"></span>订单管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
