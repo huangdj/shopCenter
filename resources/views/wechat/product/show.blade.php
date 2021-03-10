@@ -85,7 +85,7 @@
                     <span>新品促销</span>
                 @endif
             </p>
-            {{--            <p class="p2 change_text">全国包邮 | 销量{{ $product->sales_volume }}</p>--}}
+            <p class="p2 change_text" style="color: #D92E2E">全国包邮 | 销量{{ $product->sales_volume }}</p>
             <p class="p2" style="color: #D92E2E"></p>
         </div>
     </div>

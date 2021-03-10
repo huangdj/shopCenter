@@ -20,7 +20,7 @@
                 <p class="p1">{{ $customer->nickname }}</p>
                 <div class="v1">
                     <img src="/vendor/wechat/images/mmm.png"/>
-                    <p>我的亲情账号 ></p>
+                    <p>Hi，{{ getTime() }} ~</p>
                 </div>
             </div>
         </div>
@@ -178,44 +178,27 @@
     </ul>
 </div>
 <div class="clear"></div>
-<div class="clear"></div>
-<div class="kbox"></div><div class="kbox"></div>
-<div class="clear"></div>
-<div class="mypart2">
-    <div class="con">
-        <div class="pa2_tit">
-            <p>天猫超市卡</p>
-            <a href="javascript:void()">立刻充值 ></a>
-        </div>
-        <div class="pa2con">
-            <img src="/vendor/wechat/images/my00.jpg" />
-            <p>账户余额：￥0.00</p>
-        </div>
-    </div>
-</div>
-<div class="kbox"></div><div class="kbox"></div>
+<div class="kbox"></div>
 <div class="clear"></div>
 <div class="mypart4">
-    <img src="/vendor/wechat/images/my15.png" />
+    <img src="/vendor/wechat/images/my15.png"/>
 </div>
 <div class="likebox my">
     <ul>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/21.png" class="proimg"/>
-                <p class="tit">三利 毛巾家纺纯棉吸水 提缎面巾两条装</p>
-                <p class="price">￥29.9<span>￥49.9</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
-        <li>
-            <a href="xq.html">
-                <img src="/vendor/wechat/images/22.png" class="proimg"/>
-                <p class="tit">韩国代购正品超爆款 </p>
-                <p class="price">￥198.0<span>￥286.0</span><img src="/vendor/wechat/images/f3.png" /></p>
-            </a>
-        </li>
+
+        @foreach($recommends as $recommend)
+            <li>
+                <a href="/product/{{ $recommend->id }}">
+                    <img src="{{ $recommend->image }}" class="proimg"/>
+                    <p class="tit">{{ $recommend->name }}</p>
+                    <p class="price">￥{{ $recommend->price }}<span>￥{{ $recommend->original_price }}</span></p>
+                </a>
+            </li>
+        @endforeach
     </ul>
 </div>
+<div class="clear"></div>
+<div class="fbox"></div>
 @include('layouts.wechat.shared._footer')
 </body>
 </html>

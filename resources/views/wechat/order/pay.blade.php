@@ -69,8 +69,8 @@
         function countDown() {
             var nowtime = new Date();
             var endtime = new Date({!! json_encode($order->created_at) !!});
-            endtime.setSeconds(endtime.getSeconds() + 30); // 设置30秒
-            // endtime.setMinutes(endtime.getMinutes() + 30); // 设置30分钟
+            // endtime.setSeconds(endtime.getSeconds() + 30); // 设置30秒
+            endtime.setMinutes(endtime.getMinutes() + 30); // 设置30分钟
             var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
             var m = parseInt(lefttime / 60 % 60);
             var s = parseInt(lefttime % 60);

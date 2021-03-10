@@ -32,7 +32,17 @@
     </ul>
 </div>
 <div class="clear"></div>
-<div class="myddcon">
+
+<div class="paysuccess" id="more" @if (!$orders->isEmpty()) style="display: none;" @endif>
+    <div class="pay30">
+        <p>暂无数据</p>
+    </div>
+    <div class="pay40">
+        <a href="/">去逛逛</a>
+    </div>
+</div>
+
+<div class="myddcon" @if ($orders->isEmpty()) style="display: none;" @endif>
 
     @foreach($orders as $order)
         <div class="myddcon1">
@@ -81,7 +91,7 @@
             @if($order->status=='1')
                 <div class="dpbtn">
                     <div class="dpbtn2">
-                        <a href="paySuccess.html">立即付款</a>
+                        <a href="javascript:;">立即付款</a>
                     </div>
                 </div>
             @endif
@@ -111,7 +121,7 @@
                         <a href="/order/appraise/{{ $order->id }}">立即评价</a>
                     </div>
                     <div class="dpbtn3">
-                        <a href="shoplist.html">再次购买</a>
+                        <a href="javascript:;">再次购买</a>
                     </div>
                 </div>
             @endif
@@ -119,7 +129,7 @@
             @if($order->status=='6')
                 <div class="dpbtn">
                     <div class="dpbtn3">
-                        <a href="shoplist.html">再次购买</a>
+                        <a href="javascript:;">再次购买</a>
                     </div>
                 </div>
             @endif

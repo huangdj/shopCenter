@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\GetCoupon;
 use App\Models\Order;
 use App\Models\Point;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -27,7 +28,9 @@ class CustomerController extends Controller
         $total_points = Point::where('customer_id', session('wechat.customer.id'))->sum('scores');
         // 未使用且未过期的优惠券数量
         $coupon_num = GetCoupon::where('customer_id', session('wechat.customer.id'))->where('status', true)->where('expired', true)->count();
-        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points', 'coupon_num'));
+        // 相关推荐
+        $recommends = Product::where('is_onsale', true)->where('is_seckill', false)->where('is_recommend', 'true')->take(4)->get();
+        return view('wechat.customer.index', compact('customer', 'count_collections', 'order_num', 'total_points', 'coupon_num', 'recommends'));
     }
 
     /***
