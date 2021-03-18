@@ -219,7 +219,7 @@
             </ul>
         </div>
         <div class="xqbotboxR">
-            @if($product->end_at > \Carbon\Carbon::now()->format('Y-m-d'))
+            @if($product->is_seckill == false or $product->end_at > \Carbon\Carbon::now()->format('Y-m-d'))
                 <a class="a2 buy_now">立即购买</a>
                 <a class="a1 add_cart">加入购物车</a>
             @else

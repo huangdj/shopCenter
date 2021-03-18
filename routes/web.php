@@ -72,13 +72,15 @@ Route::prefix('admin')->group(function () {
         Route::put('setting_update', 'ConfigController@setting_update')->name('config.setting_update');
 
         Route::resource('coupons', 'CouponController'); // 优惠券管理
+
+        Route::get('visualized', 'VisualizedController@index')->name('visualized.index'); // 数据可视化
     });
 });
 
 /***
  * 前台路由
  */
-Route::namespace('Wechat')->middleware(['wechat'])->group(function () {
+Route::namespace('Wechat')->middleware(['wechat.oauth', 'wechat'])->group(function () {
     Route::get('/', 'HomeController@index'); // 前台首页
     Route::post('get_products', 'HomeController@get_products'); // 加载更多
     Route::get('search', 'HomeController@search'); // 首页搜索

@@ -22,7 +22,8 @@
                             class="am-icon-btn am-icon-briefcase"></span><br/>本月订单<br/>{{ $month_orders }}</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.year_orders') }}" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>全部订单<br/>{{ $year_orders }}</a>
+                    <a href="{{ route('admin.year_orders') }}" class="am-text-danger"><span
+                            class="am-icon-btn am-icon-recycle"></span><br/>全部订单<br/>{{ $year_orders }}</a>
                 </li>
                 <li>
                     <a href="{{ route('admin.customers.index') }}" class="am-text-secondary"><span

@@ -196,7 +196,6 @@
         <span class="more" style="color: #999;font-size: .85em;display: none">我是有底线的~</span>
     </div>
 </div>
-<div class="clear"></div>
 <div class="fbox"></div>
 
 @include('layouts.wechat.shared._footer')

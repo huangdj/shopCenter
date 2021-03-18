@@ -91,6 +91,11 @@
                     <span class="am-icon-ticket"></span>优惠券管理
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.visualized.index') }}" class="{{ $_visualized ?? '' }}">
+                    <span class="am-icon-vine"></span>数据可视化
+                </a>
+            </li>
         </ul>
     </div>
 </div>
