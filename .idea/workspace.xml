@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VisualizedController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/echarts/echarts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/echarts/macarons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/echarts/sales_amount.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/echarts/sales_count.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/echarts/sex_total.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/visualized/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Wechat.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Wechat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin/shared/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/visualized/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/visualized/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/product/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +253,14 @@
       <workItem from="1615947107201" duration="20000" />
       <workItem from="1615947221277" duration="1512000" />
       <workItem from="1616031601873" duration="4115000" />
-      <workItem from="1616044900676" duration="2677000" />
+      <workItem from="1616044900676" duration="2921000" />
+      <workItem from="1616055585612" duration="516000" />
+      <workItem from="1616056873830" duration="199000" />
+      <workItem from="1616398814208" duration="372000" />
+      <workItem from="1616455777886" duration="522000" />
+      <workItem from="1616569823758" duration="162000" />
+      <workItem from="1616654363326" duration="1118000" />
+      <workItem from="1617169974001" duration="399000" />
     </task>
     <servers />
   </component>

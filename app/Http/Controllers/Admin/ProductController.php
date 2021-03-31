@@ -121,7 +121,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->categories()->sync($request->category_id);
 
-        $product->update($request->only('brand_id', 'theme_id', 'name', 'image', 'price', 'original_price', 'unit', 'is_top', 'is_recommend', 'is_hot', 'is_new', 'is_onsale', 'stock', 'is_seckill', 'start_at', 'end_at', 'full_num', 'discount', 'description', 'expired_at', 'content'));
+        $product->update($request->only('brand_id', 'theme_id', 'name', 'image', 'price', 'original_price', 'unit',
+            'is_top', 'is_recommend', 'is_hot', 'is_new', 'is_onsale', 'stock', 'is_seckill', 'start_at', 'end_at', 'full_num',
+            'discount', 'description', 'expired_at', 'content'));
 
         if ($request->has('imgs')) {
             foreach ($request->imgs as $img) {

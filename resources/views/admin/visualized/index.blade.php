@@ -23,14 +23,6 @@
                     <div id="sales_amount" style="width: 100%;height:400px;"></div>
                 </div>
             </div>
-
-            <hr data-am-widget="divider" style="" class="am-divider am-divider-default"/>
-
-            <div class="am-g">
-                <div class="am-u-sm-12">
-                    <div id="sex_total" style="height:400px;"></div>
-                </div>
-            </div>
         </div>
     </div>
 @stop
@@ -41,5 +33,4 @@
     <script src="/vendor/echarts/macarons.js"></script>
     <script src="/vendor/echarts/sales_count.js"></script>
     <script src="/vendor/echarts/sales_amount.js"></script>
-    <script src="/vendor/echarts/sex_total.js"></script>
 @stop

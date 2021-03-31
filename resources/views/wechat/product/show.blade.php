@@ -18,7 +18,7 @@
     <script type="text/javascript" src="/vendor/wechat/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="/vendor/wechat/flexslider/jquery.flexslider.js"></script>
     <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
-    <script type="text/javascript" src="/vendor/wechat/toast//js/toast.js"></script>
+    <script type="text/javascript" src="/vendor/wechat/toast/js/toast.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.hdbox_2 ul li').click(function () {

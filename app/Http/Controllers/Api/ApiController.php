@@ -77,19 +77,4 @@ class ApiController extends Controller
             return $data;
         });
     }
-
-
-    /***
-     * 会员性别统计
-     * @return int
-     */
-    public function sex_total()
-    {
-        $data = [
-            ['value' => Customer::where('sex', 1)->count(), 'name' => '男'],
-            ['value' => Customer::where('sex', 2)->count(), 'name' => '女']
-        ];
-
-        return response()->json($data);
-    }
 }
