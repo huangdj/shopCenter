@@ -1,7 +1,13 @@
 //删除
 $(".del").click(function () {
     var _this = $(this);
-    if (confirm('确定要删除么?')) {
+    swal('确定要删除么?',{
+        buttons: ["取消", '确定'],
+    })
+    .then(function(willDelete) { // 用户点击按钮后会触发这个回调函数
+        if (!willDelete) {
+            return;
+        }
         $.ajax({
             type: 'DELETE',
             url: '/cart',
@@ -19,7 +25,7 @@ $(".del").click(function () {
                 window.location.reload()
             }
         })
-    }
+    })
 })
 
 $('.input-add').click(function () {

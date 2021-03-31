@@ -94,7 +94,7 @@ p{text-align:justify}
 .likebox ul li:nth-child(2n){ border-right:1px solid #fff}
 .likebox ul li a{ display:block; padding:0.5rem}
 .likebox ul li img.proimg{ width:100%;}
-.likebox ul li p.tit{font-size:0.8rem; padding-top:0.5rem; color:#333; line-height:1.5;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;}
+.likebox ul li p.tit{ height:2.5rem; font-size:0.8rem; padding-top:0.5rem; color:#333; line-height:1.5;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical;}
 .likebox ul li p.price{ color:#ff2150;padding-top:0.5rem; height:1rem; line-height:1rem;font-size:0.875rem;}
 .likebox ul li p.price span{ padding-left:1rem; color:#999; text-decoration:line-through;font-size:0.7rem; height:1rem;line-height:1rem}
 .likebox ul li p.price img{ float:right}
@@ -105,7 +105,7 @@ p{text-align:justify}
 .fbox1{ width:100%; height:5.5rem}
 .fbox{ width:100%; height:2.7rem}
 .footbox{width:100%; max-width:640px; margin:0 auto; }
-.footer{ position:fixed;width:100%;max-width:640px;bottom:0;background:#fff;z-index:99999;padding-top:0.2rem;height:2.5rem;}
+.footer{ position:fixed;width:100%;max-width:640px;bottom:0;background:#fff;z-index:99999;padding-top:0.2rem;border-top:1px solid #eee;height:2.5rem;}
 .footer ul{ overflow:hidden;}
 .footer ul li{ float:left; width:33.3%; text-align:center}
 .footer ul li img{ height:1.3rem;}
@@ -159,7 +159,7 @@ p{text-align:justify}
 .gwcbox_1 .gwc1_2 .gwcone .go3{ flex:1; height:4.5rem;}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1{ height:1rem; overflow:hidden}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p1{ float:left; color:#333; font-size:0.8rem; width:70%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis;}
-.gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p2{ float:right; font-size:0.7rem; color:#999;}
+.gwcbox_1 .gwc1_2 .gwcone .go3 .go3_1 p.p2{ float:right; font-size:0.7rem; color:#999; text-decoration:line-through}
 
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_2{height:1.05rem; padding-top:0.2rem; overflow:hidden}
 .gwcbox_1 .gwc1_2 .gwcone .go3 .go3_2 p.p3{float:left; color:#999; font-size:0.8rem; width:60%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis}
@@ -198,14 +198,14 @@ p{text-align:justify}
 .jsdp img{ height:1.2rem; float:left}
 .jsdp span{font-size:0.9rem; height:1.2rem; line-height:1.2rem; padding-left:0.3rem; color:#333}
 
-.jsxq{padding:0.8rem 0; border-bottom:1px solid #eee;overflow:hidden;background:#fff}
+.jsxq{padding:0.6rem 0; border-bottom:1px solid #eee;overflow:hidden;background:#fff}
 .jsxq .jsxq_1{ float:left; width:2.3rem; height:2.3rem; padding-right:0.5rem}
 .jsxq .jsxq_1 img{width:2.3rem; height:2.3rem;}
 .jsxq .jsxq_2{flex:1; height:2.3rem;}
 .jsxq .jsxq_2 .js_1{height:1rem; overflow:hidden}
 .jsxq .jsxq_2 .js_1 p.p1{float:left; color:#333; font-size:0.8rem; width:70%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis;}
-.jsxq .jsxq_2 .js_1 p.p2{ float:right; font-size:0.7rem; color:#ff2150;}
-.jsxq .jsxq_2 .js_2{padding-top:0.2rem; overflow:hidden}
+.jsxq .jsxq_2 .js_1 p.p2{ float:right; font-size:0.7rem; color:#ff2150; text-decoration:line-through}
+.jsxq .jsxq_2 .js_2{height:0.9rem; padding-top:0.2rem; overflow:hidden}
 .jsxq .jsxq_2 .js_2 p.p3{float:left; color:#999; font-size:0.8rem; width:60%;overflow:hidden; white-space:nowrap;text-overflow:ellipsis}
 .jsxq .jsxq_2 .js_2 p.p4{ color:#333;float:right; font-size:0.75rem}
 
@@ -266,9 +266,9 @@ p{text-align:justify}
 .paysuccess .pay1_L img{ width:4.5rem; height:4.5rem; overflow:hidden}
 .paysuccess .pay1_R{ flex:1; height:4.5rem}
 .paysuccess .pay1_R p.p1{ color:#ff2150; font-size:1rem}
-.paysuccess .pay1_R p.p2{ color:#999; font-size:0.69rem; line-height:1.5; padding-top:2.0rem;}
+.paysuccess .pay1_R p.p2{ color:#999; font-size:0.75rem; line-height:1.5; padding-top:0.5rem}
 
-.paysuccess .pay2{ width:65%; margin:0 auto; padding:0.5rem 0; height:2rem; margin-top:3.5rem}
+.paysuccess .pay2{ width:65%; margin:0 auto; padding:0.5rem 0; height:2rem; margin-top:0.8rem}
 .paysuccess .pay2 a{ display:block;height:1.5rem; width:6rem; text-align:center; line-height:1.5rem; border:1px solid #eee; background:#f9f9f9;font-size:0.75rem; color:#333; border-radius:3px}
 .paysuccess .pay2 a.seedd{ float:left}
 .paysuccess .pay2 a.comeshop{ float:right}
@@ -369,7 +369,7 @@ p{text-align:justify}
 .myddcon{ padding:0 0.6rem 1rem 0.6rem}
 .myddcon1{ background:#fff; border:1px solid #eee; border-radius:4px; margin-top:0.4rem}
 .myddcon1 .dpbox{padding: 0.6rem;height: 1.2rem;line-height: 1.2rem;border-bottom: 1px solid #eee;}
-.myddcon1 .dpbox .dpL{width: 100%;}
+.myddcon1 .dpbox .dpL{float: left; width: 60%; overflow: hidden; height: 1.2rem;}
 .myddcon1 .dpbox .dpL span{display: block; font-size: 0.8rem; max-width:80%; float: left;height: 1.2rem;line-height: 1.2rem;overflow: hidden;}
 .myddcon1 .dpbox .dpL img{padding-left: 0.2rem;height: 1.1rem;margin-top: 0.1rem;}
 .myddcon1 .dpbox .dpR{ float:right; color:#ff2150; font-size:0.8rem}
@@ -389,7 +389,7 @@ p{text-align:justify}
 .shopboxR_2 .p4{ float:right;font-size:0.8rem;}
 
 .dphjbox{padding: 0.6rem;height: 1.2rem;line-height: 1.2rem;border-bottom: 1px solid #eee;}
-.dphjbox .p5{ color:#999; font-size:0.75rem;}
+.dphjbox .p5{ color:#999; font-size:0.75rem; text-align:right}
 .dphjbox .p5 span{color:#ff2150; font-size:0.9rem; font-weight:500}
 
 .dpbtn{padding: 0.6rem;height: 1.4rem;line-height: 1.4rem;}
@@ -591,7 +591,7 @@ p{text-align:justify}
 
 .quannews_2{margin-top:0.5rem; background:url(../images/q11.png) no-repeat; background-size:100% 100%; position:relative; overflow:hidden}
 .quannews_2 .d1{ padding-top:1.2rem; padding-bottom:0.5rem}
-.quannews_2 .d1 p{ text-align:center; font-size:0.8rem; color:#08c}
+.quannews_2 .d1 p{ text-align:center; font-size:0.8rem; color:#fff}
 .quannews_2 .d2{ padding-bottom:3rem}
 .quannews_2 .d2 .d21{ float:left; margin:0 5%; width:15%}
 .quannews_2 .d2 .d21 img{ width:100%; margin-top:0.2rem}
@@ -600,7 +600,7 @@ p{text-align:justify}
 .quannews_2 .d4{ position:absolute; bottom:1rem; right:1rem; width:35%}
 .quannews_2 .d4 img{ width:100%}
 
-.quannewsbox2{padding-top:0.5rem;padding-right:0.2rem}
+.quannewsbox2{padding:0 0.6rem}
 .quannews_3{ background:#fff; padding:0.5rem 0.8rem}
 .quannews_3 p{ text-align:right; font-size:0.75rem; color:#333; border-bottom:1px solid #ccc; line-height:1.2rem; padding-bottom:0.5rem}
 
@@ -672,7 +672,7 @@ p{text-align:justify}
 
 
 /*商品列表*/
-.hbox1{ width:100%; height:2.4rem; overflow:hidden}
+.hbox1{ width:100%; height:5.4rem; overflow:hidden}
 .shopType{width:100%; background:#fff;position: fixed;top: 2.8rem;max-width:640px;}
 .shopType ul{ overflow:hidden}
 .shopType ul li{ float:left; width:20%; text-align:center}
@@ -813,7 +813,7 @@ p{text-align:justify}
 .size1 .size1_2 .p3{ color:#999; font-size:0.75rem;line-height:1.2rem}
 .size1 .size1_3{ position:absolute; top:0.5rem; right:0.5rem; width:1.2rem; height:1.2rem; overflow:hidden;}
 .size1 .size1_3 img{ height:1.2rem}
-/*.size2{padding:1rem 0.6rem;}*/
+.size2{padding:1rem 0.6rem;}
 .size2 .size2_1{ border-top:1px solid #eee;padding-bottom: 0.5rem;}
 .size2 .size2_1 .tit{color: #333;padding: 0.6rem 0 0.3rem;}
 .size2 .size2_1 a{padding:0.3rem 0.8rem;font-size: 0.75rem;white-space: nowrap;background: #eee;color: #666;margin-right: 0.5rem;margin-bottom: 0.5rem;border-radius: 3px;line-height: 2rem;}

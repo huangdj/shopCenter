@@ -10,6 +10,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>确认订单</title>
     <link type="text/css" rel="stylesheet" href="/vendor/wechat/css/style.css"/>
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/toast.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/showMessage.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/animate.css">
     <style type="text/css">
         .coupon {
             float: right;
@@ -205,6 +208,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/vendor/wechat/toast/js/toast.js"></script>
 <script type="text/javascript">
     $(function () {
         // 选择优惠券
@@ -225,7 +229,7 @@
             var address_id = $("#address").data('id');
             var message = $("#message").val()
             if (address_id == '') {
-                alert('请先填写一个送货地址~');
+                showMessage('请先填写收货地址~', 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
                 return false;
             }
 
@@ -234,7 +238,7 @@
                     var total_money = data.money   // 管理员设置的购物车最低下单金额
                     var total_price = "{{$count['total_price']}}"  // 实付金额
                     if (Number(total_price) < Number(total_money)) {
-                        alert("实付金额需满" + total_money + "元，才能下单")
+                        showMessage("实付金额需满" + total_money + "元，才能下单", 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
                         return false
                     }
                     var coupon_id = "{{session('wechat.customer.coupon_id')}}"

@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="/vendor/wechat/css/common.css">
     <link rel="stylesheet" type="text/css" href="/vendor/mobiscroll/css/mobiscroll.scroller.css"/>
     <link rel="stylesheet" type="text/css" href="/vendor/mobiscroll/css/mobiscroll.frame.css"/>
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/toast.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/showMessage.css">
+    <link rel="stylesheet" href="/vendor/wechat/toast/css/animate.css">
 </head>
 
 <body>
@@ -59,6 +62,7 @@
 <script type="text/javascript" src="/vendor/wechat/js/areas.js"></script>
 <script type="text/javascript" src="/vendor/wechat/js/areas_config.js"></script>
 <script type="text/javascript" src="/vendor/wechat/js/common.js"></script>
+<script type="text/javascript" src="/vendor/wechat/toast/js/toast.js"></script>
 <script type="text/javascript">
     $(function () {
         $('.save-button').click(function () {
@@ -72,7 +76,7 @@
             });
 
             if (status == false) {
-                alert('您填写的地址不完整!')
+                showMessage('您填写的地址不完整!', 2000, true, 'bounceIn-hastrans', 'bounceOut-hastrans')
                 return false;
             }
 

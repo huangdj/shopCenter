@@ -104,6 +104,7 @@
 
 @include('layouts.wechat.shared._footer')
 
+<script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="/js/cart.js"></script>
 </body>
 </html>

@@ -184,7 +184,7 @@
         @foreach($products as $product)
             <li data-id="{{ $product->id }}">
                 <a href="/product/{{ $product->id }}">
-                    <img src="{{ $product->image }}" class="proimg" style="width: 190px;height: 190px;"/>
+                    <img src="{{ $product->image }}" class="proimg"/>
                     <p class="tit">{{ $product->name }}</p>
                     <p class="price">￥{{ $product->price }}<span>￥{{ $product->original_price }}</span></p>
                 </a>
