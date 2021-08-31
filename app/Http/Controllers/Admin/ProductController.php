@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\ProductValidate;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -91,7 +92,6 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**

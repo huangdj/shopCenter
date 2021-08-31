@@ -50,28 +50,28 @@
                     <input type="password" name="password" id="LAY-user-login-password" lay-verify="required"
                            placeholder="密码" class="layui-input">
                 </div>
-{{--                <div class="layui-form-item">--}}
-{{--                    <div class="layui-row">--}}
-{{--                        <div class="layui-col-xs7">--}}
-{{--                            <label class="layadmin-user-login-icon layui-icon layui-icon-vercode"--}}
-{{--                                   for="LAY-user-login-vercode"></label>--}}
-{{--                            <input type="text" name="captcha" id="LAY-user-login-vercode" lay-verify="required"--}}
-{{--                                   placeholder="图形验证码" class="layui-input">--}}
-{{--                        </div>--}}
-{{--                        <div class="layui-col-xs5">--}}
-{{--                            <div style="margin-left: 10px;">--}}
-{{--                                <img src="{{ captcha_src() }}" style="cursor: pointer"--}}
-{{--                                     onclick="this.src='{{captcha_src()}}&'+Math.random()"--}}
-{{--                                     class="layadmin-user-login-codeimg">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="layui-form-item">
+                    <div class="layui-row">
+                        <div class="layui-col-xs7">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-vercode"
+                                   for="LAY-user-login-vercode"></label>
+                            <input type="text" name="captcha" id="LAY-user-login-vercode" lay-verify="required"
+                                   placeholder="图形验证码" class="layui-input">
+                        </div>
+                        <div class="layui-col-xs5">
+                            <div style="margin-left: 10px;">
+                                <img src="{{ captcha_src() }}" style="cursor: pointer"
+                                     onclick="this.src='{{captcha_src()}}&'+Math.random()"
+                                     class="layadmin-user-login-codeimg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="layui-form-item" style="margin-bottom: 20px;">
                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}  lay-skin="primary"
                            title="记住密码">
                     {{--<a href="forget.html" class="layadmin-user-jump-change layadmin-link"--}}
-                       {{--style="margin-top: 7px;">忘记密码？</a>--}}
+                    {{--style="margin-top: 7px;">忘记密码？</a>--}}
                 </div>
                 <div class="layui-form-item">
                     <button type="submit" class="layui-btn layui-btn-fluid" lay-submit

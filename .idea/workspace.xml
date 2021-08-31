@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0b90796-3479-49e0-9f6f-e6e4375a5a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shopCenter_2021-05-06.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/wechat/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/address/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/address/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wechat/order/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Wechat/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,18 +167,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/vendor/echarts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang" />
       <recent name="$PROJECT_DIR$/public/vendor/echarts" />
       <recent name="$PROJECT_DIR$/resources/views/admin/visualized" />
       <recent name="$PROJECT_DIR$/public/vendor" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/wechat/product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/wechat/order" />
@@ -262,7 +268,32 @@
       <workItem from="1616455777886" duration="522000" />
       <workItem from="1616569823758" duration="162000" />
       <workItem from="1616654363326" duration="1118000" />
-      <workItem from="1617169974001" duration="5226000" />
+      <workItem from="1617169974001" duration="6181000" />
+      <workItem from="1617270907985" duration="209000" />
+      <workItem from="1617338931180" duration="17000" />
+      <workItem from="1617354358803" duration="886000" />
+      <workItem from="1617696728838" duration="3628000" />
+      <workItem from="1618392980329" duration="342000" />
+      <workItem from="1618397505303" duration="895000" />
+      <workItem from="1618401963650" duration="617000" />
+      <workItem from="1618886006357" duration="358000" />
+      <workItem from="1618899406396" duration="7000" />
+      <workItem from="1618900446235" duration="38000" />
+      <workItem from="1619429793641" duration="17000" />
+      <workItem from="1619429895026" duration="472000" />
+      <workItem from="1619574838817" duration="1119000" />
+      <workItem from="1619666564293" duration="589000" />
+      <workItem from="1621832630932" duration="694000" />
+      <workItem from="1621994721699" duration="631000" />
+      <workItem from="1626149002524" duration="669000" />
+      <workItem from="1626237589832" duration="26000" />
+      <workItem from="1626244543603" duration="20000" />
+      <workItem from="1626330664923" duration="1631000" />
+      <workItem from="1626685247492" duration="21000" />
+      <workItem from="1626946963812" duration="763000" />
+      <workItem from="1627443192926" duration="99000" />
+      <workItem from="1629289528429" duration="599000" />
+      <workItem from="1629378665600" duration="7290000" />
     </task>
     <servers />
   </component>

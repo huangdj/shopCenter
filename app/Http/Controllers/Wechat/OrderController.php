@@ -259,7 +259,7 @@ class OrderController extends Controller
             }
 
             //清空购物车
-            Cart::with('product')->where('customer_id', session('wechat.customer.id'))->delete();
+            Cart::where('customer_id', session('wechat.customer.id'))->delete();
 
         } catch (\Exception $e) {
             DB::rollback();
