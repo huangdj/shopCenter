@@ -30,4 +30,20 @@ Route::namespace('Api')->group(function () {
     Route::get('sales_amount', 'ApiController@sales_amount');
 });
 
+/***
+ * 前后端分离，后台接口路由
+ */
+Route::namespace('Api')->group(function () {
+
+    Route::prefix('admin')->namespace('Admin')->group(function () {
+        Route::post('register', 'AdminController@register');  // 后台注册
+        Route::post('login', 'AdminController@login');  // 后台登录
+    });
+
+    Route::prefix('admin')->namespace('Admin')->group(function () {
+        Route::get('/', 'HomeController@index');  // 后台首页
+
+    });
+});
+
 

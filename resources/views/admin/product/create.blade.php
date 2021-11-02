@@ -220,9 +220,9 @@
                             </div>
 
                             <div class="am-form-group">
-                                <label for="sort" class="am-u-sm-12 am-u-md-3 am-form-label">有效期至</label>
+                                <label class="am-u-sm-12 am-u-md-3 am-form-label">有效期至</label>
                                 <div class="am-u-sm-12 am-u-md-5 am-u-end">
-                                    <input type="text" name="expired_at" placeholder="输入商品有效期">
+                                    <input type="text" name="expired_at" class="change_time" placeholder="输入商品有效期">
                                 </div>
                             </div>
 
