@@ -34,6 +34,7 @@ Route::namespace('Api')->group(function () {
  * 前后端分离，后台接口路由
  */
 Route::namespace('Api')->group(function () {
+    Route::resource('photos', 'PhotoController')->only('store');  // 上传图片
 
     Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('register', 'AdminController@register');  // 后台注册
@@ -42,7 +43,12 @@ Route::namespace('Api')->group(function () {
 
     Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::get('/', 'HomeController@index');  // 后台首页
-
+        Route::prefix('brands')->group(function () {
+            Route::delete('delete_all', 'BrandController@delete_all');
+            Route::patch('change_attr', 'BrandController@change_attr');
+        });
+        Route::resource('brands', 'BrandController')->except('create', 'show'); // 品牌管理
+        Route::resource('categories', 'CategoryController')->except('create', 'show'); // 商品分类
     });
 });
 
