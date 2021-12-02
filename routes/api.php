@@ -49,6 +49,8 @@ Route::namespace('Api')->group(function () {
         });
         Route::resource('brands', 'BrandController')->except('create', 'show'); // 品牌管理
         Route::resource('categories', 'CategoryController')->except('create', 'show'); // 商品分类
+        Route::resource('products', 'ProductController')->except('create', 'show'); // 商品管理
+        Route::resource('adverts', 'AdvertController')->except('create', 'show'); // 广告管理
     });
 });
 

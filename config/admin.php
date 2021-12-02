@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'page_size' => env('PAGE_SIZE', '12'),
+    'page_size' => env('PAGE_SIZE', '8'),
     'order_status' => [
         1 => '待付款',       //下单
         2 => '待发货',       //付款
