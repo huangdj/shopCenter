@@ -41,7 +41,7 @@ Route::namespace('Api')->group(function () {
         Route::post('login', 'AdminController@login');  // 后台登录
     });
 
-    Route::prefix('admin')->namespace('Admin')->group(function () {
+    Route::prefix('admin')->namespace('Admin')->middleware('auth:admins')->group(function () {
         Route::get('/', 'HomeController@index');  // 后台首页
         Route::prefix('brands')->group(function () {
             Route::delete('delete_all', 'BrandController@delete_all');
@@ -51,6 +51,11 @@ Route::namespace('Api')->group(function () {
         Route::resource('categories', 'CategoryController')->except('create', 'show'); // 商品分类
         Route::resource('products', 'ProductController')->except('create', 'show'); // 商品管理
         Route::resource('adverts', 'AdvertController')->except('create', 'show'); // 广告管理
+
+        // 订单统计
+        Route::get('sales_count', 'CountController@sales_count');
+        Route::get('sales_amount', 'CountController@sales_amount');
+
     });
 });
 
