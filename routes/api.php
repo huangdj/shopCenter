@@ -57,6 +57,15 @@ Route::namespace('Api')->group(function () {
         Route::get('sales_amount', 'CountController@sales_amount');
 
     });
+
+    /***
+     * 小程序接口
+     */
+    Route::any('auth', 'MiniController@auth');  // 小程序登录
+
+    Route::prefix('mini')->namespace('Mini')->middleware('auth:users')->group(function () {
+        Route::get('/', 'HomeController@index'); //首页接口
+    });
 });
 
 
