@@ -20,6 +20,6 @@ class MiniController extends Controller
         $user = User::firstOrCreate(compact('openid'));
         //生成token
         $token = JWTAuth::fromUser($user);
-        return response()->json(['token' => 'Bearer ' . $token]);
+        return response()->json(['token_type' => 'Bearer', 'access_token' => $token]);
     }
 }

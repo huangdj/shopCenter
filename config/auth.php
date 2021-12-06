@@ -50,6 +50,10 @@ return [
         'admins' => [
             'driver'   => 'jwt',
             'provider' => 'admins'
+        ],
+        'users' => [
+            'driver'   => 'jwt',
+            'provider' => 'users'
         ]
     ],
 

@@ -65,6 +65,12 @@ Route::namespace('Api')->group(function () {
 
     Route::prefix('mini')->namespace('Mini')->middleware('auth:users')->group(function () {
         Route::get('/', 'HomeController@index'); //首页接口
+
+        Route::prefix('product')->group(function () {
+            Route::get('category', 'ProductController@category'); //商品分类
+            Route::get('/', 'ProductController@index'); //商品列表
+            Route::get('{id}', 'ProductController@show'); //商品详情
+        });
     });
 });
 
