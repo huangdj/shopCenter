@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\Mini;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\Searche;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller

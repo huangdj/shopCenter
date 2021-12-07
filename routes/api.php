@@ -71,6 +71,14 @@ Route::namespace('Api')->group(function () {
             Route::get('/', 'ProductController@index'); //商品列表
             Route::get('{id}', 'ProductController@show'); //商品详情
         });
+
+        //购物车
+        Route::prefix('cart')->group(function () {
+            Route::post('/', 'CartController@store');
+            Route::get('/', 'CartController@index');
+            Route::delete('/', 'CartController@destroy');
+            Route::patch('/', 'CartController@change_num');
+        });
     });
 });
 

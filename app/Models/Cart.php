@@ -53,4 +53,27 @@ class Cart extends Model
         $count['num'] = $num;
         return $count;
     }
+
+    /**
+     * 计算购物车总价和数量--分离版商城
+     */
+    static function count_carts($carts = null)
+    {
+        $count = [];
+
+        //避免重复查询数据
+        $carts = $carts ? $carts : self::with('product')->where('user_id', auth('users')->user()->id)->select();
+
+        $total_price = 0;
+        $num = 0;
+        foreach ($carts as $v) {
+            $total_price += $v->product->price * $v->num;
+            $num += $v->num;
+        }
+
+        $count['total_price'] = $total_price;
+        $count['num'] = $num;
+
+        return $count;
+    }
 }

@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        return response()->json(auth('users')->user()->openid);
         // 轮播图
         $adverts = Advert::where('type', 3)->orderBy('id', 'desc')->get();
 
