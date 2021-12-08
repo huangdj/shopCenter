@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace App\Http\Controllers\Api\Mini;
 
@@ -20,7 +20,7 @@ class CartController extends Controller
 
         if ($cart) {
             Cart::where('id', $cart->id)->increment('num');
-            return response()->json(['status' => true, 'message' => '添加成功，在购物车等亲~']);
+            return response()->json(['status' => true, 'message' => '添加成功~']);
         }
 
         //否则购物车表,创建新数据
@@ -29,7 +29,7 @@ class CartController extends Controller
             'user_id' => auth('users')->user()->id,
         ]);
 
-        return response()->json(['status' => true, 'message' => '添加成功，在购物车等亲~']);
+        return response()->json(['status' => true, 'message' => '添加成功~']);
     }
 
     /***
@@ -48,12 +48,16 @@ class CartController extends Controller
      * @param Request $request
      * @return array
      */
-    public function change_num(Request $request)
+    public function change_num(Request $request, $id)
     {
         if ($request->type == 'add') {
-            Cart::where('id', $request->id)->increment('num');
+            Cart::where('id', $id)->increment('num');
         } else {
-            Cart::where('id', $request->id)->decrement('num');
+            $result = Cart::where('id', $id)->first();
+            if($result->num == 1){
+                return response()->json(['status'=>false, 'message'=>'数量已达最小值']);
+            }
+            Cart::where('id', $id)->decrement('num');
         }
         return Cart::count_carts();
     }

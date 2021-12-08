@@ -77,8 +77,21 @@ Route::namespace('Api')->group(function () {
             Route::post('/', 'CartController@store');
             Route::get('/', 'CartController@index');
             Route::delete('/', 'CartController@destroy');
-            Route::patch('/', 'CartController@change_num');
+            Route::put('/{id}', 'CartController@change_num');
         });
+
+        // 订单
+        Route::prefix('order')->group(function () {
+            Route::get('checkout', 'OrderController@checkout'); // 去结算
+            Route::post('/', 'OrderController@store'); // 下单
+        });
+
+        //地址管理
+        Route::prefix('address')->group(function () {
+            //设置默认地址
+            Route::put('/default_address/{id}', 'AddressController@default_address');
+        });
+        Route::resource('address', 'AddressController')->except('create', 'show');
     });
 });
 
