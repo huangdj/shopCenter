@@ -63,7 +63,8 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        $address = Address::find($id);
+        return response()->json(compact('address'));
     }
 
     /**
@@ -75,7 +76,26 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(empty($request->name)){
+            return response()->json(['status'=>false, 'message'=>'请填写收货人姓名']);
+        }
+        if(empty($request->tel)){
+            return response()->json(['status'=>false, 'message'=>'请填写收货人电话']);
+        }
+        if(empty($request->city)){
+            return response()->json(['status'=>false, 'message'=>'请选择省市区']);
+        }
+        if(empty($request->detail)){
+            return response()->json(['status'=>false, 'message'=>'请填写详细地址']);
+        }
+        Address::where('id', $id)->update([
+            'name' => $request->name,
+            'province' => $request->province,
+            'city' => $request->city,
+            'area' => $request->area,
+            'tel' => $request->tel,
+            'detail' => $request->detail,
+        ]);
     }
 
     /**
@@ -86,7 +106,7 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Address::destroy($id);
     }
 
     /**
