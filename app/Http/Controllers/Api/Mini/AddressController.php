@@ -32,17 +32,17 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        if(empty($request->name)){
-            return response()->json(['status'=>false, 'message'=>'请填写收货人姓名']);
+        if (empty($request->name)) {
+            return response()->json(['status' => false, 'message' => '请填写收货人姓名']);
         }
-        if(empty($request->tel)){
-            return response()->json(['status'=>false, 'message'=>'请填写收货人电话']);
+        if (empty($request->tel)) {
+            return response()->json(['status' => false, 'message' => '请填写收货人电话']);
         }
-        if(empty($request->city)){
-            return response()->json(['status'=>false, 'message'=>'请选择省市区']);
+        if (empty($request->city)) {
+            return response()->json(['status' => false, 'message' => '请选择省市区']);
         }
-        if(empty($request->detail)){
-            return response()->json(['status'=>false, 'message'=>'请填写详细地址']);
+        if (empty($request->detail)) {
+            return response()->json(['status' => false, 'message' => '请填写详细地址']);
         }
         Address::create([
             'user_id' => auth('users')->user()->id,
@@ -76,17 +76,17 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(empty($request->name)){
-            return response()->json(['status'=>false, 'message'=>'请填写收货人姓名']);
+        if (empty($request->name)) {
+            return response()->json(['status' => false, 'message' => '请填写收货人姓名']);
         }
-        if(empty($request->tel)){
-            return response()->json(['status'=>false, 'message'=>'请填写收货人电话']);
+        if (empty($request->tel)) {
+            return response()->json(['status' => false, 'message' => '请填写收货人电话']);
         }
-        if(empty($request->city)){
-            return response()->json(['status'=>false, 'message'=>'请选择省市区']);
+        if (empty($request->city)) {
+            return response()->json(['status' => false, 'message' => '请选择省市区']);
         }
-        if(empty($request->detail)){
-            return response()->json(['status'=>false, 'message'=>'请填写详细地址']);
+        if (empty($request->detail)) {
+            return response()->json(['status' => false, 'message' => '请填写详细地址']);
         }
         Address::where('id', $id)->update([
             'name' => $request->name,
@@ -107,6 +107,7 @@ class AddressController extends Controller
     public function destroy($id)
     {
         Address::destroy($id);
+        return $this->index();
     }
 
     /**

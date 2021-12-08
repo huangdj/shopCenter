@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\Mini;
 
 use App\Http\Controllers\Controller;
-use App\Jobs\CloseOrder;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Order;
@@ -41,10 +40,10 @@ class OrderController extends Controller
 
         //防止用户使用微信的后退按钮，重新提交订单，导致出现没有数据的订单
         if ($carts->isEmpty()) {
-            return ['status' => false, 'message' => ''];
+            return ['status' => false, 'message' => '请勿重复提交订单~'];
         }
 
-        $count = Cart::count_cart();
+        $count = Cart::count_carts($carts);
         $total_price = $count['total_price'];
 
         DB::beginTransaction();
@@ -54,13 +53,12 @@ class OrderController extends Controller
                 'user_id' => auth('users')->user()->id,
                 'total_price' => $total_price,
                 'out_trade_no' => Order::make_orderNo(),
-                'message' => $request->message,
                 'status' => 1,
                 'pay_type' => 1
             ]);
 
             //订单地址
-            $address = Address::find($request->address_id);
+            $address = Address::find(auth('users')->user()->address_id);
             $order->address()->create([
                 'province' => $address['province'],
                 'city' => $address['city'],
@@ -97,10 +95,19 @@ class OrderController extends Controller
 
         } catch (\Exception $e) {
             DB::rollback();
-            return ['status' => false, 'info' => $e->getMessage()];
+            return ['status' => false, 'message' => $e->getMessage()];
         }
         DB::commit();
-        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return ['status' => true, 'order_id' => $order->id];
+    }
+
+    /***
+     * 加载下单成功页面
+     * @param $id
+     */
+    public function show_pay($id)
+    {
+        $order = Order::with('address')->find($id);
+        return response()->json(compact('order'));
     }
 }

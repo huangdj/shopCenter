@@ -84,6 +84,7 @@ Route::namespace('Api')->group(function () {
         Route::prefix('order')->group(function () {
             Route::get('checkout', 'OrderController@checkout'); // 去结算
             Route::post('/', 'OrderController@store'); // 下单
+            Route::get('show_pay/{id}', 'OrderController@show_pay'); // 显示下单成功页面
         });
 
         //地址管理
