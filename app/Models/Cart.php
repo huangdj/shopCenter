@@ -71,7 +71,7 @@ class Cart extends Model
             $num += $v->num;
         }
 
-        $count['total_price'] = $total_price;
+        $count['total_price'] = number_format($total_price, 2);
         $count['num'] = $num;
 
         return $count;

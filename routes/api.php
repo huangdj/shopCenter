@@ -63,7 +63,7 @@ Route::namespace('Api')->group(function () {
      */
     Route::any('auth', 'MiniController@auth');  // 小程序登录
 
-    Route::prefix('mini')->namespace('Mini')->middleware('auth:users')->group(function () {
+    Route::prefix('mini')->namespace('Mini')->group(function () {
         Route::get('/', 'HomeController@index'); //首页接口
 
         Route::prefix('product')->group(function () {
@@ -73,7 +73,7 @@ Route::namespace('Api')->group(function () {
         });
 
         //购物车
-        Route::prefix('cart')->group(function () {
+        Route::prefix('cart')->middleware('auth:users')->group(function () {
             Route::post('/', 'CartController@store');
             Route::get('/', 'CartController@index');
             Route::delete('/', 'CartController@destroy');
@@ -81,14 +81,14 @@ Route::namespace('Api')->group(function () {
         });
 
         // 订单
-        Route::prefix('order')->group(function () {
+        Route::prefix('order')->middleware('auth:users')->group(function () {
             Route::get('checkout', 'OrderController@checkout'); // 去结算
             Route::post('/', 'OrderController@store'); // 下单
             Route::get('show_pay/{id}', 'OrderController@show_pay'); // 显示下单成功页面
         });
 
         //地址管理
-        Route::prefix('address')->group(function () {
+        Route::prefix('address')->middleware('auth:users')->group(function () {
             //设置默认地址
             Route::put('/default_address/{id}', 'AddressController@default_address');
         });
